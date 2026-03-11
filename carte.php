@@ -35,6 +35,13 @@
             <button class="filter" data-filter="desserts"> Desserts</button>
             <button class="filter" data-filter="boissons"> Boissons</button>
             <button class="filter" data-filter="menus"> Menus</button>
+            <br>
+            <button class="filter" data-filter="all"> Végé</button>
+            <button class="filter" data-filter="entrees"> Viande</button>
+            <button class="filter" data-filter="plats"> Alcool</button>
+            <button class="filter" data-filter="desserts"> Sans Alcool</button>
+            <button class="filter" data-filter="boissons"> Substances</button>
+            <button class="filter" data-filter="menus"> Sans substances</button>
         </div>
         
         <br><br>
