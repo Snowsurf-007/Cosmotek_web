@@ -26,7 +26,7 @@
 	<div class="page">
     <h2>Inscription</h2>
 
-    <form method="container" action="https://www.cafe-it.fr/cytech/post.php">
+    <form method="post" action="inscription.php">
         <div class="inscription">
             <label ></label>
             <input type="text" name="nom" id="nom" placeholder="Nom*">
@@ -99,3 +99,37 @@
 </footer>
 </body>
 </html>
+
+<?php
+$nom=$_REQUEST['nom'];
+$prenom=$_REQUEST['prenom'];
+$adresse=$_REQUEST['adresse'];
+$date=$_REQUEST['date'];
+$email=$_REQUEST['email'];
+$mdp=$_REQUEST['mdp'];
+$fichier = "users.json";
+
+if(empty($nom) || empty($prenom) || empty($adresse) || empty($email) || empty($mdp) || empty($date)){
+    echo "Veuillez remplir tous les champs.";
+    exit();
+}
+$utilisateur = [
+    "nom" => $nom,
+    "prenom" => $prenom,
+    "adresse" => $adresse,
+    "email" => $email,
+    "mdp" => $mdp,
+    "date" => $date,
+];
+
+if(file_exists($fichier)){
+    $contenu = file_get_contents($fichier);
+    $data = json_decode($contenu, true);
+} else {
+    $data = [];
+}
+
+$data[] = $utilisateur;
+
+file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
+?>

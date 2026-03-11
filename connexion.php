@@ -27,7 +27,7 @@
 	<div class="page">
     <h2>Connexion</h2>
 
-    <form method="container" action="https://www.cafe-it.fr/cytech/post.php">
+    <form method="post" action="connexion.php">
         <div class="connexion">
             <label></label>
             <input type="email" name="email" id="email" placeholder="Email*">
@@ -80,3 +80,26 @@
 </footer>
 </body>
 </html>
+
+<?php
+
+$email = $_REQUEST['email'] ?? '';
+$mdp = $_REQUEST['mdp'] ?? '';
+
+$fichier = "users.json";
+
+$contenu = file_get_contents($fichier);
+$utilisateurs = json_decode($contenu, true);
+
+foreach($utilisateurs as $user){
+    
+    if($user['email'] == $email && password_verify($mdp, $user['mdp'])){
+        echo "Connexion réussie";
+        exit();
+    }
+
+}
+
+echo "Email ou mot de passe incorrect";
+
+?>
