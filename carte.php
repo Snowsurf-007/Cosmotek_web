@@ -37,12 +37,12 @@
             <button class="filter" data-filter="boissons"> Boissons</button>
             <button class="filter" data-filter="menus"> Menus</button>
             <br> <br>
-            <button class="filter" data-filter="all"> Végé</button>
-            <button class="filter" data-filter="entrees"> Viande</button>
-            <button class="filter" data-filter="plats"> Alcool</button>
-            <button class="filter" data-filter="desserts"> Sans Alcool</button>
-            <button class="filter" data-filter="boissons"> Substances</button>
-            <button class="filter" data-filter="menus"> Sans Substances</button>
+            <button class="filter" data-filter="vege"> Végé</button>
+            <button class="filter" data-filter="viande"> Viande</button>
+            <button class="filter" data-filter="alcool"> Alcool</button>
+            <button class="filter" data-filter="sansalcool"> Sans Alcool</button>
+            <button class="filter" data-filter="substance"> Substances</button>
+            <button class="filter" data-filter="sanssubstance"> Sans Substances</button>
         </div>
         
         <br><br>
