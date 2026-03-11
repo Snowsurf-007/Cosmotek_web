@@ -355,4 +355,9 @@
     </div>
 </footer>
 </body>
+
+<?php
+
+?>
+
 </html>
