@@ -67,7 +67,7 @@
             </div>
 
             <div class="plat-card">
-                <img src="Photos/Salade.jpeg" alt="Salade">
+                <img src="Photos/Salade.png" alt="Salade">
                 <div class="plat-content">
                     <h3>Salade</h3>
                     <p class="plat-description">Salade fraîche du jour avec vinaigrette maison</p>
