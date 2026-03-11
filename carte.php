@@ -29,19 +29,20 @@
         
         <div>
             <span>Filtrer :</span>
+            <br> <br>
             <button class="filter" data-filter="all"> Tout</button>
             <button class="filter" data-filter="entrees"> Entrées</button>
             <button class="filter" data-filter="plats"> Plats</button>
             <button class="filter" data-filter="desserts"> Desserts</button>
             <button class="filter" data-filter="boissons"> Boissons</button>
             <button class="filter" data-filter="menus"> Menus</button>
-            <br>
+            <br> <br>
             <button class="filter" data-filter="all"> Végé</button>
             <button class="filter" data-filter="entrees"> Viande</button>
             <button class="filter" data-filter="plats"> Alcool</button>
             <button class="filter" data-filter="desserts"> Sans Alcool</button>
             <button class="filter" data-filter="boissons"> Substances</button>
-            <button class="filter" data-filter="menus"> Sans substances</button>
+            <button class="filter" data-filter="menus"> Sans Substances</button>
         </div>
         
         <br><br>
