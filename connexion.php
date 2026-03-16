@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -82,6 +85,7 @@
 </html>
 
 <?php
+session_start();
 
 $email = $_REQUEST['email'] ?? '';
 $mdp = $_REQUEST['mdp'] ?? '';
@@ -93,13 +97,18 @@ $utilisateurs = json_decode($contenu, true);
 
 foreach($utilisateurs as $user){
     
-    if($user['email'] == $email && password_verify($mdp, $user['mdp'])){
-        echo "Connexion réussie";
+    if($user['email'] === $email && password_verify($mdp, $user['mdp'])){
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['nom'] = $user['nom'];
+        $_SESSION['date_inscription'] = $user['date_inscription'];
+        $_SESSION['statut'] = $user['statut'];
+        $_SESSION['prenom'] = $user['prenom'];
+
+        header("Location: profil.php");
         exit();
     }
 
 }
 
-echo "Email ou mot de passe incorrect";
-
+echo "<script>alert('Email ou mot de passe incorrect');</script>";
 ?>

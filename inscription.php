@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -118,8 +121,10 @@ $utilisateur = [
     "prenom" => $prenom,
     "adresse" => $adresse,
     "email" => $email,
-    "mdp" => $mdp,
+    "mdp" => password_hash($mdp, PASSWORD_DEFAULT),
     "date" => $date,
+    "date_inscription" => date("d/m/Y"),
+    "statut" => "Astronaute Client",
 ];
 
 if(file_exists($fichier)){

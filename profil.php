@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +35,11 @@
     <div class="profile-info">
         <h2>🚀 Informations personnelles</h2>
         <div class="info-card">
-            <p><strong>Nom :</strong> Astronaute Inconnu</p>
-            <p><strong>Email :</strong> astronaute@Cosmotek</p>
-            <p><strong>Date d'inscription :</strong> 01/02/2026</p>
-            <p><strong>Statut :</strong> 🌟 Membre Galactique</p>
+            <p><strong>Nom :</strong> <?php echo $_SESSION['nom']; ?></p>
+            <p><strong>Prenom :</strong> <?php echo $_SESSION['prenom']; ?></p>
+            <p><strong>Email :</strong> <?php echo $_SESSION['email']; ?></p>
+            <p><strong>Date d'inscription :</strong> <?php echo $_SESSION['date_inscription']; ?></p>
+            <p><strong>Statut :</strong> <?php echo $_SESSION['statut']; ?></p>
         </div>
         
         <br>
