@@ -103,7 +103,8 @@ foreach($utilisateurs as $user){
         $_SESSION['date_inscription'] = $user['date_inscription'];
         $_SESSION['statut'] = $user['statut'];
         $_SESSION['prenom'] = $user['prenom'];
-
+        $_SESSION['adresse'] = $user['adresse'];
+         $_SESSION['derniere'] = date("d/m/Y");
         header("Location: profil.php");
         exit();
     }

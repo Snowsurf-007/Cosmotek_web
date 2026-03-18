@@ -112,10 +112,13 @@ $email=$_REQUEST['email'];
 $mdp=$_REQUEST['mdp'];
 $fichier = "users.json";
 
+$check=0;
+
 if(empty($nom) || empty($prenom) || empty($adresse) || empty($email) || empty($mdp) || empty($date)){
-    echo "Veuillez remplir tous les champs.";
+    echo "<script>alert('Veuillez remplir les champs');</script>";
     exit();
 }
+
 $utilisateur = [
     "nom" => $nom,
     "prenom" => $prenom,
@@ -134,7 +137,20 @@ if(file_exists($fichier)){
     $data = [];
 }
 
-$data[] = $utilisateur;
+foreach($data as $user){
+        if($email==$user['email']){
+        echo "<script>alert('Cette adresse mail est deja utilisée');</script>";
+        $check=1;
+        exit();
+    }
+    else{
+        
+    }
+}
+if($check==0){
+   $data[] = $utilisateur;
 
-file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT));
+file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT)); 
+}
+
 ?>

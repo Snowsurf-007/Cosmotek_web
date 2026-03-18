@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+function logout(){
+    session_unset();
+    session_destroy();
+    header("Location: connexion.html");
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +48,8 @@ session_start();
             <p><strong>Email :</strong> <?php echo $_SESSION['email']; ?></p>
             <p><strong>Date d'inscription :</strong> <?php echo $_SESSION['date_inscription']; ?></p>
             <p><strong>Statut :</strong> <?php echo $_SESSION['statut']; ?></p>
+            <p><strong>Adresse spatiale :</strong> <?php echo $_SESSION['adresse']; ?></p>
+            <p><strong>Derniere connexion :</strong> <?php echo $_SESSION['derniere']; ?></p>
         </div>
         
         <br>
@@ -53,7 +63,7 @@ session_start();
         <div style="margin-top: 20px;">
             <a href="carte.html" style="margin: 10px;">Commander maintenant</a>
             <a href="inscription.html" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
-            <a href="connexion.html" style="margin: 10px; background-color: var(--black-deep);">Se déconnecter</a>
+            <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">Se déconnecter</a>
         </div>
     </div>
 </div>
