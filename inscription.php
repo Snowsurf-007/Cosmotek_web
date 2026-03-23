@@ -11,21 +11,10 @@ session_start();
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
-  <header>
-      <div class="header-container">
-          <a href="accueil.html" class="logo-link">
-              <img src="Photos/Logo.png" alt="Cosmotek Logo" class="header-logo">
-              <span class="site-name">Cosmotek</span>
-          </a>
-          <nav class="header-nav">
-              <a href="carte.html">CARTE</a>
-              <a href="inscription.html">INSCRIPTION</a>
-              <a href="connexion.html">CONNEXION</a>
-              <a href="profil.html">PROFIL</a>
-              <a href="avis.html">AVIS</a>
-          </nav>
-      </div>
-  </header>
+
+	<?php
+	    include ("header.php");
+	?>
 	<div class="page">
     <h2>Inscription</h2>
 
