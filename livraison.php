@@ -15,14 +15,11 @@
         <section>
             <h2>Informations de livraison</h2>
 
-            <p><strong>Personne :</strong> Hugo Treny</p>
-
             <p><strong>Adresse :</strong><br>
                 Avenue du parc, 95000 Cergy
             </p>
 
             <p><strong>Code interphone :</strong> Il n'y en a pas</p>
-
             <p><strong>Étage :</strong> 3ème étage</p>
 
             <p><strong>Téléphone :</strong><br>
