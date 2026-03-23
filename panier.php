@@ -8,5 +8,10 @@
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
+ 
+    <?php
+        include ("header.php");
+    ?>
+    
 </body>
 </html>
