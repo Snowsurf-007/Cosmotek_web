@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-$email_saisi = $_POST['email'] ;
-$mdp_saisi = $_POST['mdp'] ;
+//$email_saisi = $_POST['email'] ;
+//$mdp_saisi = $_POST['mdp'] ;
 
-$fichier = "data.json";
-
+$fichier = "users.json";
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $utilisateurs = json_decode($contenu, true);
@@ -19,29 +18,25 @@ if (file_exists($fichier)) {
                 $_SESSION['email'] = $email_saisi;
                 $_SESSION['nom'] = $user['nom'][0];
                 $_SESSION['prenom'] = $user['prenom'][0];
-                if ($user['role']['Admin'] === true) {
-                    $_SESSION['statut'] = 'admin';
-                    header("Location: admin.php");
+                if ($user['role']['admin'] === true) {
+                    $_SESSION['role'] = 'admin';
                 } 
                 elseif ($user['role']['livreur'] === true) {
-                    $_SESSION['statut'] = 'livreur';
-                    header("Location: livraison.php");
+                    $_SESSION['role'] = 'livreur';
                 } 
                 else {
-                    $_SESSION['statut'] = 'client';
-                    header("Location: profil.php");
+                    $_SESSION['role'] = 'client';
                 }
-            exit();
 
         } 
         else {
-            echo "<script>pb('Email ou mot de passe incorrect');</script>";
+            echo "<script>pb mdp;</script>";
         }
     } else {
-        echo "<script>pb('Email ou mot de passe incorrect');</script>";
+        echo "<script>pb mail;</script>";
     }
 } else {
-    echo "<script>pb('Erreur technique : Fichier introuvable.');</script>";
+    echo "<script>pb fichier;</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -64,61 +59,55 @@ if (file_exists($fichier)) {
 
 <body>
 <main>
-<br><br><br><br><br><br><br><br>
-
-    <div>
-        <span>Filtrer :</span>
-        <br> <br>
-        <button class="filter" data-filter="admin"> Sans Admin</button>
-        <button class="filter" data-filter="cuisinier"> Cuisinier</button>
-        <button class="filter" data-filter="livreur"> Livreur</button>
-        <button class="filter" data-filter="client"> Client</button>
-        <button class="filter" data-filter="livraison"> Livraison en cours</button>
-    </div>
-
+    <br><br><br><br><br><br><br><br>
     <section>
-    
         <div class="user-card">
             <h1>Admin</h1>
         </div>
         
         <div class="user-card">
-            <h2>Utilisateurs ayant passé des commandes</h2>
+            <h2>Utilisateurs</h2>
         </div>
 
-        <div class="user-card">
-            <p><strong>Lucien LEHEUDRE</strong></p>
-            <p>Email : lucien.leheudre@mail.com</p>
-            <p>Commandes : 5</p>
+        <?php if (!empty($utilisateurs)): ?>
+            <?php foreach ($utilisateurs as $email => $info): ?>
+                <?php 
+                    $nom = isset($info['nom'][0]) ? strtoupper($info['nom'][0]) : "";
+                    $prenom = isset($info['prenom'][0]) ? ucfirst($info['prenom'][0]) : "";
+                    $adresse = isset($info['adresse'][0]) ? $info['adresse'][0] : "";
+                    
+                    $role = "Client";
+                    if (isset($info['role']['admin']) && $info['role']['admin'] === true) {
+                        $role = "Administrateur";
+                    } elseif (isset($info['role']['livreur']) && $info['role']['livreur'] === true) {
+                        $role = "Livreur";
+                    } elseif (isset($info['role']['VIP']) && $info['role']['VIP'] === true) {
+                        $role = "VIP";
+                    }
 
-            <a href="profil.html">
-                Voir le profil
-            </a>
-        </div>
+                    $estBanni = (isset($info['role']['bloque']) && $info['role']['bloque'] === true);
+                ?>
 
-        <div class="user-card">
-            <p><strong>Ibrahima TRAORE</strong></p>
-            <p>Email : ibrahima.traore@mail.com</p>
-            <p>Commandes : 2</p>
+                <div class="user-card">
+                    <p><strong><?php echo htmlspecialchars($nom . " " . $prenom); ?></strong> 
+                       <?php if($estBanni): ?>
+                           <span style="color:red; font-weight:bold;"> [BANNI A VIE CHEH]</span>
+                       <?php endif; ?>
+                    </p>
+                    
+                    <p><strong>Rôle :</strong> <?php echo $role; ?></p>
+                    <p><strong>Email :</strong> <?php echo htmlspecialchars($email); ?></p>
+                    <p><strong>Adresse :</strong> <?php echo htmlspecialchars($adresse); ?></p>
 
-            <a href="profil.html">
-                Voir le profil
-            </a>
-        </div>
-
-        <div class="user-card">
-            <p><strong>Hugo TRENY</strong></p>
-            <p>Email : hugo.treny@mail.com</p>
-            <p>Commandes : 8</p>
-
-            <a href="profil.html">
-                Voir le profil
-            </a>
-        </div>
-
+                    <a href="profil.php?email=<?php echo urlencode($email); ?>" class="btn-profil">
+                        Voir le profil détaillé
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="user-card">
+                <p>marche pas</p>
+            </div>
+        <?php endif; ?>
     </section>
-
 </main>
-
-</body>
-</html>
