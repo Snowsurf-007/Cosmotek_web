@@ -70,6 +70,32 @@ header {
   flex-shrink: 0;
 }
 
+.logo-panier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;           /* même padding que les autres liens nav */
+  border: 2px solid var(--purple-dark);
+  border-radius: 5px;
+  background-color: var(--black-soft);
+  margin-bottom: 0;             /* annule le margin-bottom global des <a> */
+}
+
+.logo-panier:hover {
+  border-color: var(--green-neon);
+  background-color: var(--purple-dark);
+}
+
+.logo-panier > img {
+  height: 40px;
+  width: auto;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: inline;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .header-logo {
   height: 50px;
   width: auto;
