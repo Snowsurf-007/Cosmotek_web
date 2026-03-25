@@ -73,7 +73,6 @@ header {
 .logo-panier {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 10px 15px;           /* même padding que les autres liens nav */
   border: 2px solid var(--purple-dark);
   border-radius: 5px;
@@ -562,6 +561,7 @@ label {
   border-radius: 10px;
   margin-bottom: 20px;
   background: var(--black-soft);
+  color: var(--white-pure);
 }
 
 .status {
