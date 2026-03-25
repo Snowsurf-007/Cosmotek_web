@@ -1,3 +1,24 @@
+<?php
+session_start();
+$json_path = "commandes.json";
+if (!file_exists($json_path)) {
+    die("Erreur : Le fichier $json_path est introuvable. Vérifie qu'il est bien à la racine.");
+}
+
+$json_data = file_get_contents($json_path);
+$data = json_decode($json_data, true);
+$commande_paye;
+
+foreach($data as $commande){
+    
+    if($commande["statut"]=="paye"){
+       $commande_paye[]=$commande;
+    }
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,54 +40,30 @@
 
 <main>
 <br><br><br><br><br><br><br><br>
-    <section>
-    
-    <div class="commande">
-        <h1>Gestion des commandes</h1>
-    </div>
-    
-    <div class="commande">
-            <h2><h2>Commandes à préparer</h2></h2>
-    </div>
-
+  <?php
+    foreach($commande_paye as $commande):
+    ?>
         <div class="commande">
-            <p><strong>Commande #1024</strong></p>
-            <p>🍔 Burger + 🍟 Frites</p>
-            <p>Client : Hugo TRENY</p>
 
-            <button>
-                Passer en livraison
-            </button>
-        </div>
+        
+        <p><strong>Numéro de commande :</strong> <?php echo htmlspecialchars($commande['numero'] ?? '0'); ?></p>
+        <p><strong>Client :</strong> <?php echo htmlspecialchars($commande['client'] ?? 'Non renseigné'); ?></p>
+        <p><strong>Adresse :</strong> <?php echo htmlspecialchars($commande['adresse'] ?? 'Non renseigné'); ?></p>
+        <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($commande['adresse']); ?>" 
+                           target="_blank" 
+                           style="color: #00ff62ff; text-decoration: none; font-weight: bold;">
+                           📍 Voir sur Google Maps
+                        </a>
+              <p><strong>Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
+              <p><strong>Statut :</strong> <?php echo htmlspecialchars($commande['statut'] ?? '0'); ?></p>
+              <button> Passer en livraison</button>
+            </div>
+        <?php endforeach; ?>
+        
 
-        <div class="commande">
-            <p><strong>Commande #1025</strong></p>
-            <p>🍕 Pizza </p>
-            <p>Client : Ibrahima TRAORE</p>
-
-            <button>
-                Passer en livraison
-            </button>
-        </div>
-    </section>
-
-    <!-- Commandes en livraison -->
-    <section>
-        <div class="commande">
-            <h2>Commandes en livraison</h2>
-        </div>
-
-        <div class="commande">
-            <p><strong>Commande #1021</strong></p>
-            <p>🍰 Gâteau spatial</p>
-            <p>Client : Lucien LEHEUDRE</p>
-            <p>Livreur : En route</p>
-
-            <span class="status">En livraison</span>
-        </div>
-    </section>
 
 </main>
 
 </body>
 </html>
+
