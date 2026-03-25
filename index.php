@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <?php
-        include ("header.php");
-    ?>
+<?php
+    include ("header.php");
+?>
    
 <div class="page">
     <br><br><br>
@@ -43,6 +43,10 @@
 
     </div>
 </div>
+
+<?php
+    include ("footer.php");
+?>
 
 </body>
 </html>
