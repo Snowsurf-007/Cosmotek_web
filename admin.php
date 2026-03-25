@@ -3,6 +3,18 @@ session_start();
 
 $fichier = "users.json";
 $utilisateurs = [];
+function toto($str1) {
+    $str1=trim($str1);
+    $str2= strtolower($str1);
+    $res="";
+    $s=explode(" ",$str2);
+    foreach ($s as $elm){
+        $res=$res.strtoupper($elm[0]);
+        $res=$res.substr($elm,1, strlen($elm));
+        $res=$res. " ";
+    }
+    return $res;
+}
 
 // On ouvrele fichier
 if (file_exists($fichier)) {
@@ -28,30 +40,18 @@ if (file_exists($fichier)) {
 
     <section>
         <?php if (!empty($utilisateurs)): ?>
-            <?php foreach ($utilisateurs as $id => $info): ?>
+            <?php foreach ($utilisateurs as $index => $valeur): ?>
                 <div class="user-card" >
-                    <h3>Utilisateur n°<?php echo $id; ?></h3>
+                    <h3>Utilisateur n°<?php echo $index; ?></h3>
                     
-                    <p><strong>Nom :</strong> <?php echo strtoupper($info['nom']); ?></p>
-                    <p><strong>Prénom :</strong> <?php
-function toto($str1) {
-$str1=trim($str1);
-$str2= strtolower($str1);
-$res="";
-$s=explode(" ",$str2);
-foreach ($s as $elm){
-$res=$res.strtoupper($elm[0]);
-$res=$res.substr($elm,1, strlen($elm));
-$res=$res. " ";
-}
-return $res;
-}
-echo toto($info['prenom']); ?></p>
-                    <p><strong>Adresse :</strong> <?php echo $info['adresse']; ?></p>
-                    <p><strong>Email :</strong> <?php echo $info['email']; ?></p>
-                    <p><strong>Date de naissance :</strong> <?php echo $info['date']; ?></p>
-                    <p><strong>Date d'inscription :</strong> <?php echo $info['date_inscription']; ?></p>
-                    <a href="profil.php?id=<?php echo $id; ?>">Modifier l'utilisateur</a>
+                    <p><strong>Nom :</strong> <?php echo strtoupper($valeur['nom']); ?></p>
+                    <p><strong>Prénom :</strong> <?php echo toto($valeur['prenom']); ?></p>
+                    <p><strong>Adresse :</strong> <?php echo $valeur['adresse']; ?></p>
+                    <p><strong>Email :</strong> <?php echo $valeur['email']; ?></p>
+                    <p><strong>Date de naissance :</strong> <?php echo $valeur['date']; ?></p>
+                    <p><strong>Date d'inscription :</strong> <?php echo $valeur['date_inscription']; ?></p>
+                    <p><strong>Statut :</strong> <?php echo $valeur['statut']; ?></p>
+                    <a href="modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
