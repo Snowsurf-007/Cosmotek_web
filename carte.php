@@ -47,7 +47,7 @@ $boutons_filtres = [
     <link rel="stylesheet" href="fichier.css" media="screen"/>
     <style>
         /* Petit ajout pour mettre en évidence le filtre actif */
-        .filter.active { background-color: #ffcc00; color: black; font-weight: bold; }
+        .filter.active { background-color: #fd00beff; color: black; font-weight: bold; }
         .menu-section { margin-bottom: 40px; }
         .no-result { text-align: center; padding: 20px; color: #888; }
     </style>
@@ -121,10 +121,24 @@ $boutons_filtres = [
         <br><br>
         <a href="#top">RETOUR HAUT DE PAGE</a>
     </div>
- 
-<?php
-    include ("footer.php");
-?>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>À PROPOS</h4>
+                <p>Cosmotek - Restaurant intergalactique depuis 2026</p>
+            </div>
+            <div class="footer-section">
+                <h4>NAVIGATION</h4>
+                <ul class="footer-links">
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="carte.html">Notre Carte</a></li>
+                </ul>
+            </div>
+            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cosmotek - Tous droits réservés</p>
+        </div>
+    </footer>
 </body>
 </html>
