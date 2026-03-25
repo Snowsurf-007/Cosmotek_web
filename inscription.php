@@ -93,6 +93,8 @@ session_start();
 </html>
 
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+
 $nom=$_REQUEST['nom'];
 $prenom=$_REQUEST['prenom'];
 $adresse=$_REQUEST['adresse'];
@@ -141,5 +143,5 @@ if($check==0){
 
 file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT)); 
 }
-
+}
 ?>

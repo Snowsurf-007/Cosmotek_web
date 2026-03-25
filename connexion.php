@@ -73,7 +73,8 @@ session_start();
 </html>
 
 <?php
-session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+
 
 $email = $_REQUEST['email'] ?? '';
 $mdp = $_REQUEST['mdp'] ?? '';
@@ -100,4 +101,5 @@ foreach($utilisateurs as $user){
 }
 
 echo "<script>alert('Email ou mot de passe incorrect');</script>";
+}
 ?>
