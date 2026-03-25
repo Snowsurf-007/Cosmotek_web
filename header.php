@@ -11,7 +11,7 @@
             <a href="connexion.php">CONNEXION</a>
             <a href="profil.php">PROFIL</a>
             <a href="avis.php">AVIS</a>
-            <a href="panier.php">
+            <a href="panier.php" class="logo-panier">
                 <img src="Photos/panier.png" alt="Panier">
             </a>
         </nav>
