@@ -104,7 +104,7 @@ $boutons_filtres = [
                                 <h3><?php echo $plat['nom']; ?></h3>
                                 <p class="plat-description"><?php echo $plat['description']; ?></p>
                                 <div class="plat-price"><?php echo $plat['prix']; ?>€</div>
-                                <button class="btn-commander">Commander</button>
+                                <button class="btn-commander">Ajouter au panier</button>
                             </div>
                         </div>
                     <?php endforeach; ?>
