@@ -27,6 +27,15 @@
         "image": "Photos/Planchefoncedalle.jpeg",
         "badge": "2 personnes",
         "filtres": ["entrees", "viande", "sans substance"]
+      },
+      {
+        "id": 20,
+        "nom": "Soupe à l'Oignon Gratinée",
+        "description": "Soupe à l'oignon traditionnelle, gratinée au fromage fondu",
+        "prix": 7.5,
+        "image": "Photos/soupe-oignon.jpg",
+        "badge": null,
+        "filtres": ["entrees", "vege", "sans substance"]
       }
     ],
     "plats": [
@@ -46,7 +55,7 @@
         "prix": 12,
         "image": "Photos/Pates-pesto.jpeg",
         "badge": null,
-        "filtres": ["plats", "vege", "sans substance"]
+        "filtres": ["plats", "vege", "substance"]
       },
       {
         "id": 6,
@@ -55,6 +64,15 @@
         "prix": 15,
         "image": "Photos/Burger.jpg",
         "badge": "Populaire",
+        "filtres": ["plats", "viande", "sans substance"]
+      },
+      {
+        "id": 21,
+        "nom": "Saumon Grillé",
+        "description": "Filet de saumon grillé, légumes de saison et sauce citronnée",
+        "prix": 17,
+        "image": "Photos/saumon-grille.jpeg",
+        "badge": null,
         "filtres": ["plats", "viande", "sans substance"]
       }
     ],
@@ -83,6 +101,15 @@
         "description": "Glace artisanale aux cristaux givrants",
         "prix": 4.5,
         "image": "Photos/Glace.jpeg",
+        "badge": null,
+        "filtres": ["desserts", "vege", "sans substance"]
+      },
+      {
+        "id": 22,
+        "nom": "Crème Brûlée",
+        "description": "Crème brûlée à la vanille bourbon, caramel croustillant",
+        "prix": 6,
+        "image": "Photos/creme-brulee.jpg",
         "badge": null,
         "filtres": ["desserts", "vege", "sans substance"]
       }
@@ -125,6 +152,15 @@
         "filtres": ["boissons", "alcool", "sans substance"]
       },
       {
+        "id": 24,
+        "nom": "Limonade Stellaire",
+        "description": "Limonade citronnée maison, légèrement gazeuse",
+        "prix": 3.5,
+        "image": "Photos/limonade.jpeg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
+      },
+      {
         "id": 14,
         "nom": "Rince Cochon (50cl)",
         "description": "Bière artisanale locale",
@@ -150,6 +186,15 @@
         "image": "Photos/gel-hydroalcoolique.jpg",
         "badge": "Populaire",
         "filtres": ["boissons", "alcool", "substance"]
+      },
+      {
+        "id": 23,
+        "nom": "Cola Cosmique",
+        "description": "Cola pétillant bien frais",
+        "prix": 3,
+        "image": "Photos/cola.jpg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
       }
     ],
     "menus": [
