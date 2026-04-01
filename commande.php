@@ -7,7 +7,7 @@ if (!file_exists($json_path)) {
 
 $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
-$commande_paye;
+$commande_paye=[];
 
 foreach($data as $commande){
     
@@ -56,7 +56,7 @@ foreach($data as $commande){
                         </a>
               <p><strong>Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
               <p><strong>Statut :</strong> <?php echo htmlspecialchars($commande['statut'] ?? '0'); ?></p>
-              <button> Passer en livraison</button>
+               <a href="changement.php?numero=<?= $commande['numero']?>" style="margin: 10px; background-color: var(--black-deep);">Passer en livraison</a>
             </div>
         <?php endforeach; ?>
         

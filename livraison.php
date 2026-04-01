@@ -1,51 +1,68 @@
+<?php
+session_start();
+$json_path = "commandes.json";
+if (!file_exists($json_path)) {
+    die("Erreur : Le fichier $json_path est introuvable. Vérifie qu'il est bien à la racine.");
+}
+
+$json_data = file_get_contents($json_path);
+$data = json_decode($json_data, true);
+$commande_paye=[];
+
+foreach($data as $commande){
+    
+    if($commande["statut"]=="livraison"){
+       $commande_paye[]=$commande;
+    }
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page de livraison</title>
-    <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
+    <title>Livraisons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
+<header>
+    <div class="header-container">
+        <a href="accueil.html" class="logo-link">
+            <img src="Photos/Logo.png" alt="Cosmotek Logo" class="header-logo">
+            <span class="site-name">Cosmotek</span>
+        </a>
+    </div>
+</header>
 <body>
-  <main class="commande">
-    <h1>Livraison en cours</h1>
+
+<main>
+<br><br><br><br><br><br><br><br>
+  <?php
+    foreach($commande_paye as $commande):
+    ?>
+        <div class="commande">
+
+        
+        <p><strong>Numéro de commande :</strong> <?php echo htmlspecialchars($commande['numero'] ?? '0'); ?></p>
+        <p><strong>Client :</strong> <?php echo htmlspecialchars($commande['client'] ?? 'Non renseigné'); ?></p>
+        <p><strong>Adresse :</strong> <?php echo htmlspecialchars($commande['adresse'] ?? 'Non renseigné'); ?></p>
+        <a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($commande['adresse']); ?>" 
+                           target="_blank" 
+                           style="color: #00ff62ff; text-decoration: none; font-weight: bold;">
+                           📍 Voir sur Google Maps
+                        </a>
+              <p><strong>Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
+              <p><strong>Statut :</strong> <?php echo htmlspecialchars($commande['statut'] ?? '0'); ?></p>
+               <a href="changement2.php?numero=<?= $commande['numero']?>" style="margin: 10px; background-color: var(--black-deep);">valider la livraison</a>
+            </div>
+        <?php endforeach; ?>
+        
 
 
-        <section>
-            <h2>Informations de livraison</h2>
-
-            <p><strong>Personne :</strong> Hugo Treny</p>
-
-            <p><strong>Adresse :</strong><br>
-                Avenue du parc, 95000 Cergy
-            </p>
-
-            <p><strong>Code interphone :</strong> Il n'y en a pas</p>
-
-            <p><strong>Étage :</strong> 3ème étage</p>
-
-            <p><strong>Téléphone :</strong><br>
-                <a href="tel:+33134251010">01 34 25 10 10</a>
-            </p>
-
-            <p><strong>Commentaire :</strong><br>
-                Salle Cauchy 302
-            </p>
-        </section>
-
-        <section>
-            <h2>Navigation</h2>
-
-            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x47e6f5265bbc2f79:0x301dd6c7102e1852?sa=X&ved=1t:8290&ictx=111"
-               target="_blank">Ouvrir dans Maps</a>
-
-            <a href="https://www.waze.com/fr/live-map/directions/cy-tech-avenue-du-parc-cergy?to=place.w.1376746.13570856.2605144" target="_blank">Ouvrir dans Waze</a>
-        </section>
-
-        <section><button>Livraison terminée</button></section>
-
-  </main>
+</main>
 
 </body>
 </html>
