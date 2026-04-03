@@ -4,7 +4,7 @@
         "prenom": "admin",
         "adresse": "admin",
         "email": "admin@gmail.com",
-        "mdp": "$2y$10$wwHVuakJ80SD3udl0LFUeOnvkMM1UIailosFVeuh.b2Kcflo5PXRm",//ibrahima
+        "mdp": "$2y$10$wwHVuakJ80SD3udl0LFUeOnvkMM1UIailosFVeuh.b2Kcflo5PXRm",
         "date": "2026-05-07",
         "date_inscription": "01\/04\/2026",
         "statut": "admin"
