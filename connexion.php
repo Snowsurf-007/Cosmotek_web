@@ -87,7 +87,7 @@ foreach($admin as $control){
                 header("Location: profil.php");
                 exit();
             }
-            else($uber['email'] === $email && password_verify($mdp, $uber['mdp'])){
+            elseif($uber['email'] === $email && password_verify($mdp, $uber['mdp'])){
                 $_SESSION['email'] = $uber['email'];
                 $_SESSION['nom'] = $uber['nom'];
                 $_SESSION['date_inscription'] = $uber['date_inscription'];
