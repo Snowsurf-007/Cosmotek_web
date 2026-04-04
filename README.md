@@ -13,7 +13,11 @@
 L’application couvre l’ensemble du cycle de commande :
 de la sélection des produits par l’explorateur jusqu’à la livraison finale par navette.
 
-### 🧩 Architecture – Phase #1
+---
+
+## 🧩 Architecture
+
+### 🚀 Phase #1
 
 La première phase repose sur :
 
@@ -23,11 +27,23 @@ La première phase repose sur :
 
 ---
 
+### ⚙️ Phase #2
+
+La deuxième phase introduit une **dimension dynamique côté serveur**.
+
+Elle permet de rendre l’application **fonctionnelle avec gestion des données et interactions utilisateurs**.
+
+* Utilisation de **PHP** pour générer des pages dynamiques
+* Mise en place d’un **stockage de données** (JSON / CSV ou base de données)
+* Organisation du projet avec séparation entre **vues, logique et données**
+
+---
+
 ## ⚙️ Fonctionnalités
 
 ### 🖥️ 1. Interfaces de navigation (Front-end)
 
-Modules visuels développés pour **3 profils utilisateurs** :
+Modules visuels développés pour **4 profils utilisateurs** :
 
 #### 👨‍🚀 Client
 
@@ -35,33 +51,79 @@ Modules visuels développés pour **3 profils utilisateurs** :
 * Consultation de la carte des produits
 * Inscription, Connexion et profil
 * Système de notation
+* Panier et commande (phase 2)
+* Historique et suivi des commandes
 
 #### 🍳 Restaurateur
 
 * Interface adaptée aux tablettes
 * Préparation des commandes
+* Gestion des commandes (en attente, en cours, livrées)
 
 #### 🚀 Livreur
 
 * Interface adaptée aux téléphones mobiles
+* Accès aux livraisons assignées
+* Mise à jour du statut des livraisons
 
 #### 💻 Administrateur
 
-* Interface permettant de voir les dernieres commandes
+* Interface permettant de voir les dernières commandes
+* Gestion des utilisateurs (consultation, statuts)
 
 ---
 
 ### 🔐 2. Gestion des données et accès
 
-* **Authentification**
+* **Authentification fonctionnelle**
 
-  * Page de connexion
-  * Page d’inscription
+  * Inscription utilisateur
+  * Connexion sécurisée
 
-* **Profil Client**
+* **Gestion des rôles**
 
-  * Historique des expériences passées
-  * Système de points de fidélité
+  * Client
+  * Restaurateur
+  * Livreur
+  * Administrateur
+
+* **Données gérées**
+
+  * Utilisateurs
+  * Plats et menus
+  * Commandes
+  * Paiements
+  * Options (réductions, personnalisations)
+
+---
+
+### 🛒 3. Système de commande
+
+#### 👨‍🚀 Client
+
+* Ajout d’articles au panier
+* Validation et paiement de commande
+* Suivi du statut (préparation, livraison, livré)
+* Historique des commandes
+* Notation après livraison
+
+#### 🍳 Restaurateur
+
+* Consultation des commandes
+* Accès aux détails
+* Changement de statut (préparation → livraison)
+* Attribution à un livreur
+
+#### 🚀 Livreur
+
+* Accès aux commandes assignées
+* Informations de livraison
+* Validation de livraison
+
+#### 💻 Administrateur
+
+* Accès aux profils utilisateurs
+* Gestion des comptes (blocage, statuts…)
 
 ---
 
@@ -76,46 +138,47 @@ cd Cosmotek_web
 
 ### 2️⃣ Lancer l’application
 
-* Le fichier `accueil.html` constitue le point d’entrée utilisateur
+* Le fichier `accueil.html` (ou `.php` en phase 2) constitue le point d’entrée utilisateur
 
 ### 📱 Simulation Mobile (Livreur)
 
 1. Ouvrir les outils de développement (`F12`)
 2. Activer le mode **responsive**
-3. Sélectionner une taille pour les smartphones (360 x 740 par exemple)
+3. Choisir un format smartphone (ex : 360 x 740)
 
 ---
 
 ## 📂 Structure du projet
 
-* `accueil.html` → Page d’accueil présentant le nom du restaurant, une barre de recherche et une sélection de plats (populaires).
+* `accueil.html / .php` → Page d’accueil
 
-* `admin.html` → Interface administrateur permettant de consulter la liste des utilisateurs et les dernières commandes.
+* `admin.html / .php` → Interface administrateur
 
-* `carte.html` → Page de consultation complète de la carte avec barre de recherche et filtres par catégorie (types de plats).
+* `carte.html / .php` → Consultation des produits
 
-* `inscription.html` → Page d’inscription contenant le formulaire client (nom, prénom, adresse, téléphone, mail, mot de passe…).
+* `inscription.html / .php` → Inscription
 
-* `connexion.html` → Page de connexion avec formulaire d’authentification classique.
+* `connexion.html / .php` → Connexion
 
-* `profil.html` → Page profil client affichant les informations personnelles et le compte fidélité.
+* `profil.html / .php` → Profil utilisateur
 
-* `commande.html` → Interface restaurateur affichant les commandes en attente de préparation et celles en cours de livraison.
+* `commande.html / .php` → Interface restaurateur
 
-* `livraison.html` → Interface livreur optimisée mobile affichant les informations de livraison (adresse, code, téléphone, commentaires…).
+* `livraison.html / .php` → Interface livreur
 
-* `avis.html` → Page permettant au client de noter la livraison et la qualité des produits reçus.
+* `avis.html / .php` → Notation
 
-* `style.css` → Fichier unique regroupant toute la charte graphique et les styles communs.
+* `style.css` → Charte graphique
 
-### 📄 Documentation
+---
 
-* **Charte graphique** : PNG définissant l’univers visuel
-* **Rapport de mission – Phase #1** :
+## 📄 Documentation
 
-  * Répartition des tâches
-  * Problèmes rencontrés
-  * Solutions mises en place
+* **Charte graphique** (PNG)
+* **Rapport de mission** :
+
+  * Phase #1 : conception + organisation
+  * Phase #2 : modèle de données, choix techniques, problèmes rencontrés et solutions
 
 ---
 
