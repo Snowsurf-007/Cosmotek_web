@@ -34,7 +34,7 @@ La deuxième phase introduit une **dimension dynamique côté serveur**.
 Elle permet de rendre l’application **fonctionnelle avec gestion des données et interactions utilisateurs**.
 
 * Utilisation de **PHP** pour générer des pages dynamiques
-* Mise en place d’un **stockage de données** (JSON / CSV ou base de données)
+* Mise en place d’un **stockage de données** (JSON)
 * Organisation du projet avec séparation entre **vues, logique et données**
 
 ---
