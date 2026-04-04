@@ -38,7 +38,7 @@ if (file_exists($fichier)) {
 <body>
 
 <main>
-    <h1><a class="user-card" href="listes.php">Liste des commandes</a></h1>   
+    <h1 class="user-card"><a href="listes.php">Liste des commandes</a></h1>   
     <h1 class="user-card">Liste Utilisateurs :</h1>
 
     <section>
