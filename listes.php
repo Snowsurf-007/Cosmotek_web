@@ -38,8 +38,8 @@ if (file_exists($fichier)) {
 <body>
 
 <main>
-    <h1><a href="admin.php">Liste Utilisateurs</a></h1>   
-    <h1>Liste commandes :</h1>
+    <h1 class="user-card"><a href="admin.php">Liste Utilisateurs</a></h1>   
+    <h1 class="user-card">Liste commandes :</h1>
 
     <section>
         <?php if (!empty($commandes)): ?>
