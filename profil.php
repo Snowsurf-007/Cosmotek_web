@@ -26,11 +26,11 @@ function logout(){
 
 <div class="page">
     <br>
-    <h1>👤 MON PROFIL COSMIQUE</h1>
+    <h1>MON PROFIL COSMIQUE</h1>
     <br>
     
     <div class="profile-info">
-        <h2>🚀 Informations personnelles</h2>
+        <h2>Informations personnelles</h2>
         <div class="info-card">
             <p><strong>Nom :</strong> <?php echo $_SESSION['nom']; ?></p>
             <p><strong>Prenom :</strong> <?php echo $_SESSION['prenom']; ?></p>
@@ -42,11 +42,11 @@ function logout(){
         </div>
         
         <br>
-        <h2>📊 Mes statistiques</h2>
+        <h2>Mes statistiques</h2>
         <div class="info-card">
-            <p>🍽️ <strong>Commandes totales :</strong> <?php echo $_SESSION['commandes']; ?></p>
-            <p>⭐ <strong>Points de fidélité :</strong> <?php echo $_SESSION['fidelite']; ?></p>
-            <p>🏆 <strong>Plat préféré :</strong> <?php echo $_SESSION['plat']; ?></p>
+            <p><strong>Commandes totales :</strong> <?php echo $_SESSION['commandes']; ?></p>
+            <p><strong>Points de fidélité :</strong> <?php echo $_SESSION['fidelite']; ?></p>
+            <p><strong>Plat préféré :</strong> <?php echo $_SESSION['plat']; ?></p>
         </div>
         <br>
         <div style="margin-top: 20px;">
