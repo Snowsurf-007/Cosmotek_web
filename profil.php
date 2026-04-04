@@ -44,9 +44,9 @@ function logout(){
         <br>
         <h2>📊 Mes statistiques</h2>
         <div class="info-card">
-            <p>🍽️ <strong>Commandes totales :</strong> 12</p>
-            <p>⭐ <strong>Points de fidélité :</strong> 337 pts</p>
-            <p>🏆 <strong>Plat préféré :</strong> Le Jambon Melon</p>
+            <p>🍽️ <strong>Commandes totales :</strong> <?php echo $_SESSION['commandes']; ?></p>
+            <p>⭐ <strong>Points de fidélité :</strong> <?php echo $_SESSION['fidelite']; ?></p>
+            <p>🏆 <strong>Plat préféré :</strong> <?php echo $_SESSION['plat']; ?></p>
         </div>
         <br>
         <div style="margin-top: 20px;">
