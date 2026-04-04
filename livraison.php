@@ -1,17 +1,11 @@
 <?php
 session_start();
-// Vérification de sécurité : Seul le profil "livreur" doit accéder à cette page [cite: 16, 52]
-//if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'livreur') {
-//    header("Location: connexion.php");
-//    exit();
-//}
 
 $json_path = "commandes.json";
 $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $commandes_livreur = [];
 
-// Filtrage : Commandes attribuées au livreur avec statut "livraison" [cite: 102, 104]
 foreach($data as $commande){
     if(isset($commande["statut"]) && $commande["statut"] == "livraison"){
         $commandes_livreur[] = $commande;
@@ -26,35 +20,6 @@ foreach($data as $commande){
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Livraison - Creative Yumland</title>
     <link rel="stylesheet" href="fichier.css">
-    <style>
-        /* Style spécifique "Gros Gants"  */
-        .card-livraison {
-            background: #1a1a1a;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 10px;
-            border: 2px solid #00ff62;
-        }
-        /* Boutons massifs pour clics imprécis  */
-        .btn-action {
-            display: block;
-            width: 100%;
-            padding: 25px; 
-            margin: 15px 0;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-        .btn-success { background-color: #00ff62; color: #000; }
-        .btn-danger { background-color: #ff4d4d; color: #fff; }
-        .btn-nav { background-color: #333; color: #fff; border: 1px solid #555; }
-        
-        .info-detail { margin-bottom: 15px; font-size: 1.1rem; }
-        .label { color: #888; display: block; font-size: 0.9rem; }
-    </style>
 </head>
 <body>
 
