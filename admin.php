@@ -16,7 +16,7 @@ function toto($str1) {
     return $res;
 }
 
-// On ouvrele fichier
+// On ouvre le fichier
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $utilisateurs = json_decode($contenu, true);
@@ -38,8 +38,8 @@ if (file_exists($fichier)) {
 <body>
 
 <main>
-    <h1><a href="listes.php">Liste des commandes</a></h1>   
-    <h1>Liste Utilisateurs :</h1>
+    <h1><a class="user-card" href="listes.php">Liste des commandes</a></h1>   
+    <h1 class="user-card">Liste Utilisateurs :</h1>
 
     <section>
         <?php if (!empty($utilisateurs)): ?>
