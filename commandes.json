@@ -1,30 +1,27 @@
 [
     {
-        "numero": "10245",
+        "numero": "102",
         "client": "Jean Dupont",
-        "prix": "45.00",
+        "adresse": "12 rue de la Paix, Paris",
+        "prix": 45.5,
         "statut": "paye",
-        "adresse": "10 Rue de la Paix, 75002 Paris"
+        "heure": "2026-04-04 14:30",
+        "produits": [
+            "Pizza Cosmique",
+            "Soda Galactique",
+            "Tarte Ast\u00e9ro\u00efde"
+        ]
     },
     {
-        "numero": "10246",
+        "numero": "103",
         "client": "Marie Curie",
-        "prix": "120.50",
+        "adresse": "5 Avenue des Sciences, Lyon",
+        "prix": 22,
         "statut": "paye",
-        "adresse": "Boulevard Michelet, 13008 Marseille"
-    },
-    {
-        "numero": "10248",
-        "client": "Sophie Martin",
-        "prix": "89.00",
-        "statut": "paye",
-        "adresse": "Place de la Comédie, 34000 Montpellier"
-    },
-    {
-        "numero": "10249",
-        "client": "Lucien Leheudre",
-        "prix": "lim(n->+00) n^2",
-        "statut": "paye",
-        "adresse": "47 rue du Bombardillo crocodillo"
+        "heure": "2026-04-04 15:15",
+        "produits": [
+            "Burger Lunaire",
+            "Frites de l'Espace"
+        ]
     }
 ]
