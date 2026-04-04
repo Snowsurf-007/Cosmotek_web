@@ -608,21 +608,69 @@ label {
 }
 
 .info-card {
-    background-color: var(--black-deep);
-    border: 2px solid var(--purple-light);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px auto;
-    max-width: 600px;
+  background-color: var(--black-deep);
+  border: 2px solid var(--purple-light);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 600px;
 }
 
 .info-card p {
-    margin: 10px 0;
-    font-size: 16px;
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 .info-card strong {
-    color: var(--green-neon);
+  color: var(--green-neon);
+}
+
+/* LIVRAISON (fait pour etre simple d'utilisation avec des gants sur un telephone) */
+.card-livraison {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px 10px;
+  border: 2px solid var(--green-neon);
+}
+
+.btn-action {
+  display: block;
+  width: 100%;
+  padding: 25px; 
+  margin: 15px 0;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.btn-success { 
+  background-color: var(--green-neon); 
+  color: var(--black-deep); 
+}
+
+.btn-danger { 
+  background-color: var(--purple-light); 
+  color: var(--white-pure); 
+}
+
+  .btn-nav { 
+  background-color: var(--black-soft); 
+  color: var(--white-pure); 
+  border: 1px solid var(--gray-medium);
+}
+
+.info-detail { 
+  margin-bottom: 15px; 
+  font-size: 1.1rem; 
+}
+
+.label { 
+  color: var(--gray-medium); 
+  display: block; 
+  font-size: 0.9rem; 
 }
 
 /* IMAGES */
