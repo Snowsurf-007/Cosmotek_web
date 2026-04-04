@@ -302,6 +302,21 @@ h3 {
   font-size: 11px;
 }
 
+.filter.active {
+  background-color: var(--purple-light);
+  color: var(--black-deep);
+  font-weight: bold;
+}
+
+.menu-section { 
+  margin-bottom: 40px;
+}
+.no-result { 
+  text-align: center; 
+  padding: 20px; 
+  color: var(--gray-medium); 
+}
+
 .plat-badge {
   position: absolute;
   top: 15px;
