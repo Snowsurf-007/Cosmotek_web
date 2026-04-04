@@ -10,22 +10,19 @@ $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $commande_paye = [];
 
-// 1. Filtrage des commandes payées
 foreach($data as $commande){
     if(isset($commande["statut"]) && $commande["statut"] == "paye"){
         $commande_paye[] = $commande;
     }
 }
 
-// 2. Logique de TRI
-$tri = $_GET['sort'] ?? 'recent'; // Par défaut : plus récent
+$tri = $_GET['sort'] ?? 'recent';
 
 if ($tri === 'prix_croissant') {
     usort($commande_paye, fn($a, $b) => $a['prix'] <=> $b['prix']);
 } elseif ($tri === 'prix_decroissant') {
     usort($commande_paye, fn($a, $b) => $b['prix'] <=> $a['prix']);
 } else {
-    // Tri par heure/date (du plus récent au plus ancien)
     usort($commande_paye, fn($a, $b) => strtotime($b['heure']) <=> strtotime($a['heure']));
 }
 
@@ -53,7 +50,10 @@ if ($tri === 'prix_croissant') {
 </head>
 <body>
 
-<?php include("header.php"); ?>
+<?php
+    include ("header2.php");
+?>
+
 
 <main class="page">
     <br><br><br>
@@ -76,10 +76,9 @@ if ($tri === 'prix_croissant') {
             <p><strong> Numero :</strong> <?php echo htmlspecialchars($commande['numero'] ?? '0'); ?></p>
             <p><strong> Client :</strong> <?php echo htmlspecialchars($commande['client'] ?? 'Anonyme'); ?></p>
             
-            <p><strong>🛒 Contenu :</strong></p>
+            <p><strong>Contenu :</strong></p>
             <div class="items-list">
                 <?php 
-                // On suppose que 'produits' est un tableau dans votre JSON
                 if (!empty($commande['produits']) && is_array($commande['produits'])): 
                     foreach($commande['produits'] as $produit): ?>
                         <li><?php echo htmlspecialchars($produit); ?></li>
