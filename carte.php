@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// 1. Chargement des données JSON
 $json_path = "plats.json";
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable. Vérifie qu'il est bien à la racine.");
@@ -11,24 +10,20 @@ $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $categories = $data['carte'];
 
-// 2. Récupération du filtre et de la recherche
 $filtre_actif = $_GET['f'] ?? 'all';
 $recherche = $_GET['q'] ?? '';
 
-/**
- * Fonction de filtrage
- */
 function doitAfficher($plat, $filtre, $search) {
-    // Filtrage par texte (barre de recherche)
+
     if (!empty($search)) {
         return stripos($plat['nom'], $search) !== false || stripos($plat['description'], $search) !== false;
     }
-    // Filtrage par boutons
+
     if ($filtre === 'all') return true;
     return in_array($filtre, $plat['filtres']);
 }
 
-// Liste des filtres pour générer les boutons plus facilement
+
 $boutons_filtres = [
     'all' => 'Tout', 'entrees' => 'Entrées', 'plats' => 'Plats', 
     'desserts' => 'Desserts', 'boissons' => 'Boissons', 'menus' => 'Menus',
@@ -46,8 +41,7 @@ $boutons_filtres = [
     <link href="Photos/Logo.png" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
     <style>
-        /* Petit ajout pour mettre en évidence le filtre actif */
-        .filter.active { background-color: #fd00beff; color: black; font-weight: bold; }
+        .filter.active { background-color: var(--purple-light); color: var(--black-deep); font-weight: bold; }
         .menu-section { margin-bottom: 40px; }
         .no-result { text-align: center; padding: 20px; color: #888; }
     </style>
