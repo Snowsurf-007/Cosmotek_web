@@ -59,7 +59,7 @@ foreach($data as $commande){
 <body>
 
 <main>
-    <h1 style="text-align:center;"> Mes Livraisons</h1>
+    <h1 class="card-livraison" style="text-align:center;"> Mes Livraisons</h1>
 
     <?php if (empty($commandes_livreur)): ?>
         <p style="text-align:center;">Aucune livraison en attente.</p>
