@@ -87,6 +87,9 @@ $utilisateur = [
     "date" => $date,
     "date_inscription" => date("d/m/Y"),
     "statut" => "Astronaute Client",
+    "commandes" => "0",
+    "fidelite" => "0",
+    "plat" => "Jambon-Melon",
 ];
 
 if(file_exists($fichier)){
