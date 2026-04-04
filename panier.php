@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+$json_path = "commandes.json";
+if (!file_exists($json_path)) {
+    die("Erreur : Le fichier $json_path est introuvable.");
+}
+
+$json_data = file_get_contents($json_path);
+$data = json_decode($json_data, true);
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,13 +19,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
+
 <body>
+  
 <?php
 include ("header.php");
 ?>
 
 <br>
 <div class="page">
+
+  <br>
   <h1>Mon Panier</h1>
 
   <?php if (isset($_SESSION['panier']) && count($_SESSION['panier']) > 0): ?>
