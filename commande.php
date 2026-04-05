@@ -10,8 +10,21 @@ $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $commande_paye = [];
 
+$search = $_GET['search'] ?? '';
+
 foreach($data as $commande){
+    // Filtrage par statut "paye"
     if(isset($commande["statut"]) && $commande["statut"] == "paye"){
+        
+        if (!empty($search)) {
+            $nomClient = $commande['client'] ?? '';
+            $numCommande = $commande['numero'] ?? '';
+            
+            if (stripos($nomClient, $search) === false && stripos($numCommande, $search) === false) {
+                continue;
+            }
+        }
+        
         $commande_paye[] = $commande;
     }
 }
@@ -23,7 +36,7 @@ if ($tri === 'prix_croissant') {
 } elseif ($tri === 'prix_decroissant') {
     usort($commande_paye, fn($a, $b) => $b['prix'] <=> $a['prix']);
 } else {
-    usort($commande_paye, fn($a, $b) => strtotime($b['heure']) <=> strtotime($a['heure']));
+    usort($commande_paye, fn($a, $b) => strtotime($b['heure'] ?? '00:00') <=> strtotime($a['heure'] ?? '00:00'));
 }
 
 ?>
@@ -34,33 +47,82 @@ if ($tri === 'prix_croissant') {
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <style>
+.items-list, .produits-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.items-list li, .produits-box li {
+    list-style-type: none;
+}
+        .search-container { text-align: center; margin-bottom: 20px; }
+        .search-input { 
+            padding: 10px; 
+            width: 250px; 
+            border-radius: 5px; 
+            border: 1px solid #4a148c; 
+            background: #1a1a1a; 
+            color: white;
+        }
+        .btn-search { 
+            padding: 10px 15px; 
+            background: #00ff62; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: bold;
+        }
+        .filters { margin: 20px 0; text-align: center; }
+        .filters a { 
+            padding: 10px 15px; 
+            background: var(--purple-dark, #4a148c); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
+        .items-list { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .commande { border: 1px solid #444; padding: 20px; margin-bottom: 20px; border-radius: 10px; background: rgba(0,0,0,0.3); }
+    </style>
 </head>
 <body>
 
-<?php
-    include ("header2.php");
-?>
-
+<?php include ("header2.php"); ?>
 
 <main class="page">
-    <br>
-    <h1> Commandes à préparer</h1>
+    <br><br><br>
+    <h1 style="text-align:center;"> Commandes à préparer</h1>
+
+    <div class="search-container">
+        <form method="GET" action="">
+            <input type="text" name="search" class="search-input" 
+                   placeholder="Nom du client ou N°..." 
+                   value="<?php echo htmlspecialchars($search); ?>">
+            <button type="submit" class="btn-search">Rechercher</button>
+            <?php if(!empty($search)): ?>
+                <a href="?" style="color: #ff4d4d; margin-left: 10px; text-decoration: none;">Effacer</a>
+            <?php endif; ?>
+        </form>
+    </div>
 
     <div class="filters">
         <span>Trier par :</span>
-        <a href="?sort=recent">Plus récent</a>
-        <a href="?sort=prix_croissant"> Prix croissant</a>
-        <a href="?sort=prix_decroissant"> Prix décroissant</a>
+        <a href="?sort=recent&search=<?= urlencode($search) ?>"> Récent</a>
+        <a href="?sort=prix_croissant&search=<?= urlencode($search) ?>"> Prix croissant</a>
+        <a href="?sort=prix_decroissant&search=<?= urlencode($search) ?>"> Prix décroissant</a>
     </div>
 
     <?php if (empty($commande_paye)): ?>
-        <p style="text-align:center;">Aucune commande payée en attente.</p>
+        <p style="text-align:center; color: #aaa;">Aucune commande trouvée.</p>
     <?php endif; ?>
 
     <?php foreach($commande_paye as $commande): ?>
         <div class="commande">
             <p><strong> Heure :</strong> <?php echo htmlspecialchars($commande['heure'] ?? '--:--'); ?></p>
-            <p><strong> Numero :</strong> <?php echo htmlspecialchars($commande['numero'] ?? '0'); ?></p>
+            <p><strong> Numero :</strong> #<?php echo htmlspecialchars($commande['numero'] ?? '0'); ?></p>
             <p><strong> Client :</strong> <?php echo htmlspecialchars($commande['client'] ?? 'Anonyme'); ?></p>
             
             <p><strong>Contenu :</strong></p>
@@ -81,12 +143,12 @@ if ($tri === 'prix_croissant') {
                 Voir sur Google Maps
             </a>
 
-            <p><strong> Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
+            <p style="margin-top: 10px; font-size: 1.2em;"><strong> Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
             
             <br>
             <a href="changement.php?numero=<?= $commande['numero']?>" 
-               style="display:inline-block; padding: 10px; background-color: #00ff62; color: black; text-decoration: none; border-radius: 5px; font-weight: bold;">
-                Passer en livraison
+               style="display:inline-block; padding: 15px; background-color: #00ff62; color: black; text-decoration: none; border-radius: 10px; font-weight: bold; width: 100%; text-align: center;">
+                PASSER EN LIVRAISON
             </a>
         </div>
     <?php endforeach; ?>
