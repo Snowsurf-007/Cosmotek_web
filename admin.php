@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
+    header("Location: connexion.php");
+    exit();
+}
 $fichier = "users.json";
 $utilisateurs = [];
 function toto($str1) {
