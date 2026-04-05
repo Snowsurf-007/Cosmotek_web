@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$fichier = "commandes.json";
+$fichier = "../JSON/commandes.json";
 $commandes = [];
 function toto($str1) {
     $str1=trim($str1);
@@ -16,7 +16,6 @@ function toto($str1) {
     return $res;
 }
 
-// On ouvrele fichier
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $commandes = json_decode($contenu, true);
@@ -32,13 +31,13 @@ if (file_exists($fichier)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion Admin - Liste</title>
-     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+     <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
 <main>
-    <h1 class="user-card"><a href="admin.php">Liste Utilisateurs</a></h1>   
+    <h1 class="user-card"><a href="admin.php">Liste Utilisateurs</a></h1>    
     <h1 class="user-card">Liste commandes :</h1>
 
     <section>
@@ -54,6 +53,7 @@ if (file_exists($fichier)) {
                     <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
                     <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
                     <p><strong>Liste des produits :</strong></p>
+                    <ul>
                     <?php foreach ($plat['produits'] as $produit){ ?> 
                      <li><?php echo $produit; ?></li>
                     <?php }?>
@@ -69,9 +69,11 @@ if (file_exists($fichier)) {
                     <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
                     <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
                     <p><strong>Liste des produits :</strong></p>
+                    <ul>
                     <?php foreach ($plat['produits'] as $produit){ ?> 
                    <li><?php echo $produit; ?></li>
                     <?php }?>
+                    </ul>
                     <?php }else{ ?>
                     <h2>Commmandes en livraison</h2>
                     
