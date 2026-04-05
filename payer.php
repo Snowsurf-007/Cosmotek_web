@@ -19,7 +19,6 @@ $montant = number_format($total, 2, '.', '');
 
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'];
-$project_folder = basename(dirname(__FILE__));
 $retour = $protocol . $host .  "/retour_paiement.php";
 
 $api_key = getAPIKey($vendeur);
