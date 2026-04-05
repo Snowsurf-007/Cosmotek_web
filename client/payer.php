@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('getapikey.php');
+require('../back/getapikey.php');
 
 if (isset($_POST['commentaire'])) {
     $_SESSION['commentaire_livraison'] = htmlspecialchars($_POST['commentaire']);
@@ -19,7 +19,7 @@ $montant = number_format($total, 2, '.', '');
 
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 $host = $_SERVER['HTTP_HOST'];
-$retour = $protocol . $host .  "/retour_paiement.php";
+$retour = $protocol . $host .  "/client/retour_paiement.php";
 
 $api_key = getAPIKey($vendeur);
 $control = md5($api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $retour . "#");
