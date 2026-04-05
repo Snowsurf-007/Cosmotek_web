@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('getapikey.php');
+require('../back/getapikey.php');
 
 $transaction  = $_GET['transaction'] ?? '';
 $montant      = $_GET['montant'] ?? '';
@@ -17,7 +17,7 @@ $paiement_reussi = false;
 
 if ($control_recu === $control_verif && $status === 'accepted') {
     
-    $json_path = "commandes.json";
+    $json_path = "../JSON/commandes.json";
     $commandes = file_exists($json_path) ? json_decode(file_get_contents($json_path), true) : [];
 
     $deja_existe = false;
@@ -69,7 +69,7 @@ if ($control_recu === $control_verif && $status === 'accepted') {
 <head>
     <meta charset="UTF-8">
     <title>Statut Paiement</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="../back/fichier.css">
 </head>
 <body style="background-color: #050505; color: white; text-align: center; padding-top: 100px;">
 
