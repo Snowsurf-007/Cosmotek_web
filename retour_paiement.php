@@ -52,8 +52,8 @@ if ($control_recu === $control_verif && $status === 'accepted') {
         // --- CRÉATION DE LA COMMANDE ---
         $nouvelle_commande = [
             "numero"   => $transaction,
-            "client"   => $_SESSION['nom_utilisateur'] ?? 'Client Connecté', 
-            "adresse"  => $_SESSION['adresse_client'] ?? 'Adresse du profil',
+            "client"   => $_SESSION['nom'] ?? 'Client Connecté', 
+            "adresse"  => $_SESSION['adresse'] ?? 'Adresse du profil',
             "produits" => $produits_formates,
             "prix"     => $montant,
             "statut"   => "paye",
