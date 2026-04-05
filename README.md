@@ -37,7 +37,7 @@ Elle permet de rendre l’application **fonctionnelle avec gestion des données 
 * Mise en place d’un **stockage de données** (JSON)
 * Organisation du projet avec séparation entre **vues, logique et données**
 
---
+---
 
 ## ⚙️ Fonctionnalités
 
