@@ -545,16 +545,18 @@ label {
 
 .ligne, .anniversaire {
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin-bottom: 15px;
   justify-content: center;
   gap: 10px;
-  padding-left: 90px;
 }
+
 .ligne input, .anniversaire input {
   width: 200px;
   padding: 8px;
 }
+
 .anniversaire label {
   white-space: nowrap;
   margin-right: 10px;
