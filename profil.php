@@ -7,7 +7,7 @@ function logout(){
     header("Location: connexion.html");
     exit();
 }
-session_start();
+
 $fichier = "avis.json";
 $avis = [];
 
@@ -15,9 +15,6 @@ if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $avis = json_decode($contenu, true);
     $num = 1;
-} else {
-    echo"pb fichier avis";
-    exit;
 }
 
 ?>
@@ -65,7 +62,7 @@ if (file_exists($fichier)) {
         <div class="info-card">
         <?php foreach ($avis as $index => $valeur): ?>
             <?php if(isset($valeur['email']) && $valeur['email'] == $_SESSION['email']){ ?>
-                <h3>Commmande n°<?php echo $index + 1; ?> :</h3>    
+                <h3>Avis n°<?php echo $index + 1; ?> :</h3>    
                 <p><strong>Note de la nourriture :</strong> <?php echo $valeur['note_nourriture']; ?>/5</p>
                 <p><strong>Note de la livraison :</strong> <?php echo $valeur['note_livraison']; ?>/5</p>
                 <p><strong>Commentaire :</strong> <?php echo $valeur['commentaire']; ?></p>        
