@@ -54,11 +54,13 @@ if (file_exists($fichier)) {
                     <p><strong>Date de naissance :</strong> <?php echo $valeur['date']; ?></p>
                     <p><strong>Date d'inscription :</strong> <?php echo $valeur['date_inscription']; ?></p>
                     <p><strong>Statut :</strong> <?php echo $valeur['statut']; ?></p>
+                    <p><strong>Nombre de commandes :</strong> <?php echo $valeur['commandes']; ?></p>
+                    <p><strong>Points de fidélités :</strong> <?php echo $valeur['fidelite']; ?></p>
                     <a href="modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <p>pb json</p>
+            <p>pas d'utilisateurs</p>
         <?php endif; ?>
     </section>
 </main>
