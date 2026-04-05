@@ -1,14 +1,20 @@
 <?php
 session_start();
 
-$json_path = "commandes.json";
+$json_path = "../JSON/commandes.json";
+if (!file_exists($json_path)) {
+    die("Erreur : Le fichier $json_path est introuvable.");
+}
+
 $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $commandes_livreur = [];
 
-foreach($data as $commande){
-    if(isset($commande["statut"]) && $commande["statut"] == "livraison"){
-        $commandes_livreur[] = $commande;
+if (is_array($data)) {
+    foreach($data as $commande){
+        if(isset($commande["statut"]) && $commande["statut"] == "livraison"){
+            $commandes_livreur[] = $commande;
+        }
     }
 }
 ?>
@@ -19,7 +25,7 @@ foreach($data as $commande){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Livraison - Creative Yumland</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="../back/fichier.css">
 </head>
 <body>
 
@@ -34,29 +40,29 @@ foreach($data as $commande){
         <div class="card-livraison">
             <div class="info-detail">
                 <span class="label">CLIENT</span>
-                <strong><?= htmlspecialchars($commande['client']) ?></strong>
+                <strong><?= htmlspecialchars($commande['client'] ?? 'Anonyme') ?></strong>
             </div>
 
             <div class="info-detail">
                 <span class="label">ADRESSE</span>
-                <strong><?= htmlspecialchars($commande['adresse']) ?></strong>
+                <strong><?= htmlspecialchars($commande['adresse'] ?? 'Non renseignée') ?></strong>
             </div>
-           <div class="info-detail">
-    <span class="label"> CONTENU DE LA COMMANDE</span>
-    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-top: 5px;">
-        <?php 
-        // On vérifie si produits est bien un tableau et n'est pas vide
-        if (!empty($commande['produits']) && is_array($commande['produits'])) : 
-            foreach ($commande['produits'] as $produit) : ?>
-                <div style="padding: 10px 0; border-bottom: 1px solid #333; font-weight: bold;">
-                     <?= htmlspecialchars($produit) ?>
+
+            <div class="info-detail">
+                <span class="label"> CONTENU DE LA COMMANDE</span>
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-top: 5px;">
+                    <?php 
+                    if (!empty($commande['produits']) && is_array($commande['produits'])) : 
+                        foreach ($commande['produits'] as $produit) : ?>
+                            <div style="padding: 10px 0; border-bottom: 1px solid #333; font-weight: bold;">
+                                 <?= htmlspecialchars($produit) ?>
+                            </div>
+                        <?php endforeach; 
+                    else : ?>
+                        <strong>Aucun détail disponible</strong>
+                    <?php endif; ?>
                 </div>
-            <?php endforeach; 
-        else : ?>
-            <strong>Aucun détail disponible</strong>
-        <?php endif; ?>
-    </div>
-</div>
+            </div>
 
             <div class="info-detail">
                 <span class="label">COMMENTAIRES LIVRAISON</span>
@@ -68,11 +74,11 @@ foreach($data as $commande){
                 LANCER LE GPS
             </a>
 
-            <a href="changement2.php?numero=<?= $commande['numero'] ?>&statut=livree" class="btn-action btn-success">
+            <a href="../back/changement2.php?numero=<?= $commande['numero'] ?>&statut=livree" class="btn-action btn-success">
                  LIVRÉE
             </a>
 
-            <a href="changement3.php?numero=<?= $commande['numero'] ?>&statut=abandonnee" class="btn-action btn-danger">
+            <a href="../back/changement3.php?numero=<?= $commande['numero'] ?>&statut=abandonnee" class="btn-action btn-danger">
                  ABANDONNÉE / INTROUVABLE
             </a>
         </div>
