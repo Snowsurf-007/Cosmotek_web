@@ -93,6 +93,7 @@ Modules visuels développés pour **4 profils utilisateurs** :
   * Plats et menus
   * Commandes
   * Paiements
+  * Options (réductions, personnalisations)
 
 ---
 
@@ -149,25 +150,23 @@ cd Cosmotek_web
 
 ## 📂 Structure du projet
 
-* `accueil.php` → Page d’accueil
+* `accueil.html / .php` → Page d’accueil
 
-* `admin.php` → Interface administrateur
+* `admin.html / .php` → Interface administrateur
 
-* `carte.php` → Consultation des produits
+* `carte.html / .php` → Consultation des produits
 
-* `inscription.php` → Inscription
+* `inscription.html / .php` → Inscription
 
-* `connexion.php` → Connexion
+* `connexion.html / .php` → Connexion
 
-* `profil.php` → Profil utilisateur
+* `profil.html / .php` → Profil utilisateur
 
-* `commande.php` → Interface restaurateur
+* `commande.html / .php` → Interface restaurateur
 
-* `livraison.php` → Interface livreur
+* `livraison.html / .php` → Interface livreur
 
-* `avis.php` → Notation
-
-* `panier.php` → Panier et payemetn a la suite
+* `avis.html / .php` → Notation
 
 * `style.css` → Charte graphique
 

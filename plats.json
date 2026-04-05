@@ -1,0 +1,230 @@
+{
+  "carte": {
+    "entrees": [
+      {
+        "id": 1,
+        "nom": "Le Jambon Melon",
+        "description": "Jambon de Parme et melon frais de saison",
+        "prix": 9,
+        "image": "Photos/Jambon-melon.jpg",
+        "badge": "Populaire",
+        "filtres": ["entrees", "viande", "sans substance"]
+      },
+      {
+        "id": 2,
+        "nom": "Salade",
+        "description": "Salade fraîche du jour avec vinaigrette maison",
+        "prix": 8,
+        "image": "Photos/Salade.png",
+        "badge": null,
+        "filtres": ["entrees", "vege", "sans substance"]
+      },
+      {
+        "id": 3,
+        "nom": "Planche Foncedalle",
+        "description": "Assortiment de charcuterie et fromages",
+        "prix": 18,
+        "image": "Photos/Planchefoncedalle.jpeg",
+        "badge": "2 personnes",
+        "filtres": ["entrees", "viande", "sans substance"]
+      },
+      {
+        "id": 20,
+        "nom": "Soupe à l'Oignon Gratinée",
+        "description": "Soupe à l'oignon traditionnelle, gratinée au fromage fondu",
+        "prix": 7.5,
+        "image": "Photos/soupe-oignon.jpg",
+        "badge": null,
+        "filtres": ["entrees", "vege", "sans substance"]
+      }
+    ],
+    "plats": [
+      {
+        "id": 4,
+        "nom": "Pizza Cosmique",
+        "description": "Pizza maison garnie façon spatiale",
+        "prix": 13,
+        "image": "Photos/pizza.png",
+        "badge": "Plat du jour",
+        "filtres": ["plats", "viande", "sans substance"]
+      },
+      {
+        "id": 5,
+        "nom": "Pâtes Pestoverde",
+        "description": "Pâtes fraîches au pesto basilic",
+        "prix": 12,
+        "image": "Photos/Pates-pesto.jpeg",
+        "badge": null,
+        "filtres": ["plats", "vege", "substance"]
+      },
+      {
+        "id": 6,
+        "nom": "Burger Spatial",
+        "description": "Burger maison avec frites croustillantes",
+        "prix": 15,
+        "image": "Photos/Burger.jpg",
+        "badge": "Populaire",
+        "filtres": ["plats", "viande", "sans substance"]
+      },
+      {
+        "id": 21,
+        "nom": "Saumon Grillé",
+        "description": "Filet de saumon grillé, légumes de saison et sauce citronnée",
+        "prix": 17,
+        "image": "Photos/saumon-grille.jpeg",
+        "badge": null,
+        "filtres": ["plats", "viande", "sans substance"]
+      }
+    ],
+    "desserts": [
+      {
+        "id": 7,
+        "nom": "Tarte Blueberry",
+        "description": "Tarte aux myrtilles fraîches",
+        "prix": 5.5,
+        "image": "Photos/Tartemyrtillles.jpg",
+        "badge": null,
+        "filtres": ["desserts", "vege", "sans substance"]
+      },
+      {
+        "id": 8,
+        "nom": "Gâteau Spatial",
+        "description": "Gâteau signature de la maison",
+        "prix": 8,
+        "image": "Photos/Space-cake.jpg",
+        "badge": "Populaire",
+        "filtres": ["desserts", "vege", "substance"]
+      },
+      {
+        "id": 9,
+        "nom": "Glace Crystal",
+        "description": "Glace artisanale aux cristaux givrants",
+        "prix": 4.5,
+        "image": "Photos/Glace.jpeg",
+        "badge": null,
+        "filtres": ["desserts", "vege", "sans substance"]
+      },
+      {
+        "id": 22,
+        "nom": "Crème Brûlée",
+        "description": "Crème brûlée à la vanille bourbon, caramel croustillant",
+        "prix": 6,
+        "image": "Photos/creme-brulee.jpg",
+        "badge": null,
+        "filtres": ["desserts", "vege", "sans substance"]
+      }
+    ],
+    "boissons": [
+      {
+        "id": 10,
+        "nom": "Monoxyde de Dihydrogène",
+        "description": "Eau minérale naturelle",
+        "prix": 2,
+        "image": "Photos/eau.jpg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
+      },
+      {
+        "id": 11,
+        "nom": "Eau Pétillante",
+        "description": "Eau gazeuse rafraîchissante",
+        "prix": 2.5,
+        "image": "Photos/Eau-petillante.jpg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
+      },
+      {
+        "id": 12,
+        "nom": "Jäger Bomb",
+        "description": "Cocktail énergétique explosif",
+        "prix": 6,
+        "image": "Photos/Jagerbomb.jpg",
+        "badge": null,
+        "filtres": ["boissons", "alcool", "sans substance"]
+      },
+      {
+        "id": 13,
+        "nom": "Tek Paf",
+        "description": "Shot spécial maison",
+        "prix": 7,
+        "image": "Photos/TEK-PAF.jpg",
+        "badge": null,
+        "filtres": ["boissons", "alcool", "sans substance"]
+      },
+      {
+        "id": 24,
+        "nom": "Limonade Stellaire",
+        "description": "Limonade citronnée maison, légèrement gazeuse",
+        "prix": 3.5,
+        "image": "Photos/limonade.jpeg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
+      },
+      {
+        "id": 14,
+        "nom": "Rince Cochon (50cl)",
+        "description": "Bière artisanale locale",
+        "prix": 4.5,
+        "image": "Photos/Biere.jpg",
+        "badge": null,
+        "filtres": ["boissons", "alcool", "sans substance"]
+      },
+      {
+        "id": 15,
+        "nom": "Absinthe (shot)",
+        "description": "La fée verte authentique",
+        "prix": 7.5,
+        "image": "Photos/absinthe.jpeg",
+        "badge": null,
+        "filtres": ["boissons", "alcool", "substance"]
+      },
+      {
+        "id": 16,
+        "nom": "Gel Hydroalcoolique",
+        "description": "Pour les aventuriers téméraires",
+        "prix": 3,
+        "image": "Photos/gel-hydroalcoolique.jpg",
+        "badge": "Populaire",
+        "filtres": ["boissons", "alcool", "substance"]
+      },
+      {
+        "id": 23,
+        "nom": "Cola Cosmique",
+        "description": "Cola pétillant bien frais",
+        "prix": 3,
+        "image": "Photos/cola.jpg",
+        "badge": null,
+        "filtres": ["boissons", "sansalcool", "sans substance"]
+      }
+    ],
+    "menus": [
+      {
+        "id": 17,
+        "nom": "Formule Entrée + Plat",
+        "description": "Entrée : Salade / Plat : Burger Spatial",
+        "prix": 16,
+        "image": null,
+        "badge": null,
+        "filtres": ["menus"]
+      },
+      {
+        "id": 18,
+        "nom": "Formule Complète",
+        "description": "Entrée + Plat + Dessert + Boisson au choix",
+        "prix": 20,
+        "image": null,
+        "badge": null,
+        "filtres": ["menus"]
+      },
+      {
+        "id": 19,
+        "nom": "Formule Dégustation",
+        "description": "Melon jambon, Caviar, Saumon Grillé, Crème Brûlée, Vin Rouge",
+        "prix": 45,
+        "image": "Photos/dégustation.jpg",
+        "badge": "Premium",
+        "filtres": ["menus", "viande"]
+      }
+    ]
+  }
+}

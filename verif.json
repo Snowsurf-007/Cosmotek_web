@@ -1,0 +1,22 @@
+[
+    {
+        "nom": "admin",
+        "prenom": "admin",
+        "adresse": "admin",
+        "email": "admin@gmail.com",
+        "mdp": "$2y$10$wwHVuakJ80SD3udl0LFUeOnvkMM1UIailosFVeuh.b2Kcflo5PXRm",
+        "date": "2026-05-07",
+        "date_inscription": "01\/04\/2026",
+        "statut": "admin"
+    },
+    {
+        "nom": "admin2",
+        "prenom": "admin2",
+        "adresse": "admin2",
+        "email": "admin2@gmail.com",
+        "mdp": "$2y$12$N6bE0RcxyCn2dX4\/LRylpe1jUs4OcjmImCNfSRQDTp8Tgm\/qU0UQu",
+        "date": "2026-05-07",
+        "date_inscription": "01\/04\/2026",
+        "statut": "admin"
+    }
+]

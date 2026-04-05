@@ -1,0 +1,27 @@
+[
+    {
+        "numero": "102",
+        "client": "Jean Dupont",
+        "adresse": "12 rue de la Paix, Paris",
+        "prix": 45.5,
+        "statut": "paye",
+        "heure": "2026-04-04 14:30",
+        "produits": [
+            "Pizza Cosmique",
+            "Soda Galactique",
+            "Tarte Ast\u00e9ro\u00efde"
+        ]
+    },
+    {
+        "numero": "103",
+        "client": "Marie Curie",
+        "adresse": "5 Avenue des Sciences, Lyon",
+        "prix": 22,
+        "statut": "paye",
+        "heure": "2026-04-04 15:15",
+        "produits": [
+            "Burger Lunaire",
+            "Frites de l'Espace"
+        ]
+    }
+]
