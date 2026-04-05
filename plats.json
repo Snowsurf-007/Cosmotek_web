@@ -201,7 +201,7 @@
       {
         "id": 17,
         "nom": "Formule Entrée + Plat",
-        "description": "Entrée : Salade, Le Jambon Melon / Plat : Pâtes Pestoverde, Burger Spatial",
+        "description": "Entrée : Salade / Plat : Burger Spatial",
         "prix": 16,
         "image": null,
         "badge": null,
@@ -219,7 +219,7 @@
       {
         "id": 19,
         "nom": "Formule Dégustation",
-        "description": "Jambon de Parme, Caviar, Saumon, Pièce du boucher, Tarte Tatin, Profiteroles",
+        "description": "Melon jambon, Caviar, Saumon Grillé, Crème Brûlée, Vin Rouge",
         "prix": 45,
         "image": "Photos/dégustation.jpg",
         "badge": "Premium",
