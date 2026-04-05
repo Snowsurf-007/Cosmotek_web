@@ -47,46 +47,6 @@ if ($tri === 'prix_croissant') {
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
-    <style>
-.items-list, .produits-box ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-
-.items-list li, .produits-box li {
-    list-style-type: none;
-}
-        .search-container { text-align: center; margin-bottom: 20px; }
-        .search-input { 
-            padding: 10px; 
-            width: 250px; 
-            border-radius: 5px; 
-            border: 1px solid #4a148c; 
-            background: #1a1a1a; 
-            color: white;
-        }
-        .btn-search { 
-            padding: 10px 15px; 
-            background: #00ff62; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-weight: bold;
-        }
-        .filters { margin: 20px 0; text-align: center; }
-        .filters a { 
-            padding: 10px 15px; 
-            background: var(--purple-dark, #4a148c); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 5px;
-            margin: 0 5px;
-            font-size: 0.9em;
-        }
-        .items-list { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; }
-        .commande { border: 1px solid #444; padding: 20px; margin-bottom: 20px; border-radius: 10px; background: rgba(0,0,0,0.3); }
-    </style>
 </head>
 <body>
 
