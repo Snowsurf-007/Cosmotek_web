@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
-    header("Location: connexion.php");
+    header("Location: ../client/connexion.php");
     exit();
 }
 $fichier = "users.json";
@@ -35,7 +35,7 @@ if (file_exists($fichier)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion Admin - Liste</title>
-     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
+     <link href="../Photos/Logo.png" alt="Logo planete" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
