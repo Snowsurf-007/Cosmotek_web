@@ -109,7 +109,7 @@ $boutons_filtres = [
                                 <p class="plat-description"><?php echo $plat['description']; ?></p>
                                 <div class="plat-price"><?php echo $plat['prix']; ?>€</div>
 
-                                <form method="POST" action="panier_ajouter.php">
+                                <form method="POST" action="ajout_panier.php">
                                     <input type="hidden" name="nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
                                     <input type="hidden" name="prix" value="<?php echo htmlspecialchars($plat['prix']); ?>">
                                     <?php
