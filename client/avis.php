@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $liv_rating = $_POST['liv_rating'] ?? null;
     $commentaire = trim($_POST['commentaire'] ?? ''); 
     
-    $fichier = "avis.json"; 
+    $fichier = "../JSON/avis.json"; 
     if (empty($food_rating) || empty($liv_rating)) {
         echo "<script>alert('Veuillez donner une note pour la nourriture et la livraison.');</script>";
     } else {
@@ -39,11 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Avis - Cosmotek</title>
-<link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-<link rel="stylesheet" href="fichier.css" media="screen"/>
+<link href="../Photos/Logo.png" rel="icon">
+<link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
-<?php include ("header.php"); ?>
+<?php include ("../back/header.php"); ?>
 
 
 
@@ -102,6 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-<?php include ("footer.php"); ?>  
+<?php include ("../back/footer.php"); ?>  
 </body>
 </html>
