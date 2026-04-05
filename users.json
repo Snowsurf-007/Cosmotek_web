@@ -15,6 +15,7 @@
     {
         "nom": "client2",
         "prenom": "client2",
+        "email": "client2@gmail.com",
         "adresse": "2 Rue Pierre Poli 92130 Issy-les-Moulineaux",
         "mdp": "$2y$12$nO9mcMK1yxLoWfIYrOGTIeuif7XNzYV1kRvFWo2rkUnUZnenCkuPK",
         "date": "2026-04-05",
