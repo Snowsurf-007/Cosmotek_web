@@ -63,7 +63,7 @@ if ($tri === 'prix_croissant') {
                    value="<?php echo htmlspecialchars($search); ?>">
             <button type="submit" class="btn-search">Rechercher</button>
             <?php if(!empty($search)): ?>
-                <a href="?" style="color: #ff4d4d; margin-left: 10px; text-decoration: none;">Effacer</a>
+                <a href="?" style="color: var(--red-normal); margin-left: 10px; text-decoration: none;">Effacer</a>
             <?php endif; ?>
         </form>
     </div>
