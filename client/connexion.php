@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mdp   = $_REQUEST['mdp'] ?? '';
     $erreur = '';
 
-    $utilisateurs = file_exists("users.json")    ? json_decode(file_get_contents("users.json"),    true) : [];
-    $admins       = file_exists("verif.json")    ? json_decode(file_get_contents("verif.json"),    true) : [];
-    $livreurs     = file_exists("livreurs.json") ? json_decode(file_get_contents("livreurs.json"), true) : [];
+    $utilisateurs = file_exists("../JSON/users.json")    ? json_decode(file_get_contents("../JSON/users.json"),    true) : [];
+    $admins       = file_exists("../JSON/verif.json")    ? json_decode(file_get_contents("../JSON/verif.json"),    true) : [];
+    $livreurs     = file_exists("../JSON/livreurs.json") ? json_decode(file_get_contents("../JSON/livreurs.json"), true) : [];
 
     function setSession($u) {
         $_SESSION['email'] = $u['email'];
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($admins as $admin) {
         if ($admin['email'] === $email && password_verify($mdp, $admin['mdp'])) {
             setSession($admin);
-            header("Location: admin.php");
+            header("Location: ../restau/admin.php");
             exit();
         }
     }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($livreurs as $livreur) {
         if ($livreur['email'] === $email && password_verify($mdp, $livreur['mdp'])) {
             setSession($livreur);
-            header("Location: livraison.php");
+            header("Location: ../restau/livraison.php");
             exit();
         }
     }
@@ -59,13 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Cosmotek</title>
-    <link href="Photos/Logo.png" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body style="display: flex; flex-direction: column;">
 
     <?php 
-        include("header.php");
+        include("../back/header.php");
     ?>
 
     <div class="page">
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <?php
-        include("footer.php"); 
+        include("../back/footer.php"); 
     ?>
 
 </body>
