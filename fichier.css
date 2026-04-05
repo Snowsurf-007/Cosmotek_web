@@ -16,6 +16,9 @@
   /* Verts */
   --green-neon: rgb(57, 202, 84);
 
+  /* Rouge */
+  --red-normal: rgb(255, 77, 77);
+
   /* Police */
   --font-orbitron: 'Orbitron', sans-serif;
 }
