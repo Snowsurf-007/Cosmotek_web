@@ -57,13 +57,12 @@ $data = json_decode($json_data, true);
       </div>
       <?php endforeach; ?>
 
-      <!-- TOTAL -->
       <div class="rating-box">
         <p>Total : <span class="plat-price"><?php echo number_format($total, 2); ?> €</span></p>
         <p>Livraison calculée à l'étape suivante</p>
         <div class="ligne">
-          <a href="carte.php">← Continuer mes achats</a>
-          <a href="commande.php">Valider la commande →</a>
+          <a href="carte.php">Continuer mes achats</a>
+          <a href="commande.php">Valider la commande</a>
         </div>
       </div>
     </div>
