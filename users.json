@@ -1,1 +1,15 @@
-
+[
+    {
+        "nom": "invite",
+        "prenom": "invite",
+        "adresse": "invite",
+        "email": "invite@gmail.com",
+        "mdp": "$2y$12$WyM0u48werX0UPBpPmwlCOzokX7KwlakxitvTzW01AJDFYYFNUOVS",
+        "date": "2026-04-03",
+        "date_inscription": "05\/04\/2026",
+        "statut": "Astronaute Client",
+        "commandes": "0",
+        "fidelite": "0",
+        "plat": "Jambon-Melon"
+    }
+]
