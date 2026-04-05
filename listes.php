@@ -48,31 +48,44 @@ if (file_exists($fichier)) {
                     <?php if($plat['statut']=="prete"){ ?>
                     <h2>Commmandes Prête</h2>
                     
-                    <h3>Commmande n°<?php echo $index; ?></h3>
-                    <p><strong>Nom :</strong> <?php echo strtoupper($plat['numero']); ?></p>
-                    <p><strong>Prénom :</strong> <?php echo toto($plat['client']); ?></p>
+                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
+                    <p><strong>Client :</strong> <?php echo toto($plat['client']); ?></p>
                     <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
                     <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
                     <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
-                    <?php }elseif($plat['statut']=="en cours"){?>
+                    <p><strong>Liste des produits :</strong></p>
+                    <?php foreach ($plat['produits'] as $produit){ ?> 
+                     <li><?php echo $produit; ?></li>
+                    <?php }?>
+                    </ul>
+                    <?php }
+                    elseif($plat['statut']=="en cours"){?>
                     <br>
                     <h2>Commmandes en cours de préparation</h2>
                     
-                    <h3>Commmande n°<?php echo $index; ?></h3>
-                    <p><strong>Nom :</strong> <?php echo strtoupper($plat['numero']); ?></p>
+                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
                     <p><strong>Prénom :</strong> <?php echo toto($plat['client']); ?></p>
                     <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
                     <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
                     <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
+                    <p><strong>Liste des produits :</strong></p>
+                    <?php foreach ($plat['produits'] as $produit){ ?> 
+                   <li><?php echo $produit; ?></li>
+                    <?php }?>
                     <?php }else{ ?>
                     <h2>Commmandes en livraison</h2>
                     
-                    <h3>Commmande n°<?php echo $index; ?></h3>
-                    <p><strong>Nom :</strong> <?php echo strtoupper($plat['numero']); ?></p>
+                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
                     <p><strong>Prénom :</strong> <?php echo toto($plat['client']); ?></p>
                     <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
                     <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
                     <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
+                    <p><strong>Liste des produits :</strong></p>
+                    <ul>
+                    <?php foreach ($plat['produits'] as $produit){ ?> 
+                     <li><?php echo $produit; ?></li>
+                    <?php }?>
+                    </ul>
                     <?php }?>
                 </div>
             <?php endforeach; ?>
