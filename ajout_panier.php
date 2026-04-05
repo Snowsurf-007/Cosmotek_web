@@ -25,7 +25,6 @@ if (!empty($nom)) {
     }
 
     $trouve = false;
-  
     foreach ($_SESSION['panier'] as &$item) {
         if ($item['nom'] === $nom) {
             $item['quantite']++;
@@ -37,12 +36,11 @@ if (!empty($nom)) {
 
     if (!$trouve) {
         $_SESSION['panier'][] = [
-            'nom'      => $nom,
-            'prix'     => (float) $prix,
-            'image'    => $image,
+            'nom' => $nom,
+            'prix' => (float) $prix,
+            'image' => $image,
             'quantite' => 1
         ];
     }
 }
-
 exit;
