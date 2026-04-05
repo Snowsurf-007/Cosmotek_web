@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$json_path = "commandes.json";
+$json_path = "../JSON/commandes.json";
 $nb_commandes = 0;
 
 if (file_exists($json_path)) {
@@ -19,13 +19,13 @@ $_SESSION['id_transaction_suivante'] = "CMD" . str_pad($prochain_id, 7, "0", STR
 <head>
     <meta charset="UTF-8">
     <title>Panier</title>
-    <link href="Photos/Logo.png" rel="icon">
+    <link href="../Photos/Logo.png" rel="icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 
 <body>
-  <?php include ("header.php"); ?>
+  <?php include ("../back/header.php"); ?>
 
 <br>
 <div class="page">
@@ -89,6 +89,6 @@ $_SESSION['id_transaction_suivante'] = "CMD" . str_pad($prochain_id, 7, "0", STR
   <?php endif; ?>
 </div>
 
-<?php include ("footer.php"); ?>
+<?php include ("../back/footer.php"); ?>
 </body>
 </html>
