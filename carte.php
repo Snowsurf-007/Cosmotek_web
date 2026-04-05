@@ -10,25 +10,30 @@ $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 $categories = $data['carte'];
 
-$filtre_actif = $_GET['f'] ?? 'all';
-$recherche = $_GET['q'] ?? '';
+if (isset($_GET['f'])) {
+    $filtre_actif = $_GET['f'];
+} else {
+    $filtre_actif = 'all';
+}
+
+if (isset($_GET['q'])) {
+    $recherche = $_GET['q'];
+} else {
+    $recherche = '';
+}
 
 function doitAfficher($plat, $filtre, $search) {
-
     if (!empty($search)) {
         return stripos($plat['nom'], $search) !== false || stripos($plat['description'], $search) !== false;
     }
-
-    if ($filtre === 'all') return true;
+    if ($filtre === 'all') {
+        return true;
+    }
     return in_array($filtre, $plat['filtres']);
 }
 
-
 $boutons_filtres = [
-    'all' => 'Tout', 'entrees' => 'Entrées', 'plats' => 'Plats', 
-    'desserts' => 'Desserts', 'boissons' => 'Boissons', 'menus' => 'Menus',
-    'vege' => 'Végé', 'viande' => 'Viande', 'alcool' => 'Alcool', 
-    'sansalcool' => 'Sans Alcool', 'substance' => 'Substances'
+    'all' => 'Tout', 'entrees' => 'Entrées', 'plats' => 'Plats', 'desserts' => 'Desserts', 'boissons' => 'Boissons', 'menus' => 'Menus', 'vege' => 'Végé', 'viande' => 'Viande', 'alcool' => 'Alcool', 'sansalcool' => 'Sans Alcool', 'substance' => 'Substances', 'sanssubstance' => 'Sans Substances'
 ];
 ?>
 
@@ -40,40 +45,44 @@ $boutons_filtres = [
     <title>Cosmotek - Carte</title>
     <link href="Photos/Logo.png" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
-    <style>
-        .filter.active { background-color: var(--purple-light); color: var(--black-deep); font-weight: bold; }
-        .menu-section { margin-bottom: 40px; }
-        .no-result { text-align: center; padding: 20px; color: #888; }
-    </style>
 </head>
 <body>
-  <?php include("header.php"); ?>
-   
+    <?php
+        include("header.php"); 
+    ?>
+
     <div class="page carte">
         <h1>CARTE DU RESTAURANT</h1>
-        
+
         <div class="filters-container">
             <span>Filtrer :</span><br><br>
             <?php foreach ($boutons_filtres as $key => $label): ?>
-                <a href="?f=<?php echo $key; ?>" class="filter <?php echo ($filtre_actif == $key) ? 'active' : ''; ?>">
+                <?php
+                    if ($filtre_actif == $key) {
+                        $classe = 'filter active';
+                    } else {
+                        $classe = 'filter';
+                    }
+                ?>
+                <a href="?f=<?php echo $key; ?>" class="<?php echo $classe; ?>">
                     <?php echo $label; ?>
                 </a>
             <?php endforeach; ?>
         </div>
-        
-        <br><br>
+
         <h2>RECHERCHER UN PLAT</h2>
         <form method="GET" action="">
             <input type="text" name="q" placeholder="Rechercher..." value="<?php echo htmlspecialchars($recherche); ?>" />
             <button type="submit" class="bouton">Rechercher</button>
-            <?php if(!empty($recherche)): ?> <a href="carte.php">Effacer</a> <?php endif; ?>
+            <?php if (!empty($recherche)): ?>
+                <a href="carte.php">Effacer</a>
+            <?php endif; ?>
         </form>
         <br>
 
-        <?php 
+        <?php
         $found_any = false;
-        foreach ($categories as $nom_cat => $liste_plats): 
-            // On vérifie s'il y a au moins un plat à afficher dans cette catégorie
+        foreach ($categories as $nom_cat => $liste_plats):
             $plats_a_afficher = array_filter($liste_plats, function($p) use ($filtre_actif, $recherche) {
                 return doitAfficher($p, $filtre_actif, $recherche);
             });
@@ -82,15 +91,16 @@ $boutons_filtres = [
                 $found_any = true;
         ?>
             <section class="menu-section">
-                <h2 style="text-transform: uppercase;"><?php echo $nom_cat; ?></h2>
+                <h2><?php echo $nom_cat; ?></h2>
                 <div class="menu-grid">
                     <?php foreach ($plats_a_afficher as $plat): ?>
                         <div class="plat-card">
+
                             <?php if (!empty($plat['badge'])): ?>
                                 <span class="plat-badge"><?php echo $plat['badge']; ?></span>
                             <?php endif; ?>
 
-                            <?php if ($plat['image']): ?>
+                            <?php if (!empty($plat['image'])): ?>
                                 <img src="<?php echo $plat['image']; ?>" alt="<?php echo $plat['nom']; ?>">
                             <?php endif; ?>
 
@@ -98,15 +108,28 @@ $boutons_filtres = [
                                 <h3><?php echo $plat['nom']; ?></h3>
                                 <p class="plat-description"><?php echo $plat['description']; ?></p>
                                 <div class="plat-price"><?php echo $plat['prix']; ?>€</div>
-                                <button class="btn-commander">Ajouter au panier</button>
+
+                                <form method="POST" action="panier_ajouter.php">
+                                    <input type="hidden" name="nom" value="<?php echo htmlspecialchars($plat['nom']); ?>">
+                                    <input type="hidden" name="prix" value="<?php echo htmlspecialchars($plat['prix']); ?>">
+                                    <?php
+                                        if (isset($plat['image'])) {
+                                            $image_val = $plat['image'];
+                                        } else {
+                                            $image_val = '';
+                                        }
+                                    ?>
+                                    <input type="hidden" name="image" value="<?php echo htmlspecialchars($image_val); ?>">
+                                    <button type="submit" class="btn-commander">Ajouter au panier</button>
+                                </form>
                             </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </section>
-        <?php 
+        <?php
             endif;
-        endforeach; 
+        endforeach;
 
         if (!$found_any): ?>
             <p class="no-result">Désolé, aucun plat ne correspond à votre recherche intergalactique.</p>
@@ -116,23 +139,8 @@ $boutons_filtres = [
         <a href="#top">RETOUR HAUT DE PAGE</a>
     </div>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>À PROPOS</h4>
-                <p>Cosmotek - Restaurant intergalactique depuis 2026</p>
-            </div>
-            <div class="footer-section">
-                <h4>NAVIGATION</h4>
-                <ul class="footer-links">
-                    <li><a href="accueil.html">Accueil</a></li>
-                    <li><a href="carte.html">Notre Carte</a></li>
-                </ul>
-            </div>
-            </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Cosmotek - Tous droits réservés</p>
-        </div>
-    </footer>
+    <?php
+        include("footer.php"); 
+    ?>
 </body>
 </html>
