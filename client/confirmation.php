@@ -47,7 +47,6 @@ foreach ($_SESSION['panier'] as $item) {
     $total += $item['prix'] * $item['quantite'];
 }
 
-// Sauvegarder le panier puis le vider
 $panier_commande = $_SESSION['panier'];
 $_SESSION['panier'] = [];
 ?>
@@ -58,12 +57,12 @@ $_SESSION['panier'] = [];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmotek - Confirmation</title>
-    <link href="Photos/Logo.png" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
-<?php include("header.php"); ?>
+<?php include("../back/header.php"); ?>
 
 <div class="page">
     <h1>Commande confirmée ✓</h1>
@@ -95,7 +94,7 @@ $_SESSION['panier'] = [];
     </div>
 </div>
 
-<?php include("footer.php"); ?>
+<?php include("../back/footer.php"); ?>
 
 </body>
 </html>
