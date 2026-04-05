@@ -6,7 +6,7 @@ if (!isset($_SESSION['panier']) || count($_SESSION['panier']) === 0) {
     exit;
 }
 
-require('getapikey.php');
+require('../back/getapikey.php');
 
 // Calcul du total
 $total = 0;
@@ -18,7 +18,7 @@ foreach ($_SESSION['panier'] as $item) {
 $vendeur     = 'MI-1_A';
 $transaction = 'COSMOTEK' . strtoupper(substr(session_id(), 0, 12));
 $montant     = number_format($total, 2, '.', '');
-$retour      = 'http://' . $_SERVER['HTTP_HOST'] . '/retour_paiement.php?session=' . session_id();
+$retour      = 'http://' . $_SERVER['HTTP_HOST'] . '/client/retour_paiement.php?session=' . session_id();
 
 // Calcul du control
 $api_key = getAPIKey($vendeur);
@@ -31,12 +31,12 @@ $control = md5($api_key . '#' . $transaction . '#' . $montant . '#' . $vendeur .
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmotek - Paiement</title>
-    <link href="Photos/Logo.png" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
-<?php include("header.php"); ?>
+<?php include("../back/header.php"); ?>
 
 <div class="page">
     <h1>Paiement</h1>
@@ -73,7 +73,7 @@ $control = md5($api_key . '#' . $transaction . '#' . $montant . '#' . $vendeur .
     </div>
 </div>
 
-<?php include("footer.php"); ?>
+<?php include("../back/footer.php"); ?>
 
 </body>
 </html>
