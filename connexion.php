@@ -64,7 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body style="display: flex; flex-direction: column;">
 
-    <?php include("header.php"); ?>
+    <?php 
+        include("header.php");
+    ?>
 
     <div class="page">
         <h2>Connexion</h2>
@@ -86,7 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 
-    <?php include("footer.php"); ?>
+    <?php
+        include("footer.php"); 
+    ?>
 
 </body>
 </html>
