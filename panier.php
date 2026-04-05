@@ -62,7 +62,7 @@ $data = json_decode($json_data, true);
         <p>Livraison calculée à l'étape suivante</p>
         <div class="ligne">
           <a href="carte.php">Continuer mes achats</a>
-          <a href="commande.php">Valider la commande</a>
+          <a href="paiement.php">Valider la commande</a>
         </div>
       </div>
     </div>
