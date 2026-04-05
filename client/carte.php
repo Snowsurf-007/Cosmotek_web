@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$json_path = "plats.json";
+$json_path = "../JSON/plats.json";
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable. Vérifie qu'il est bien à la racine.");
 }
@@ -43,12 +43,12 @@ $boutons_filtres = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmotek - Carte</title>
-    <link href="Photos/Logo.png" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
     <?php
-        include("header.php"); 
+        include("../back/header.php"); 
     ?>
 
     <div class="page carte">
@@ -101,7 +101,7 @@ $boutons_filtres = [
                             <?php endif; ?>
 
                             <?php if (!empty($plat['image'])): ?>
-                                <img src="<?php echo $plat['image']; ?>" alt="<?php echo $plat['nom']; ?>">
+                                <img src="../Photos/<?php echo $plat['image']; ?>" alt="<?php echo $plat['nom']; ?>">
                             <?php endif; ?>
 
                             <div class="plat-content">
@@ -140,7 +140,7 @@ $boutons_filtres = [
     </div>
 
     <?php
-        include("footer.php"); 
+        include("../back/footer.php"); 
     ?>
 </body>
 </html>
