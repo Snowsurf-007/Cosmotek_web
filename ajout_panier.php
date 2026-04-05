@@ -13,12 +13,6 @@ if (isset($_POST['prix'])) {
     $prix = '';
 }
 
-if (isset($_POST['image'])) {
-    $image = $_POST['image'];
-} else {
-    $image = '';
-}
-
 if (!empty($nom)) {
     if (!isset($_SESSION['panier'])) {
         $_SESSION['panier'] = [];
@@ -38,7 +32,6 @@ if (!empty($nom)) {
         $_SESSION['panier'][] = [
             'nom' => $nom,
             'prix' => (float) $prix,
-            'image' => $image,
             'quantite' => 1
         ];
     }
