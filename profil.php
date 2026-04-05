@@ -7,6 +7,18 @@ function logout(){
     header("Location: connexion.html");
     exit();
 }
+session_start();
+$fichier = "avis.json";
+$avis = [];
+
+if (file_exists($fichier)) {
+    $contenu = file_get_contents($fichier);
+    $avis = json_decode($contenu, true);
+    $num = 1;
+} else {
+    echo"pb fichier avis";
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +60,19 @@ function logout(){
             <p><strong>Points de fidélité :</strong> <?php echo $_SESSION['fidelite']; ?></p>
             <p><strong>Plat préféré :</strong> <?php echo $_SESSION['plat']; ?></p>
         </div>
+        <br>
+        <h2>Mes avis</h2>
+        <div class="info-card">
+        <?php foreach ($avis as $index => $valeur): ?>
+            <?php if(isset($valeur['email']) && $valeur['email'] == $_SESSION['email']){ ?>
+                <h3>Commmande n°<?php echo $index + 1; ?> :</h3>    
+                <p><strong>Note de la nourriture :</strong> <?php echo $valeur['note_nourriture']; ?>/5</p>
+                <p><strong>Note de la livraison :</strong> <?php echo $valeur['note_livraison']; ?>/5</p>
+                <p><strong>Commentaire :</strong> <?php echo $valeur['commentaire']; ?></p>        
+        <?php } endforeach; ?>        
+
+        </div>
+
         <br>
         <div style="margin-top: 20px;">
             <a href="carte.html" style="margin: 10px;">Commander maintenant</a>
