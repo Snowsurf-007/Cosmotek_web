@@ -39,6 +39,7 @@ body {
   padding: 0;
   text-align: center;
   min-height: 1080px;
+  flex-direction: column;
 }
 
 /* HEADER */
