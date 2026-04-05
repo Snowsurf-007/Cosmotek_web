@@ -1,13 +1,19 @@
 <?php
 session_start();
 
+// --- LOGIQUE NUMÉRO DE COMMANDE (1, 2, 3...) ---
 $json_path = "commandes.json";
-if (!file_exists($json_path)) {
-  die("Erreur : Le fichier $json_path est introuvable.");
+$nb_commandes = 0;
+// On compte le nombre de commandes existantes pour définir le prochain ID
+if (file_exists($json_path)) {
+    $json_data = file_get_contents($json_path);
+    $data_commandes = json_decode($json_data, true);
+    $nb_commandes = is_array($data_commandes) ? count($data_commandes) : 0;
 }
+$prochain_id = $nb_commandes + 1;
 
-$json_data = file_get_contents($json_path);
-$data = json_decode($json_data, true);
+// On stocke le numéro au format CYBank (10 caractères) en session
+$_SESSION['id_transaction_suivante'] = "CMD" . str_pad($prochain_id, 7, "0", STR_PAD_LEFT);
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +27,7 @@ $data = json_decode($json_data, true);
 </head>
 
 <body>
-  
-<?php
-  include ("header.php");
-?>
+  <?php include ("header.php"); ?>
 
 <br>
 <div class="page">
@@ -53,9 +56,9 @@ $data = json_decode($json_data, true);
         <div class="profile-info">
           <p class="plat-price"><?php echo number_format($sous_total, 2); ?> €</p>
           <form action="suppr_panier.php" method="POST">
-    <input type="hidden" name="nom" value="<?php echo $item['nom']; ?>">
-    <button type="submit">Retirer</button>
-</form>
+            <input type="hidden" name="nom" value="<?php echo htmlspecialchars($item['nom']); ?>">
+            <button type="submit">Retirer</button>
+          </form>
         </div>
       </div>
       <?php endforeach; ?>
@@ -64,8 +67,8 @@ $data = json_decode($json_data, true);
         <p>Total : <span class="plat-price"><?php echo number_format($total, 2); ?> €</span></p>
         <p>Livraison calculée à l'étape suivante</p>
         <div class="ligne">
-          <a href="carte.php">Continuer mes achats</a>
-          <a href="paiement.php">Valider la commande</a>
+          <a href="carte.php" class="btn-action">Continuer mes achats</a>
+          <a href="payer.php" class="btn-action">Valider la commande</a>
         </div>
       </div>
     </div>
@@ -81,8 +84,6 @@ $data = json_decode($json_data, true);
   <?php endif; ?>
 </div>
 
-<?php
-  include ("footer.php");
-?>
+<?php include ("footer.php"); ?>
 </body>
 </html>
