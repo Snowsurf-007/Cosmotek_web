@@ -1,87 +1,91 @@
 <?php
 session_start();
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $food_rating = $_POST['food_rating'] ?? null;
-    $liv_rating = $_POST['liv_rating'] ?? null;
-    $commentaire = trim($_POST['commentaire'] ?? ''); 
-    
-    $fichier = "avis.json"; 
-    if (empty($food_rating) || empty($liv_rating)) {
-        echo "<script>alert('Veuillez donner une note pour la nourriture et la livraison.');</script>";
-    } else {
-        $nouvel_avis = [
-            "email" => $_SESSION['email'], 
-            "note_nourriture" => $food_rating,
-            "note_livraison" => $liv_rating,
-            "commentaire" => $commentaire, 
-            "date_avis" => date("d/m/Y H:i:s")
-        ];
-        if (file_exists($fichier)) {
-            $contenu = file_get_contents($fichier);
-            $data = json_decode($contenu, true);
-            if (!is_array($data)) {
-                $data = [];
-            }
-        } else {
-            $data = [];
-        }
-        $data[] = $nouvel_avis;
-        file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT ));
-        header("Location: profil.php");
-    }
-}
-?>
 
+function logout(){
+    session_unset();
+    session_destroy();
+    header("Location: connexion.html");
+    exit();
+}
+
+$fichier = "avis.json";
+$avis = [];
+
+if (file_exists($fichier)) {
+    $contenu = file_get_contents($fichier);
+    $avis = json_decode($contenu, true);
+    $num = 1;
+}
+
+?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avis - Cosmotek</title>
-<link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-<link rel="stylesheet" href="fichier.css" media="screen"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Cosmotek</title>
+    <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
+    <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
-<?php include ("header.php"); ?>
+
+    <?php
+        include ("header.php");
+    ?>
+
 <div class="page">
     <br>
-    <h1>Votre Avis Compte</h1>
+    <h1>MON PROFIL COSMIQUE</h1>
+    <br>
     
-    <div class="rating-box">
-        <p>Aidez-nous à améliorer l'expérience culinaire de l'espace</p>
+    <div class="profile-info">
+        <h2>Informations personnelles</h2>
+        <div class="info-card">
+            <p><strong>Nom :</strong> <?php echo $_SESSION['nom']; ?></p>
+            <p><strong>Prenom :</strong> <?php echo $_SESSION['prenom']; ?></p>
+            <p><strong>Email :</strong> <?php echo $_SESSION['email']; ?></p>
+            <p><strong>Date d'inscription :</strong> <?php echo $_SESSION['date_inscription']; ?></p>
+            <p><strong>Statut :</strong> <?php echo $_SESSION['statut']; ?></p>
+            <p><strong>Adresse spatiale :</strong> <?php echo $_SESSION['adresse']; ?></p>
+            <p><strong>Derniere connexion :</strong> <?php echo $_SESSION['derniere']; ?></p>
+        </div>
         
-        <form action="avis.php" method="POST">
-            
-            <div class="inscription">
-                <h3>Notez la Nourriture</h3>
-                <div class="rating">
-                    <input type="radio" id="food5" name="food_rating" value="5"><label for="food5" title="Excellent">★</label>
-                    <input type="radio" id="food4" name="food_rating" value="4"><label for="food4" title="Très bon">★</label>
-                    <input type="radio" id="food3" name="food_rating" value="3"><label for="food3" title="Moyen">★</label>
-                    <input type="radio" id="food2" name="food_rating" value="2"><label for="food2" title="Médiocre">★</label>
-                    <input type="radio" id="food1" name="food_rating" value="1"><label for="food1" title="Mauvais">★</label>
-                </div>
-            </div>
-            <br><br>
-            <div class="inscription">
-                <h3>Notez la Livraison</h3>
-                <div class="rating">
-                    <input type="radio" id="liv5" name="liv_rating" value="5"><label for="liv5" title="Excellent">★</label>
-                    <input type="radio" id="liv4" name="liv_rating" value="4"><label for="liv4" title="Très bon">★</label>
-                    <input type="radio" id="liv3" name="liv_rating" value="3"><label for="liv3" title="Moyen">★</label>
-                    <input type="radio" id="liv2" name="liv_rating" value="2"><label for="liv2" title="Médiocre">★</label>
-                    <input type="radio" id="liv1" name="liv_rating" value="1"><label for="liv1" title="Mauvais">★</label>
-                </div>
-                <div class="inscription">
-                    <label for="commentaire">Commentaire :</label>
-                    <textarea id="commentaire" name="commentaire" placeholder="Entrez votre message ici..."></textarea>    
-                </div>
-                <input type="submit" value="Envoyer" class="bouton">
-            </div>
-        </form>    
-    </div>
-  </div>
+        <br>
+        <h2>Mes statistiques</h2>
+        <div class="info-card">
+            <p><strong>Commandes totales :</strong> <?php echo $_SESSION['commandes']; ?></p>
+            <p><strong>Points de fidélité :</strong> <?php echo $_SESSION['fidelite']; ?></p>
+            <p><strong>Plat préféré :</strong> <?php echo $_SESSION['plat']; ?></p>
+        </div>
+        <br>
+        <h2>Mes avis</h2>
+        <div class="info-card">
+        
+        <?php  $num =1;
+         foreach ($avis as $index => $valeur): ?>
+            <?php if(isset($valeur['email']) && $valeur['email'] == $_SESSION['email']){ ?>
+                <h3>Avis n°<?php echo $num ; ?> :</h3>    
+                <p><strong>Note de la nourriture :</strong> <?php echo $valeur['note_nourriture']; ?>/5</p>
+                <p><strong>Note de la livraison :</strong> <?php echo $valeur['note_livraison']; ?>/5</p>
+                <p><strong>Commentaire :</strong> <?php echo $valeur['commentaire']; ?></p>        
+        <?php $num ++;
+         } endforeach; ?>        
 
-<?php include ("footer.php"); ?>  
+        </div>
+
+        <br>
+        <div style="margin-top: 20px;">
+            <a href="carte.html" style="margin: 10px;">Commander maintenant</a>
+            <a href="inscription.html" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
+            <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">Se déconnecter</a>
+        </div>
+    </div>
+</div>
+
+
+<?php
+    include ("footer.php");
+?>
+
 </body>
 </html>
