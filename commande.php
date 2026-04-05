@@ -34,19 +34,6 @@ if ($tri === 'prix_croissant') {
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
-    <style>
-        .filters { margin: 20px 0; text-align: center; }
-        .filters a { 
-            padding: 10px 15px; 
-            background: var(--purple-dark, #4a148c); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 5px;
-            margin: 0 5px;
-        }
-        .items-list { background: rgba(255,255,255,0.1); padding: 10px; border-radius: 5px; margin: 10px 0; }
-        .commande { border: 1px solid #444; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
-    </style>
 </head>
 <body>
 
@@ -56,7 +43,7 @@ if ($tri === 'prix_croissant') {
 
 
 <main class="page">
-    <br><br><br>
+    <br>
     <h1> Commandes à préparer</h1>
 
     <div class="filters">
