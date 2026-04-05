@@ -277,7 +277,7 @@ h3 {
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px var(--black-deep);
   position: relative;
 }
 
@@ -377,6 +377,69 @@ h3 {
   box-shadow: 0 4px 15px rgba(57, 202, 84, 0.5);
 }
 
+.items-list, .produits-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.items-list li, .produits-box li {
+  list-style-type: none;
+}
+
+.search-container { 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+.search-input { 
+    padding: 10px; 
+    width: 250px; 
+    border-radius: 5px; 
+    border: 1px solid var(--purple-dark); 
+    background: var(--black-deep); 
+    color: var(--white-pure);
+}
+
+.btn-search { 
+    padding: 10px 15px; 
+    background: var(--green-neon); 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold;
+}
+
+.filters { 
+  margin: 20px 0; 
+  text-align: center; 
+}
+
+.filters a { 
+    padding: 10px 15px; 
+    background: var(--purple-light); 
+    color: var(--white-pure); 
+    text-decoration: none; 
+    border-radius: 5px;
+    margin: 0 5px;
+    font-size: 0.9em;
+}
+
+.items-list { 
+  background: var(--gray-medium); 
+  padding: 10px; 
+  border-radius: 5px; 
+  margin: 10px 0; 
+}
+
+.commande { 
+  border: 1px solid var(--gray-medium); 
+  padding: 20px; 
+  margin-bottom: 20px; 
+  border-radius: 10px; 
+  background: var(--black-deep); 
+}
+
 /* LISTES DE MENUS CLASSIQUES */
 ul {
   list-style-type: none;
@@ -470,9 +533,8 @@ label {
     align-items: center;
 }
 
-  .aire img {
-    max-width: 100%;
-  }ght;
+.aire img {
+  max-width: 100%;
   display: inline-block;
   width: 120px;
   margin-right: 10px;
@@ -821,6 +883,30 @@ p {
   }
 }
 
+@media (max-width: 500px) {
+  .site-name {
+    font-size: 12px;
+  }
+
+  .header-nav a {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .page {
+    margin-top: 210px;
+    padding: 12px 8px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .plat-card img {
+    height: 150px;
+  }
+}
+
 @media (max-width: 480px) {
   header {
     height: 175px;
@@ -890,29 +976,5 @@ p {
   
   .plat-price {
     font-size: 24px;
-  }
-}
-
-@media (max-width: 500px) {
-  .site-name {
-    font-size: 12px;
-  }
-
-  .header-nav a {
-    padding: 5px 8px;
-    font-size: 10px;
-  }
-
-  .page {
-    margin-top: 210px;
-    padding: 12px 8px;
-  }
-
-  h1 {
-    font-size: 18px;
-  }
-
-  .plat-card img {
-    height: 150px;
   }
 }
