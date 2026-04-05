@@ -3,7 +3,7 @@ session_start();
 
 $json_path = "commandes.json";
 if (!file_exists($json_path)) {
-    die("Erreur : Le fichier $json_path est introuvable.");
+  die("Erreur : Le fichier $json_path est introuvable.");
 }
 
 $json_data = file_get_contents($json_path);
@@ -23,7 +23,7 @@ $data = json_decode($json_data, true);
 <body>
   
 <?php
-include ("header.php");
+  include ("header.php");
 ?>
 
 <br>
@@ -42,18 +42,17 @@ include ("header.php");
           $total += $sous_total;
       ?>
       <div class="commande">
-        <div class="ligne">
-          <div class="profile-info">
-            <h3><?php echo htmlspecialchars($item['nom']); ?></h3>
-            <div class="info-card">
-              <p>Prix unitaire : <strong><?php echo number_format($item['prix'], 2); ?> €</strong></p>
-              <p>Quantité : <strong><?php echo $item['quantite']; ?></strong></p>
-            </div>
+        <div class="profile-info">
+          <h3><?php echo htmlspecialchars($item['nom']); ?></h3>
+          <div class="info-card">
+            <p>Prix unitaire : <strong><?php echo number_format($item['prix'], 2); ?> €</strong></p>
+            <p>Quantité : <strong><?php echo $item['quantite']; ?></strong></p>
           </div>
-          <div class="profile-info">
-            <p class="plat-price"><?php echo number_format($sous_total, 2); ?> €</p>
-            <a href="supprimer_panier.php?index=<?php echo $index; ?>">✕ Supprimer</a>
-          </div>
+        </div>
+        <br>
+        <div class="profile-info">
+          <p class="plat-price"><?php echo number_format($sous_total, 2); ?> €</p>
+          <a href="supprimer_panier.php?index=<?php echo $index; ?>">✕ Supprimer</a>
         </div>
       </div>
       <?php endforeach; ?>
@@ -81,7 +80,7 @@ include ("header.php");
 </div>
 
 <?php
-include ("footer.php");
+  include ("footer.php");
 ?>
 </body>
 </html>
