@@ -1,28 +1,23 @@
 <?php
 session_start();
 
-if (isset($_POST['nom'])) {
-    $nom = $_POST['nom'];
-} else {
-    $nom = '';
-}
+$nom = $_POST['nom'] ?? '';
 
-if (!empty($nom)) {
-    if (isset($_SESSION['panier'])) {
-
-        foreach ($_SESSION['panier'] as $index => $item) {
-            if ($item['nom'] === $nom) {
-                if ($item['quantite'] > 1) {
-                    $_SESSION['panier'][$index]['quantite']--;
-                } else {
-                    array_splice($_SESSION['panier'], $index, 1);
-                }
-                break;
-            }
+if (!empty($nom) && isset($_SESSION['panier'])) {
+    
+    foreach ($_SESSION['panier'] as $index => $item) {
+        if ($item['nom'] === $nom) {
+            
+            unset($_SESSION['panier'][$index]);
+            
+            $_SESSION['panier'] = array_values($_SESSION['panier']);
+            
+            break;
         }
     }
 }
 
+// 5. Retour au panier
 header("Location: panier.php");
 exit;
 ?>

@@ -52,7 +52,10 @@ $data = json_decode($json_data, true);
         <br>
         <div class="profile-info">
           <p class="plat-price"><?php echo number_format($sous_total, 2); ?> €</p>
-          <a href="supprimer_panier.php?index=<?php echo $index; ?>">✕ Supprimer</a>
+          <form action="suppr_panier.php" method="POST">
+    <input type="hidden" name="nom" value="<?php echo $item['nom']; ?>">
+    <button type="submit">Retirer</button>
+</form>
         </div>
       </div>
       <?php endforeach; ?>
