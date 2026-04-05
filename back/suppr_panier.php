@@ -17,7 +17,6 @@ if (!empty($nom) && isset($_SESSION['panier'])) {
     }
 }
 
-// 5. Retour au panier
-header("Location: panier.php");
+header("Location: ../client/panier.php");
 exit;
 ?>
