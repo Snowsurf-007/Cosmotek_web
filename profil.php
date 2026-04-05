@@ -72,8 +72,8 @@ if (file_exists($fichier)) {
 
         <br>
         <div style="margin-top: 20px;">
-            <a href="carte.html" style="margin: 10px;">Commander maintenant</a>
-            <a href="inscription.html" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
+            <a href="carte.php" style="margin: 10px;">Commander maintenant</a>
+            <a href="inscription.php" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
             <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">Se déconnecter</a>
         </div>
     </div>
