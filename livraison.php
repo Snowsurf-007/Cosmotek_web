@@ -60,7 +60,7 @@ foreach($data as $commande){
 
             <div class="info-detail">
                 <span class="label">COMMENTAIRES LIVRAISON</span>
-                <em><?= htmlspecialchars($commande['commentaires'] ?? 'Aucun') ?></em>
+                <em><?= htmlspecialchars($commande['commentaire'] ?? 'Aucun') ?></em>
             </div>
 
             <a href="https://www.google.com/maps/search/?api=1&query=<?= urlencode($commande['adresse']) ?>" 
