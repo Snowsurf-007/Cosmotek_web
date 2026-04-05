@@ -7,13 +7,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
 	<?php
-	    include ("header.php");
+	    include ("../back/header.php");
 	?>
 	<div class="page">
     <h2>Inscription</h2>
@@ -54,7 +54,7 @@ session_start();
 </div>
 
 <?php
-    include ("footer.php");
+    include ("../back/footer.php");
 ?>
 
 </body>
@@ -69,7 +69,7 @@ $adresse=$_REQUEST['adresse'];
 $date=$_REQUEST['date'];
 $email=$_REQUEST['email'];
 $mdp=$_REQUEST['mdp'];
-$fichier = "users.json";
+$fichier = "../JSON/users.json";
 
 $check=0;
 
