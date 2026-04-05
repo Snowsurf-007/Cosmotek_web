@@ -2,34 +2,29 @@
 session_start();
 require('getapikey.php');
 
-// 1. Récupération des paramètres envoyés par CYBank (GET)
 $transaction  = $_GET['transaction'] ?? '';
 $montant      = $_GET['montant'] ?? '';
 $vendeur      = $_GET['vendeur'] ?? '';
-$status       = $_GET['status'] ?? ''; // CYBank envoie 'status' (anglais)
+$status       = $_GET['status'] ?? '';
 $control_recu = $_GET['control'] ?? '';
 
-// 2. Vérification de la signature de sécurité MD5
 $api_key = getAPIKey($vendeur);
 $chaine_verif = $api_key . "#" . $transaction . "#" . $montant . "#" . $vendeur . "#" . $status . "#";
 $control_verif = md5($chaine_verif);
 
 $message = "";
-$couleur = "#ff4d4d"; // Rouge par défaut (Échec)
+$couleur = "#ff4d4d"; 
 
-// 3. Si la signature est bonne et le paiement accepté
 if ($control_recu === $control_verif && $status === 'accepted') {
     
     $json_path = "commandes.json";
     
-    // Chargement du fichier JSON existant
     if (file_exists($json_path)) {
         $commandes = json_decode(file_get_contents($json_path), true) ?? [];
     } else {
         $commandes = [];
     }
 
-    // --- GESTION DU DOUBLON (Si l'utilisateur actualise la page) ---
     $deja_existe = false;
     foreach ($commandes as $cmd) {
         if ($cmd['numero'] === $transaction) {
@@ -39,8 +34,6 @@ if ($control_recu === $control_verif && $status === 'accepted') {
     }
 
     if (!$deja_existe) {
-        // --- PRÉPARATION DE LA LISTE DES PRODUITS (CUMULÉ) ---
-        // On vérifie si le panier existe encore en session
         if (isset($_SESSION['panier']) && is_array($_SESSION['panier'])) {
             $produits_formates = array_map(function($item) {
                 return $item['nom'] . " (x" . $item['quantite'] . ")";
@@ -49,7 +42,6 @@ if ($control_recu === $control_verif && $status === 'accepted') {
             $produits_formates = ["Détails indisponibles (Panier déjà vidé)"];
         }
 
-        // --- CRÉATION DE LA COMMANDE ---
         $nouvelle_commande = [
             "numero"   => $transaction,
             "client"   => $_SESSION['nom'] ?? 'Client Connecté', 
@@ -60,22 +52,19 @@ if ($control_recu === $control_verif && $status === 'accepted') {
             "heure"    => date("H:i")
         ];
 
-        // Enregistrement dans le fichier JSON
         $commandes[] = $nouvelle_commande;
         file_put_contents($json_path, json_encode($commandes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
         
-        // --- VIDAGE DU PANIER APRÈS ENREGISTREMENT ---
         unset($_SESSION['panier']);
         
         $message = "✅ Paiement validé ! Votre commande " . $transaction . " a été envoyée en cuisine.";
-        $couleur = "#00ff62"; // Vert (Succès)
+        $couleur = "#00ff62";
     } else {
         $message = "Commande déjà enregistrée (actualisation de page).";
         $couleur = "#00ff62"; 
     }
 
 } else {
-    // Cas où le paiement est refusé par CYBank ou les données sont fausses
     $message = "❌ Le paiement a été refusé ou une erreur de sécurité est survenue.";
 }
 ?>
