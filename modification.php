@@ -38,11 +38,8 @@ if ($id === null || !isset($utilisateurs[$id])) {
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
-
-	<?php
-	    include ("header.php");
-	?>
 	<div class="page">
+    <h3>Modification d'information</h3>
     <h2>Utilisateur n°<?php echo $id ?></h2>
 
     <form method="post" action="inscription.php">
@@ -69,6 +66,11 @@ if ($id === null || !isset($utilisateurs[$id])) {
         <div class="inscription2">
             <label ></label>
             <input type="email" name="email" id="email" placeholder="<?php echo  $utilisateurs[$id]['email']; ?>">
+        </div>
+		<br>
+        <div class="inscription2">
+            <label ></label>
+            <input type="text" name="ptf" id="ptf" placeholder="point de fidélité : <?php echo  $utilisateurs[$id]['fidelite']; ?>">
         </div>
 		<br>
 
