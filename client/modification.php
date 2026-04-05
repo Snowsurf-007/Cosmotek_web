@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$fichier = "users.json";
+$fichier = "../JSON/users.json";
 $message = "";
 function toto($str1) {
     $str1=trim($str1);
@@ -34,8 +34,8 @@ if ($id === null || !isset($utilisateurs[$id])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAGE DE MODIFICATION</title>
-    <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 	<div class="page">
@@ -75,4 +75,4 @@ if ($id === null || !isset($utilisateurs[$id])) {
 		<br>
 
 </body>
-</html>        
+</html>
