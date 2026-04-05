@@ -59,7 +59,7 @@ if (file_exists($fichier)) {
                     <p><strong>Statut :</strong> <?php echo $valeur['statut']; ?></p>
                     <p><strong>Nombre de commandes :</strong> <?php echo $valeur['commandes']; ?></p>
                     <p><strong>Points de fidélités :</strong> <?php echo $valeur['fidelite']; ?></p>
-                    <a href="modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
+                    <a href="../client/modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
