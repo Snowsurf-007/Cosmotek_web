@@ -1,33 +1,34 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
     header("Location: ../client/connexion.php");
     exit();
 }
-$fichier = "users.json";
+
+$fichier = "../users.json";
 $utilisateurs = [];
+
 function toto($str1) {
-    $str1=trim($str1);
-    $str2= strtolower($str1);
-    $res="";
-    $s=explode(" ",$str2);
-    foreach ($s as $elm){
-        $res=$res.strtoupper($elm[0]);
-        $res=$res.substr($elm,1, strlen($elm));
-        $res=$res. " ";
+    $str1 = trim($str1);
+    $str2 = strtolower($str1);
+    $res = "";
+    $s = explode(" ", $str2);
+    foreach ($s as $elm) {
+        $res = $res . strtoupper($elm[0]);
+        $res = $res . substr($elm, 1, strlen($elm));
+        $res = $res . " ";
     }
     return $res;
 }
 
-// On ouvre le fichier
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $utilisateurs = json_decode($contenu, true);
 } else {
-    echo"pb fichier";
+    echo "pb fichier";
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,8 +36,8 @@ if (file_exists($fichier)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion Admin - Liste</title>
-     <link href="../Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link href="../Photos/Logo.png" rel="icon">
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
@@ -47,7 +48,7 @@ if (file_exists($fichier)) {
     <section>
         <?php if (!empty($utilisateurs)): ?>
             <?php foreach ($utilisateurs as $index => $valeur): ?>
-                <div class="user-card" >
+                <div class="user-card">
                     <h3>Utilisateur n°<?php echo $index; ?></h3>
                     
                     <p><strong>Nom :</strong> <?php echo strtoupper($valeur['nom']); ?></p>
