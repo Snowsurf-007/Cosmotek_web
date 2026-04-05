@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$json_path = "commandes.json";
+$json_path = "../JSON/commandes.json"; 
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable.");
 }
@@ -12,20 +12,18 @@ $commande_paye = [];
 
 $search = $_GET['search'] ?? '';
 
-foreach($data as $commande){
-    // Filtrage par statut "paye"
-    if(isset($commande["statut"]) && $commande["statut"] == "paye"){
-        
-        if (!empty($search)) {
-            $nomClient = $commande['client'] ?? '';
-            $numCommande = $commande['numero'] ?? '';
-            
-            if (stripos($nomClient, $search) === false && stripos($numCommande, $search) === false) {
-                continue;
+if (is_array($data)) {
+    foreach($data as $commande){
+        if(isset($commande["statut"]) && $commande["statut"] == "paye"){
+            if (!empty($search)) {
+                $nomClient = $commande['client'] ?? '';
+                $numCommande = $commande['numero'] ?? '';
+                if (stripos($nomClient, $search) === false && stripos($numCommande, $search) === false) {
+                    continue;
+                }
             }
+            $commande_paye[] = $commande;
         }
-        
-        $commande_paye[] = $commande;
     }
 }
 
@@ -38,7 +36,6 @@ if ($tri === 'prix_croissant') {
 } else {
     usort($commande_paye, fn($a, $b) => strtotime($b['heure'] ?? '00:00') <=> strtotime($a['heure'] ?? '00:00'));
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -46,11 +43,11 @@ if ($tri === 'prix_croissant') {
     <meta charset="UTF-8">
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link rel="stylesheet" href="../back/fichier.css" media="screen"/>
 </head>
 <body>
 
-<?php include ("header2.php"); ?>
+<?php include ("../back/header2.php"); ?>
 
 <main class="page">
     <br><br><br>
@@ -63,7 +60,7 @@ if ($tri === 'prix_croissant') {
                    value="<?php echo htmlspecialchars($search); ?>">
             <button type="submit" class="btn-search">Rechercher</button>
             <?php if(!empty($search)): ?>
-                <a href="?" style="color: var(--red-normal); margin-left: 10px; text-decoration: none;">Effacer</a>
+                <a href="?" style="color: #ff4d4d; margin-left: 10px; text-decoration: none;">Effacer</a>
             <?php endif; ?>
         </form>
     </div>
@@ -103,10 +100,16 @@ if ($tri === 'prix_croissant') {
                 Voir sur Google Maps
             </a>
 
+            <?php if (!empty($commande['commentaire'])): ?>
+                <p style="margin-top: 10px; padding: 10px; background: #222; border-left: 4px solid #f1c40f;">
+                    <strong>Instructions :</strong> <?php echo htmlspecialchars($commande['commentaire']); ?>
+                </p>
+            <?php endif; ?>
+
             <p style="margin-top: 10px; font-size: 1.2em;"><strong> Total :</strong> <?php echo htmlspecialchars($commande['prix'] ?? '0'); ?> €</p>
             
             <br>
-            <a href="changement.php?numero=<?= $commande['numero']?>" 
+            <a href="../back/changement.php?numero=<?= $commande['numero']?>" 
                style="display:inline-block; padding: 15px; background-color: #00ff62; color: black; text-decoration: none; border-radius: 10px; font-weight: bold; width: 100%; text-align: center;">
                 PASSER EN LIVRAISON
             </a>
