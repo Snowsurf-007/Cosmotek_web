@@ -37,5 +37,5 @@ if (!empty($nom)) {
     }
 }
 
-header("Location: carte.php");
+header("Location: ../client/carte.php");
 ?>
