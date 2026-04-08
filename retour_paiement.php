@@ -39,8 +39,8 @@ if ($control_recu === $control_verif && $status === 'accepted') {
 
         $nouvelle_commande = [
             "numero"      => $transaction,
-            "client"      => $_SESSION['nom_utilisateur'] ?? 'Client Connecté', 
-            "adresse"     => $_SESSION['adresse_client'] ?? 'Adresse par défaut',
+            "client"      => $_SESSION['nom'] ?? 'Client Connecté', 
+            "adresse"     => $_SESSION['adresse'] ?? 'Adresse par défaut',
             "commentaire" => $_SESSION['commentaire_livraison'] ?? '',
             "produits"    => $produits_formates,
             "prix"        => $montant,
