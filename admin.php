@@ -4,6 +4,39 @@ if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
     header("Location: connexion.php");
     exit();
 }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $fichier = "users.json";
+    
+    if (file_exists($fichier)) {
+        $contenu = file_get_contents($fichier);
+        $utilisateurs = json_decode($contenu, true);
+    } else {
+        echo "pb fichier";
+        exit;
+    }
+
+    $id = $_POST['id'] ?? null;
+
+    if ($id === null || !isset($utilisateurs[$id])) {
+        echo "pb id";
+        exit;
+    }
+
+    // Mise à jour des champs
+    $utilisateurs[$id]['nom']     = $_POST['nom']    ?? $utilisateurs[$id]['nom'];
+    $utilisateurs[$id]['prenom']  = $_POST['prenom'] ?? $utilisateurs[$id]['prenom'];
+    $utilisateurs[$id]['adresse'] = $_POST['adresse']?? $utilisateurs[$id]['adresse'];
+    $utilisateurs[$id]['email']   = $_POST['email']  ?? $utilisateurs[$id]['email'];
+    $utilisateurs[$id]['fidelite']= $_POST['ptf']    ?? $utilisateurs[$id]['fidelite'];
+    $utilisateurs[$id]['statut']  = $_POST['statut'] ?? $utilisateurs[$id]['statut'];
+
+    // Sauvegarde dans le JSON
+    file_put_contents($fichier, json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+    // Redirection vers la liste
+    header("Location: admin.php");
+    exit();
+}
 $fichier = "users.json";
 $utilisateurs = [];
 function toto($str1) {
@@ -40,8 +73,7 @@ if (file_exists($fichier)) {
 </head>
 <body>
 
-<main>
-    <h1 class="user-card"><a href="listes.php">Liste des commandes</a></h1>   
+<h1 class="user-card"><a href="listes.php">Liste des commandes</a></h1>   
     <h1 class="user-card">Liste Utilisateurs :</h1>
 
     <section>
@@ -49,16 +81,17 @@ if (file_exists($fichier)) {
             <?php foreach ($utilisateurs as $index => $valeur): ?>
                 <div class="user-card" >
                     <h3>Utilisateur n°<?php echo $index; ?></h3>
-                    
                     <p><strong>Nom :</strong> <?php echo strtoupper($valeur['nom']); ?></p>
                     <p><strong>Prénom :</strong> <?php echo toto($valeur['prenom']); ?></p>
                     <p><strong>Adresse :</strong> <?php echo $valeur['adresse']; ?></p>
                     <p><strong>Email :</strong> <?php echo $valeur['email']; ?></p>
-                    <p><strong>Date de naissance :</strong> <?php echo $valeur['date']; ?></p>
-                    <p><strong>Date d'inscription :</strong> <?php echo $valeur['date_inscription']; ?></p>
-                    <p><strong>Statut :</strong> <?php echo $valeur['statut']; ?></p>
-                    <p><strong>Nombre de commandes :</strong> <?php echo $valeur['commandes']; ?></p>
+                    <p><strong>Statut :</strong> 
+                        <span class="<?php echo ($valeur['statut'] === 'bloque') ? 'etat-bloque' : ''; ?>">
+                            <?php echo $valeur['statut']; ?>
+                        </span>
+                    </p>
                     <p><strong>Points de fidélités :</strong> <?php echo $valeur['fidelite']; ?></p>
+                    
                     <a href="modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
                 </div>
             <?php endforeach; ?>
