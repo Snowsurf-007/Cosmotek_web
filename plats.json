@@ -8,7 +8,7 @@
         "prix": 9,
         "image": "Photos/Jambon-melon.jpg",
         "badge": "Populaire",
-        "filtres": ["entrees", "viande", "sans substance"]
+        "filtres": ["entrees", "viande", "sanssubstance"]
       },
       {
         "id": 2,
@@ -17,7 +17,7 @@
         "prix": 8,
         "image": "Photos/Salade.png",
         "badge": null,
-        "filtres": ["entrees", "vege", "sans substance"]
+        "filtres": ["entrees", "vege", "sanssubstance"]
       },
       {
         "id": 3,
@@ -26,7 +26,7 @@
         "prix": 18,
         "image": "Photos/Planchefoncedalle.jpeg",
         "badge": "2 personnes",
-        "filtres": ["entrees", "viande", "sans substance"]
+        "filtres": ["entrees", "viande", "sanssubstance"]
       },
       {
         "id": 20,
@@ -35,7 +35,7 @@
         "prix": 7.5,
         "image": "Photos/soupe-oignon.jpg",
         "badge": null,
-        "filtres": ["entrees", "vege", "sans substance"]
+        "filtres": ["entrees", "vege", "sanssubstance"]
       }
     ],
     "plats": [
@@ -46,7 +46,7 @@
         "prix": 13,
         "image": "Photos/pizza.png",
         "badge": "Plat du jour",
-        "filtres": ["plats", "viande", "sans substance"]
+        "filtres": ["plats", "viande", "sanssubstance"]
       },
       {
         "id": 5,
@@ -64,7 +64,7 @@
         "prix": 15,
         "image": "Photos/Burger.jpg",
         "badge": "Populaire",
-        "filtres": ["plats", "viande", "sans substance"]
+        "filtres": ["plats", "viande", "sanssubstance"]
       },
       {
         "id": 21,
@@ -73,7 +73,7 @@
         "prix": 17,
         "image": "Photos/saumon-grille.jpeg",
         "badge": null,
-        "filtres": ["plats", "viande", "sans substance"]
+        "filtres": ["plats", "viande", "sanssubstance"]
       }
     ],
     "desserts": [
@@ -84,7 +84,7 @@
         "prix": 5.5,
         "image": "Photos/Tartemyrtillles.jpg",
         "badge": null,
-        "filtres": ["desserts", "vege", "sans substance"]
+        "filtres": ["desserts", "vege", "sanssubstance"]
       },
       {
         "id": 8,
@@ -102,7 +102,7 @@
         "prix": 4.5,
         "image": "Photos/Glace.jpeg",
         "badge": null,
-        "filtres": ["desserts", "vege", "sans substance"]
+        "filtres": ["desserts", "vege", "substance"]
       },
       {
         "id": 22,
@@ -111,7 +111,7 @@
         "prix": 6,
         "image": "Photos/creme-brulee.jpg",
         "badge": null,
-        "filtres": ["desserts", "vege", "sans substance"]
+        "filtres": ["desserts", "vege", "sanssubstance"]
       }
     ],
     "boissons": [
@@ -122,7 +122,7 @@
         "prix": 2,
         "image": "Photos/eau.jpg",
         "badge": null,
-        "filtres": ["boissons", "sansalcool", "sans substance"]
+        "filtres": ["boissons", "sansalcool", "sanssubstance"]
       },
       {
         "id": 11,
@@ -131,7 +131,7 @@
         "prix": 2.5,
         "image": "Photos/Eau-petillante.jpg",
         "badge": null,
-        "filtres": ["boissons", "sansalcool", "sans substance"]
+        "filtres": ["boissons", "sansalcool", "sanssubstance"]
       },
       {
         "id": 12,
@@ -140,7 +140,7 @@
         "prix": 6,
         "image": "Photos/Jagerbomb.jpg",
         "badge": null,
-        "filtres": ["boissons", "alcool", "sans substance"]
+        "filtres": ["boissons", "alcool", "sanssubstance"]
       },
       {
         "id": 13,
@@ -149,7 +149,7 @@
         "prix": 7,
         "image": "Photos/TEK-PAF.jpg",
         "badge": null,
-        "filtres": ["boissons", "alcool", "sans substance"]
+        "filtres": ["boissons", "alcool", "sanssubstance"]
       },
       {
         "id": 24,
@@ -158,7 +158,7 @@
         "prix": 3.5,
         "image": "Photos/limonade.jpeg",
         "badge": null,
-        "filtres": ["boissons", "sansalcool", "sans substance"]
+        "filtres": ["boissons", "sansalcool", "sanssubstance"]
       },
       {
         "id": 14,
@@ -167,7 +167,7 @@
         "prix": 4.5,
         "image": "Photos/Biere.jpg",
         "badge": null,
-        "filtres": ["boissons", "alcool", "sans substance"]
+        "filtres": ["boissons", "alcool", "sanssubstance"]
       },
       {
         "id": 15,
@@ -194,7 +194,7 @@
         "prix": 3,
         "image": "Photos/cola.jpg",
         "badge": null,
-        "filtres": ["boissons", "sansalcool", "sans substance"]
+        "filtres": ["boissons", "sansalcool", "sanssubstance"]
       }
     ],
     "menus": [
