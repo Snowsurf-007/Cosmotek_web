@@ -9,6 +9,7 @@ session_start();
     <title>Inscription</title>
     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <script src="mdp.js" defer></script>
 </head>
 <body>
 
@@ -42,6 +43,7 @@ session_start();
         <div class="inscription2">
             <label ></label>
             <input type="password" name="mdp" id="mdp" placeholder="Mot de pase*">
+            <button type="button" onclick="togglePassword()">afficher le mot de passe</button>
         </div>
 		<br>
         <div class="anniversaire">
