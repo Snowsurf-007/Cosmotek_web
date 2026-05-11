@@ -8,6 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fichier = "avis.json"; 
     if (empty($food_rating) || empty($liv_rating)) {
         echo "<script>alert('Veuillez donner une note pour la nourriture et la livraison.');</script>";
+    }
+    elseif (strlen($commentaire) < 20) {
+        echo "<script>alert('Votre commentaire doit faire au moins 20 caractères.');</script>";
     } else {
         $nouvel_avis = [
             "email" => $_SESSION['email'], 
@@ -36,6 +39,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <script>
+        function verifierAvis() {
+            const textarea = document.getElementById("commentaire");
+            const compteur = document.getElementById("compteur-avis");
+            const longueur = textarea.value.length;
+            const mini = 20;
+            const max = 200;
+
+            if (longueur < mini) {   
+                compteur.innerHTML = "Caractères : " + longueur + " / " + mini + " minimum (Trop court)";
+            }
+            else if (longueur > max) {   
+                compteur.innerHTML = "Caractères : " + longueur + " / " + mini + " tu parles trop"
+            } else {
+                compteur.innerHTML = "Caractères : " + longueur + " (Longueur valide !)";
+            }
+        }
+        function validerEnvoi(event) {
+        if (!verifierAvis()) {
+            alert("Le commentaire ne respecte pas la taille autorisée (entre 20 et 200 caractères).");
+            event.preventDefault(); // Bloque l'envoi du formulaire
+            return false;
+        }
+        return true;
+    }
+    </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Avis - Cosmotek</title>
@@ -52,19 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
     <h1>Votre Avis Compte</h1>
 
-
+    (ajoute le truc pour regarder le nombre de caractere)
     <div class="rating-box">
         <p>Aidez-nous à améliorer l'expérience culinaire de l'espace</p>
-
-
-
-
-
-
-
-
-
-
         <form action="avis.php" method="POST">
             
             <div class="inscription">
@@ -89,7 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="inscription">
                     <label for="commentaire">Commentaire :</label>
-                    <textarea id="commentaire" name="commentaire" placeholder="Entrez votre message ici..."></textarea>    
+                    <textarea id="commentaire" name="commentaire" placeholder="Entrez votre message ici..." oninput="verifierAvis()"></textarea>    
+                </div>
+                <div id="compteur" >
+                    Caractères : 0 / 20 minimum
                 </div>
                 <input type="submit" value="Envoyer" class="bouton">
             </div>
