@@ -14,9 +14,7 @@ $avis = [];
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);
     $avis = json_decode($contenu, true);
-    $num = 1;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,13 +58,20 @@ if (file_exists($fichier)) {
         <br>
         <h2>Mes avis</h2>
         <div class="info-card">
-        <?php foreach ($avis as $index => $valeur): ?>
+        <?php 
+        $numavi = 1;
+        foreach ($avis as $index => $valeur): ?>
             <?php if(isset($valeur['email']) && $valeur['email'] == $_SESSION['email']){ ?>
-                <h3>Avis n°<?php echo $index + 1; ?> :</h3>    
+                <h3>Avis n°<?php echo $numavi; ?> :</h3>    
                 <p><strong>Note de la nourriture :</strong> <?php echo $valeur['note_nourriture']; ?>/5</p>
                 <p><strong>Note de la livraison :</strong> <?php echo $valeur['note_livraison']; ?>/5</p>
                 <p><strong>Commentaire :</strong> <?php echo $valeur['commentaire']; ?></p>        
-        <?php } endforeach; ?>        
+        <?php $numavi++;
+        } endforeach; ?>  
+        <?php if ($numavi == 1) {
+            echo "<p>Vous n'avez pas encore laissé d'avis.</p>";
+        }
+        ?>      
 
         </div>
 
