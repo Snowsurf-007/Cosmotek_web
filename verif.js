@@ -1,3 +1,18 @@
+//verif cote serveur
+function verifierStatutCompte() {
+    // on verif 'via php'
+    fetch('statut.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.statut === "bloque") {
+                alert("Votre compte a été bloqué par un administrateur. Vous allez être déconnecté.");[cite: 252]
+                window.location.href = "deconnexion.php"; // Redirection immédiate
+            }
+        });
+}
+// On vérifi toutes les secondes 
+setInterval(verifierStatutCompte, 1000);
+
 function afficherErreur(message) {
     const erreur = document.getElementById("erreur");
     erreur.textContent = message;
