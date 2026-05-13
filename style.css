@@ -588,7 +588,7 @@ label {
 }
 
 .rating label {
-  color: #ccc;
+  color: var(--gray-soft);
   cursor: pointer;
   transition: color 0.2s ease;
 }
@@ -657,7 +657,7 @@ label {
 
 /* LIVRAISON (fait pour etre simple d'utilisation avec des gants sur un telephone) */
 .card-livraison {
-  background: #1a1a1a;
+  background: var(--black-soft);
   border-radius: 20px;
   padding: 25px;
   margin: 20px 10px;

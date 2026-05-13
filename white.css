@@ -3,8 +3,9 @@
 :root {
   /* Noirs / Gris */
   --white-pure: rgb(20, 20, 20);
-  --black-soft: rgb(35, 35, 35);
+  --black-soft: rgb(200, 190, 190);
   --gray-medium: rgb(79, 87, 84);
+  --gray-soft: rgb(35, 35, 35);
 
   /* Blanc */
   --black-deep: rgb(255, 255, 255);
