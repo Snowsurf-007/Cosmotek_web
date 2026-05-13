@@ -1,3 +1,8 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" id="theme-css" href="black.css">
+    <script src="theme.js"></script>
+</head>
 <header>
     <div class="header-container">
         <a href="index.php" class="logo-link">
@@ -12,6 +17,7 @@
             <a href="profil.php">PROFIL</a>
             <a href="avis.php">AVIS</a>
             <a href="panier.php">PANIER</a>
+            <button id="theme-bouton">☀️ Clair</button>
         </nav>
     </div>
 </header>
