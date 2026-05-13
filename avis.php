@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script>
         function verifierAvis() {
             const textarea = document.getElementById("commentaire");
-            const compteur = document.getElementById("compteur-avis");
+            const compteur = document.getElementById("compteur");
             const longueur = textarea.value.length;
             const mini = 20;
             const max = 200;
