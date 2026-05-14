@@ -17,47 +17,19 @@ header {
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  min-height: 60px;
+  min-height: 80px;
 }
 
 .logo-link {
   display: flex;
+  gap: 15px;
   align-items: center;
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.logo-panier {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  border: 2px solid var(--purple-dark);
-  border-radius: 5px;
-  background-color: var(--black-soft);
-  margin-bottom: 0;
-}
-
-.logo-panier:hover {
-  border-color: var(--green-neon);
-  background-color: var(--purple-dark);
-}
-
-.logo-panier > img {
-  height: 40px;
-  width: auto;
-  border: none;
-  border-radius: 0;
-  margin: 0;
-  display: inline;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-logo {
@@ -79,8 +51,8 @@ header {
 
 .header-nav {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 15px;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
@@ -102,6 +74,32 @@ header {
   background-color: var(--purple-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(57, 202, 84, 0.5);
+}
+
+#theme-bouton {
+  background-color: var(--purple-dark);
+  color: var(--white-pure);
+  border: 2px solid var(--purple-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  min-width: 140px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--font-orbitron);
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+#theme-bouton:hover {
+  background-color: var(--green-neon);
+  color: var(--black-deep);
+  border-color: var(--green-neon);
+  box-shadow: 0 0 15px var(--green-neon);
 }
 
 /* FOOTER */
@@ -722,6 +720,10 @@ p {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
+  header {
+    position: relative;
+  }
+
   .header-container {
     flex-direction: column;
     gap: 15px;
@@ -748,6 +750,10 @@ p {
 }
 
 @media (max-width: 768px) {
+  header {
+    position: relative;
+  }
+
   .header-container {
     flex-direction: column;
     gap: 10px;
@@ -852,6 +858,10 @@ p {
 }
 
 @media (max-width: 500px) {
+  header {
+    position: relative;
+  }
+
   .site-name {
     font-size: 12px;
   }
