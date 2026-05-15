@@ -76,6 +76,12 @@ header {
   box-shadow: 0 4px 8px rgba(57, 202, 84, 0.5);
 }
 
+/* Reset du margin-bottom global sur les <a> qui décale les liens du header */
+.header-nav a,
+#theme-bouton {
+  margin-bottom: 0;
+}
+
 #theme-bouton {
   background-color: var(--purple-dark);
   color: var(--white-pure);
@@ -93,6 +99,7 @@ header {
   font-size: 14px;
   transition: all 0.3s ease;
   text-transform: uppercase;
+  vertical-align: middle;
 }
 
 #theme-bouton:hover {
@@ -457,6 +464,7 @@ button, [type="submit"] {
   transition: all 0.3s ease;
   font-family: var(--font-orbitron);
   font-size: 16px;
+  vertical-align: middle;
 }
 
 button:hover, [type="submit"]:hover {
