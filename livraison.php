@@ -22,7 +22,7 @@ foreach($data as $commande){
     <link rel="stylesheet" href="fichier.css">
 </head>
 <body>
-
+<?php include("header2.php"); ?>
 <main>
     <h1 class="card-livraison" style="text-align:center;"> Mes Livraisons</h1>
 

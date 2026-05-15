@@ -77,13 +77,30 @@ if (file_exists($fichier)) {
 
         <br>
         <div style="margin-top: 20px;">
-            <a href="carte.php" style="margin: 10px;">Commander maintenant</a>
+            <a href="carte.php" style="margin: 10px;">🍽️ Commander maintenant</a>
             <a href="inscription.php" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
-            <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">Se déconnecter</a>
+            <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">🚪 Se déconnecter</a>
         </div>
     </div>
 </div>
 
+<?php if (in_array($statut, ['admin', 'cuisinier', 'livreur'])):?> <!--Espace pro n'apparaissant que si l'utilisateur est admin, livreur ou cuisto-->
+    <div class="page">
+        <div style="margin-top: 20px;">
+            <h2>Espace pro</h2>
+            <?php if ((isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin') || (isset($_SESSION['statut']) && $_SESSION['statut'] === 'cuisinier')): ?> <!--que si l'utilisateur est admin ou cuisto-->
+            <a href="commande.php" style="margin: 10px; background-color: var(--red-normal);">🔪 Espace cuisinier</a>
+            <?php endif; ?>
+            <?php if ((isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin') || (isset($_SESSION['statut']) && $_SESSION['statut'] === 'livreur')): ?> <!--que si l'utilisateur est admin ou livreur-->
+            <a href="livraison.php" style="margin: 10px; background-color: var(--red-normal);">📦 Espace livreur</a>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['statut']) && $_SESSION['statut'] === 'admin'): ?> <!--que si l'utilisateur est admin-->
+            <a href="admin.php" style="margin: 10px; background-color: var(--red-normal);">⚙️ Espace administrateur</a>
+            <?php endif; ?>
+        </div>
+    </div>
+    <br><br>
+<?php endif; ?>
 
 <?php
     include ("footer.php");
