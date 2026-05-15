@@ -41,6 +41,7 @@ $boutons_filtres = [
                 <?php endforeach; ?>
             </div>
         </div>
+        <br>
 
         <div class="sort-container">
             <select id="tri-select" class="select-style">
@@ -50,6 +51,7 @@ $boutons_filtres = [
                 <option value="nom-asc">Nom : A-Z</option>
             </select>
         </div>
+        <br>
 
         <div class="search-form">
             <input type="text" id="input-recherche" placeholder="Rechercher...">
