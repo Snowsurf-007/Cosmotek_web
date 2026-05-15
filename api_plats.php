@@ -1,13 +1,16 @@
 <?php
 header('Content-Type: application/json');
 
-$json_data = file_get_contents("plats.json");
-$data = json_decode($json_data, true);
-$categories = $data['carte'];
+$filename = "plats.json";
+if (!file_exists($filename)) {
+    echo json_encode([]); exit;
+}
+
+$data = json_decode(file_get_contents($filename), true);
+$categories = $data['carte'] ?? [];
 
 $filtre = $_GET['f'] ?? 'all';
 $search = $_GET['q'] ?? '';
-
 $resultat = [];
 
 foreach ($categories as $nom_cat => $liste_plats) {
@@ -17,7 +20,7 @@ foreach ($categories as $nom_cat => $liste_plats) {
             if (!$match) return false;
         }
         if ($filtre === 'all') return true;
-        return isset($p['filtres']) && in_array($filtre, $p['filtres']);
+        return isset($p['filtres']) && is_array($p['filtres']) && in_array($filtre, $p['filtres']);
     });
 
     if (!empty($plats_filtrés)) {
