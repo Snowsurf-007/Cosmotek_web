@@ -420,6 +420,7 @@ ul {
 li {
   margin-bottom: 10px;
   font-size: 18px;
+  color: var(--white-pure);
 }
 
 li ul {
