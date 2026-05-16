@@ -36,7 +36,7 @@ if (file_exists($fichier)) {
     <link rel="stylesheet" href="fichier.css" media="screen"/>
 </head>
 <body>
-
+<?php include("header2.php"); ?>
 <main>
     <h1 class="user-card"><a href="admin.php">Liste Utilisateurs</a></h1>   
     <h1 class="user-card">Liste commandes :</h1>
