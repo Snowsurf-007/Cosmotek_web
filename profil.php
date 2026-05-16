@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 function logout(){
     session_unset();
     session_destroy();
@@ -24,6 +23,7 @@ if (file_exists($fichier)) {
     <title>Mon Profil - Cosmotek</title>
     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <script src="verifstat.js" defer></script>
 </head>
 <body>
 
@@ -78,13 +78,13 @@ if (file_exists($fichier)) {
         <br>
         <div style="margin-top: 20px;">
             <a href="carte.php" style="margin: 10px;">🍽️ Commander maintenant</a>
-            <a href="inscription.php" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
+            <a href="mdprofil.php" style="margin: 10px; background-color: var(--purple-dark);">✏️ Modifier mon profil</a>
             <a href="logout.php" style="margin: 10px; background-color: var(--black-deep);">🚪 Se déconnecter</a>
         </div>
     </div>
 </div>
 
-<?php if (in_array($statut, ['admin', 'cuisinier', 'livreur'])):?> <!--Espace pro n'apparaissant que si l'utilisateur est admin, livreur ou cuisto-->
+<?php if (in_array($_SESSION['statut'], ['admin', 'cuisinier', 'livreur'])):?> <!--Espace pro n'apparaissant que si l'utilisateur est admin, livreur ou cuisto-->
     <div class="page">
         <div style="margin-top: 20px;">
             <h2>Espace pro</h2>
