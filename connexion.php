@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $admins       = file_exists("verif.json")    ? json_decode(file_get_contents("verif.json"),    true) : [];
     $livreurs     = file_exists("livreurs.json") ? json_decode(file_get_contents("livreurs.json"), true) : [];
 
-    function setSession($u) {
+    function setSession($u, $id = null) {
+        $_SESSION['user_id'] = $id;
         $_SESSION['email'] = $u['email'];
         $_SESSION['nom'] = $u['nom'];
         $_SESSION['prenom'] = $u['prenom'];
@@ -42,15 +43,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    foreach ($utilisateurs as $user) {
+    foreach ($utilisateurs as $index => $user) {
         if ($user['email'] === $email && password_verify($mdp, $user['mdp'])) {
-            setSession($user);
+            if (isset($user['statut']) && $user['statut'] === 'bloque') {
+                $erreur = "T'es BAN";
+                break;
+            }
+            setSession($user, $index);
             header("Location: profil.php");
             exit();
         }
     }
 
-    $erreur = "Email ou mot de passe incorrect.";
+    if (empty($erreur)) {
+        $erreur = "Email ou mot de passe incorrect.";
+    }
 }
 ?>
 <!DOCTYPE html>
