@@ -1,17 +1,28 @@
-//verif cote serveur
-function verifierStatutCompte() {
-    // on verif 'via php'
+// verif en direct
+function verifstat() {
+    //on verif avec php
     fetch('statut.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.statut === "bloque") {
-                alert("Votre compte a été bloqué par un administrateur. Vous allez être déconnecté.");[cite: 252]
-                window.location.href = "deconnexion.php"; // Redirection immédiate
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur réseau ou fichier statut.php introuvable");
             }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Statut reçu du serveur :", data.statut);
+
+            if (data.statut === "bloque") {
+                alert("Votre compte a été bloqué par un administrateur. Vous allez être déconnecté.");
+                window.location.href = ".php";
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors de la vérification du statut :", error);
         });
 }
-// On vérifi toutes les secondes 
-setInterval(verifierStatutCompte, 1000);
+
+// Verif toutes les secondes 
+setInterval(verifstat, 1000);
 
 function afficherErreur(message) {
     const erreur = document.getElementById("erreur");
