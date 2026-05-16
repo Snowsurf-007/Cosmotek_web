@@ -60,6 +60,7 @@ if ($utilisateurs[$id]['statut'] === "bloque") {
     </script>
 </head>
 <body>
+	<?php include("header2.php"); ?>
 	<div class="page">
     <h3>Modification d'information</h3>
 
