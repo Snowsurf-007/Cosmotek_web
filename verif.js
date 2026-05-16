@@ -9,6 +9,7 @@ function verifstat() {
             return response.json();
         })
         .then(data => {
+            // pour verif si ça marche bien 
             console.log("Statut reçu du serveur :", data.statut);
 
             if (data.statut === "bloque") {
