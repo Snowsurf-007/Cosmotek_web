@@ -7,11 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $fichier = "avis.json"; 
     if (empty($food_rating) || empty($liv_rating)) {
-        echo "<script>alert('Veuillez donner une note pour la nourriture et la livraison.');</script>";
+        $erreur = "Veuillez donner une note pour la nourriture et la livraison.";
     }
-    elseif (strlen($commentaire) < 20) {
-        echo "<script>alert('Votre commentaire doit faire au moins 20 caractères.');</script>";
-    } else {
+    //verif la taille du texte
+    elseif (strlen($commentaire) < 20 || strlen($commentaire) > 200) {
+        $erreur = "Votre commentaire doit faire entre 20 et 200 caractères.";
+    } 
+    
+    //si tout est ok
+    if (empty($erreur)) {
         $nouvel_avis = [
             "email" => $_SESSION['email'], 
             "note_nourriture" => $food_rating,
@@ -19,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "commentaire" => $commentaire, 
             "date_avis" => date("d/m/Y H:i:s")
         ];
+        
         if (file_exists($fichier)) {
             $contenu = file_get_contents($fichier);
             $data = json_decode($contenu, true);
@@ -28,12 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $data = [];
         }
+        
         $data[] = $nouvel_avis;
-        file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT ));
+        file_put_contents($fichier, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        
         header("Location: profil.php");
+        exit();
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 compteur.innerHTML = "Caractères : " + longueur + " / " + mini + " minimum (Trop court)";
             }
             else if (longueur > max) {   
-                compteur.innerHTML = "Caractères : " + longueur + " / " + mini + " tu parles trop"
+                compteur.innerHTML = "Caractères : " + longueur + " / " + max + " tu parles trop"
             } else {
                 compteur.innerHTML = "Caractères : " + longueur + " (Longueur valide !)";
             }
@@ -59,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         function validerEnvoi(event) {
         if (!verifierAvis()) {
             alert("Le commentaire ne respecte pas la taille autorisée (entre 20 et 200 caractères).");
-            event.preventDefault(); // Bloque l'envoi du formulaire
+            event.preventDefault(); // Bloque l'envoi 
             return false;
         }
         return true;
@@ -84,6 +91,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     (ajoute le truc pour regarder le nombre de caractere)
     <div class="rating-box">
         <p>Aidez-nous à améliorer l'expérience culinaire de l'espace</p>
+        <?php if (!empty($erreur)): ?>
+           <div class="inscription">
+                <p>
+                    <?php echo $erreur; ?>
+                </p>
+            </div>     
+        <?php endif; ?>
         <form action="avis.php" method="POST">
             
             <div class="inscription">
