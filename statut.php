@@ -14,5 +14,4 @@ if ($id !== null && file_exists($fichier)) {
         exit;
     }
 }
-echo json_encode(['statut' => 'actif']);
 ?>
