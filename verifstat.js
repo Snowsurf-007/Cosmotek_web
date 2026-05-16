@@ -1,6 +1,5 @@
-// ban en direct
-function verifierStatutCompte() {
-  //on app phph
+// Fonction isolée pour vérifier le bannissement en temps réel
+function verifstat() {
     fetch('statut.php')
         .then(response => {
             if (!response.ok) {
@@ -13,7 +12,7 @@ function verifierStatutCompte() {
 
             if (data.statut === "bloque") {
                 alert("Votre compte a été bloqué par un administrateur. Vous allez être déconnecté.");
-                window.location.href = "logout.php";
+                window.location.href = ".php";
             }
         })
         .catch(error => {
@@ -21,5 +20,5 @@ function verifierStatutCompte() {
         });
 }
 
-// Verif toutes les secondes 
-setInterval(verifierStatutCompte, 1000);
+// Vérification toutes les secondes pour le test en direct
+setInterval(verifstat, 1000);
