@@ -1,5 +1,6 @@
-// Fonction isolée pour vérifier le bannissement en temps réel
+// verif en direct
 function verifstat() {
+    //on verif avec php
     fetch('statut.php')
         .then(response => {
             if (!response.ok) {
@@ -20,5 +21,5 @@ function verifstat() {
         });
 }
 
-// Vérification toutes les secondes pour le test en direct
+// Verif toutes les secondes 
 setInterval(verifstat, 1000);
