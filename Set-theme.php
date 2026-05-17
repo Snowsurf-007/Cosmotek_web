@@ -5,9 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($theme === 'sombre' || $theme === 'clair') {
         $duree = 30 * 24 * 60 * 60; // 1 mois en secondes
         setcookie('theme', $theme, [
-            'expires'  => time() + $duree,
-            'path'     => '/',
-            'secure'   => true,
+            'expires' => time() + $duree,
+            'path' => '/',
+            'secure' => true,
             'httponly' => false,
             'samesite' => 'Lax',
         ]);
