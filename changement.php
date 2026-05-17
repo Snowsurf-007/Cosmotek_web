@@ -3,7 +3,7 @@ session_start();
 
 $json_path = "commandes.json";
 
-// On vérifie si le fichier existe avant de tenter de le lire
+// On vérifiel'existence du fichier
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable.");
 }
@@ -18,13 +18,11 @@ if (isset($_GET["numero"]) && isset($_GET["livreur"])) {
 
     foreach ($data as &$commande) {
         if ($commande["numero"] == $numero) {
-            // Mise à jour du statut
             $commande["statut"] = "livraison";
-            // Ajout du nom du livreur dans le JSON
             $commande["livreur"] = $livreur;
         }
     }
-    unset($commande); // On libère la référence
+    unset($commande);
 
     // On sauvegarde les modifications dans le fichier JSON
     file_put_contents($json_path, json_encode($data, JSON_PRETTY_PRINT));
