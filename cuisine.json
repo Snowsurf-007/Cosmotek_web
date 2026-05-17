@@ -1,0 +1,22 @@
+[
+    {
+        "nom": "cuisine1",
+        "prenom": "cuisine1",
+        "adresse": "cuisine",
+        "email": "cuisine1@gmail.com",
+        "mdp": "$2y$12$dcrjACyCBI655ys0C7oVzelQPF2fkx8nwUjS.mdbjbtsjdfDY36.a",
+        "date": "2026-05-07",
+        "date_inscription": "01\/04\/2026",
+        "statut": "cuisine"
+    },
+    {
+        "nom": "cuisine2",
+        "prenom": "cuisine2",
+        "adresse": "cuisine2",
+        "email": "cuisine2@gmail.com",
+        "mdp": "$2y$12$VqDdBHvIywYVNFnuEdJ7SO9V.6L3iCqe18.yVR.sL7.eG9moSC0U.",
+        "date": "2026-04-05",
+        "date_inscription": "05\/04\/2026",
+        "statut": "cuisine"
+    }
+]
