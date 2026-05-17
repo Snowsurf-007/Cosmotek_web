@@ -2,17 +2,17 @@
 session_start();
 
 $boutons_filtres = [
-    'all'            => 'Tout',
-    'entrees'        => 'Entrées',
-    'plats'          => 'Plats',
-    'desserts'       => 'Desserts',
-    'boissons'       => 'Boissons',
-    'menus'          => 'Menus',
-    'vege'           => 'Végé',
-    'viande'         => 'Viande',
-    'alcool'         => 'Alcool',
-    'sansalcool'     => 'Sans Alcool',
-    'substance'      => 'Substances',
+    'all' => 'Tout',
+    'entrees' => 'Entrées',
+    'plats' => 'Plats',
+    'desserts' => 'Desserts',
+    'boissons' => 'Boissons',
+    'menus' => 'Menus',
+    'vege' => 'Végé',
+    'viande' => 'Viande',
+    'alcool' => 'Alcool',
+    'sansalcool' => 'Sans Alcool',
+    'substance' => 'Substances',
     'sans substance' => 'Sans Substances'
 ];
 ?>
