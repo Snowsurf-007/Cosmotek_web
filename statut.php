@@ -12,7 +12,7 @@ if ($id === null) {
     exit();
 }
 
-// 2. On va lire le fichier JSON frais sur le serveur pour voir les modifs de l'admin
+// lire le fichier JSON sur le serveur pour voir les modifs de l'admin
 if (file_exists($fichier)) {
     $utilisateurs = json_decode(file_get_contents($fichier), true);
     if (isset($utilisateurs[$id])) {
