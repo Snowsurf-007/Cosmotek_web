@@ -23,12 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Mise à jour des champs
-    $utilisateurs[$id]['nom']     = $_POST['nom']    ?? $utilisateurs[$id]['nom'];
-    $utilisateurs[$id]['prenom']  = $_POST['prenom'] ?? $utilisateurs[$id]['prenom'];
-    $utilisateurs[$id]['adresse'] = $_POST['adresse']?? $utilisateurs[$id]['adresse'];
-    $utilisateurs[$id]['email']   = $_POST['email']  ?? $utilisateurs[$id]['email'];
-    $utilisateurs[$id]['fidelite']= $_POST['ptf']    ?? $utilisateurs[$id]['fidelite'];
-    $utilisateurs[$id]['statut']  = $_POST['statut'] ?? $utilisateurs[$id]['statut'];
+    $utilisateurs[$id]['nom'] = $_POST['nom'] ?? $utilisateurs[$id]['nom'];
+    $utilisateurs[$id]['prenom'] = $_POST['prenom'] ?? $utilisateurs[$id]['prenom'];
+    $utilisateurs[$id]['adresse'] = $_POST['adresse'] ?? $utilisateurs[$id]['adresse'];
+    $utilisateurs[$id]['email'] = $_POST['email'] ?? $utilisateurs[$id]['email'];
+    $utilisateurs[$id]['fidelite']= $_POST['ptf'] ?? $utilisateurs[$id]['fidelite'];
+    $utilisateurs[$id]['statut'] = $_POST['statut'] ?? $utilisateurs[$id]['statut'];
 
     // Sauvegarde dans le JSON
     file_put_contents($fichier, json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
