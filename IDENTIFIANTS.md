@@ -1,7 +1,6 @@
 # 🚀 Identifiants de Test - Cosmotek
 
 Pour tester le site, voici les adresses email et les mots de passe de chaque compte. 
-*Note : Pour chaque utilisateur, le mot de passe correspond exactement à son **prénom**.
 
 ---
 
@@ -18,14 +17,8 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 
 | Adresse Email | Mot de passe |
 | :--- | :--- |
-| `invite@gmail.com`  | `Invite`  |
-| `client2@gmail.com` | `client2` |
-| `client3@gmail.com` | `client3` |
-| `client4@gmail.com` | `client4` |
-| `client5@gmail.com` | `client5` |
-| `client6@gmail.com` | `client6` |
-| `client7@gmail.com` | `client7` |
-| `client8@gmail.com` | `client8` |
+| `livreur@gmail.com`  | `Invite`  |
+| `livreur2@gmail.com` | `client2` |
 
 ---
 
