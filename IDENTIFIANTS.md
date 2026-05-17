@@ -22,6 +22,15 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 
 ---
 
+## Cuisiniers
+
+| Adresse Email | Mot de passe |
+| :--- | :--- |
+| `cuisine1@gmail.com`  | `Cuisinier1`  |
+| `cuisine22@gmail.com` | `cuisine2`    |
+
+---
+
 ## 👨‍🚀 Comptes Clients (Astronautes)
 
 | Adresse Email | Mot de passe |
