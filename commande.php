@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// --- 1. CHARGEMENT DES COMMANDES ---
+// CHARGEMENT DES COMMANDES
 $json_path = "commandes.json";
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable.");
@@ -10,7 +10,7 @@ if (!file_exists($json_path)) {
 $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 
-// --- 2. CHARGEMENT DES LIVREURS (Dynamique) ---
+// CHARGEMENT DES LIVREURS
 $livreurs_path = "livreurs.json";
 $livreurs = [];
 if (file_exists($livreurs_path)) {
@@ -202,7 +202,7 @@ if ($tri === 'prix_croissant') {
     <?php endforeach; ?>
 </main>
 
-<!-- Fenêtre Modale de sélection de livreur (DYNAMIQUE) -->
+<!-- Sélection de livreur -->
 <div id="modalLivreur" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="fermerModal()">&times;</span>
@@ -212,9 +212,7 @@ if ($tri === 'prix_croissant') {
         <div class="livreurs-grid">
             <?php if (!empty($livreurs)): ?>
                 <?php foreach ($livreurs as $l): 
-                    // On combine prenom + nom pour l'affichage et l'envoi
                     $nomComplet = ($l['prenom'] ?? '') . " " . ($l['nom'] ?? '');
-                    // On définit une photo par défaut si le champ est vide
                     $photo = !empty($l['photo']) ? $l['photo'] : 'Photos/default_avatar.jpg';
                 ?>
                     <div class="livreur-card" onclick="validerLivraison('<?= addslashes(trim($nomComplet)) ?>')">
