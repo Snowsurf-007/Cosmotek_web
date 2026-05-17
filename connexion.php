@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $utilisateurs = file_exists("users.json")    ? json_decode(file_get_contents("users.json"),    true) : [];
     $admins       = file_exists("verif.json")    ? json_decode(file_get_contents("verif.json"),    true) : [];
     $livreurs     = file_exists("livreurs.json") ? json_decode(file_get_contents("livreurs.json"), true) : [];
+    $cuisine      = file_exists("cuisine.json")  ? json_decode(file_get_contents("livreurs.json"), true) : [];
 
     function setSession($u, $id = null) {
         $_SESSION['user_id'] = $id;
@@ -54,6 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
     }
+    foreach ($cuisine as $cuisine) {
+        if ($cuisine['email'] === $cuisine && password_verify($mdp, $cuisine['mdp'])) {
+            setSession($cuisine);
+            header("Location: commande.php");
+            exit();
+        }
+    }
+
 
     if (empty($erreur)) {
         $erreur = "Email ou mot de passe incorrect.";
