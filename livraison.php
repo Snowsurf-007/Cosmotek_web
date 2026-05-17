@@ -30,7 +30,8 @@ if ($data) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Livraison - Creative Yumland</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <script src="verifstat.js" defer></script>
 </head>
     
 <?php include("header2.php");?>
