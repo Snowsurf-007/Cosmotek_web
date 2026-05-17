@@ -50,12 +50,12 @@ form.addEventListener("submit", (e) => {
     // Reset erreur
     document.getElementById("erreur").style.display = "none";
 
-    const nom     = document.getElementById("nom").value.trim();
-    const prenom  = document.getElementById("prenom").value.trim();
+    const nom = document.getElementById("nom").value.trim();
+    const prenom = document.getElementById("prenom").value.trim();
     const adresse = document.getElementById("adresse").value.trim();
-    const email   = document.getElementById("email").value.trim();
-    const mdp     = document.getElementById("mdp").value;
-    const date    = document.getElementById("date").value;
+    const email = document.getElementById("email").value.trim();
+    const mdp = document.getElementById("mdp").value;
+    const date = document.getElementById("date").value;
 
     // Champs vides
     if (!nom || !prenom || !adresse || !email || !mdp || !date) {
@@ -95,8 +95,8 @@ form.addEventListener("submit", (e) => {
 
     // Date : passé + âge >= 13 ans
     const dateNaissance = new Date(date);
-    const aujourdhui    = new Date();
-    const ageLimite     = new Date();
+    const aujourdhui = new Date();
+    const ageLimite = new Date();
     ageLimite.setFullYear(ageLimite.getFullYear() - 13);
 
     if (dateNaissance >= aujourdhui) {
