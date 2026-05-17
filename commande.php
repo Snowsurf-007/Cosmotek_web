@@ -50,6 +50,92 @@ if ($tri === 'prix_croissant') {
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <style>
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid #00ff62;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #ff4d4d;
+        }
+
+        .livreurs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .livreur-card {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .livreur-card:hover {
+            border-color: #00ff62;
+            transform: translateY(-5px);
+            background: #333;
+        }
+
+        .livreur-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid #00ff62;
+        }
+
+        .livreur-card p {
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: capitalize;
+        }
+
+        .btn-livraison {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #00ff62;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body>
 
