@@ -39,6 +39,16 @@ Elle permet de rendre l’application **fonctionnelle avec gestion des données 
 
 ---
 
+### ⚡ Phase #3
+
+La troisiéme phase ajoute la partie asynchrone
+
+* **Zéro rechargement** : Utilisation intensive de **JavaScript (DOM)** et de requêtes asynchrones pour modifier l'interface en temps réel.
+* **Persistance locale** : Stockage des préférences d'affichage dans les cookies.
+* **Sécurisation front-end** : Validation des formulaires côté client avant envoi au serveur.
+
+---
+
 ## ⚙️ Fonctionnalités
 
 ### 🖥️ 1. Interfaces de navigation (Front-end)
@@ -174,11 +184,14 @@ cd Cosmotek_web
 
 ## 📄 Documentation
 
-* **Charte graphique** (PNG)
+* **Charte graphique**
 * **Rapport de mission** :
 
-  * Phase #1 : conception + organisation
-  * Phase #2 : modèle de données, choix techniques, problèmes rencontrés et solutions
+  * Phase #1
+  * Phase #2
+  * Phase #3
+  * conception + organisation
+  * modèle de données, choix techniques, problèmes rencontrés et solutions
 
 ---
 
