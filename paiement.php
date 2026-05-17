@@ -15,12 +15,12 @@ foreach ($_SESSION['panier'] as $item) {
 }
 
 // Paramètres CYBank
-$vendeur     = 'MI-1_A';
+$vendeur = 'MI-1_A';
 $transaction = 'COSMOTEK' . strtoupper(substr(session_id(), 0, 12));
-$montant     = number_format($total, 2, '.', '');
-$retour      = 'http://' . $_SERVER['HTTP_HOST'] . '/retour_paiement.php?session=' . session_id();
+$montant = number_format($total, 2, '.', '');
+$retour = 'http://' . $_SERVER['HTTP_HOST'] . '/retour_paiement.php?session=' . session_id();
 
-// Calcul du control
+// Calcul du controle
 $api_key = getAPIKey($vendeur);
 $control = md5($api_key . '#' . $transaction . '#' . $montant . '#' . $vendeur . '#' . $retour . '#');
 ?>
