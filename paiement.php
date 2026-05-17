@@ -33,6 +33,7 @@ $control = md5($api_key . '#' . $transaction . '#' . $montant . '#' . $vendeur .
     <title>Cosmotek - Paiement</title>
     <link href="Photos/Logo.png" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <script src="verifstat.js" defer></script>
 </head>
 <body>
 
