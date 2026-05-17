@@ -29,9 +29,8 @@ if ($data && is_array($data)) {
     <link rel="stylesheet" href="fichier.css">
 </head>
 <body>
-<?php 
-        include("header.php");
-    ?>
+<?php include("header2.php");?>
+<br><br><br><br><br><br><br><br><br>
 <main>
     <h1 class="card-livraison" style="text-align:center;"> 
         Livraisons de <?= htmlspecialchars($livreur_connecte) ?>
