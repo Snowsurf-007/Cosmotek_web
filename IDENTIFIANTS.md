@@ -17,8 +17,8 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 
 | Adresse Email | Mot de passe |
 | :--- | :--- |
-| `livreur@gmail.com`  | `Invite`  |
-| `livreur2@gmail.com` | `client2` |
+| `livreur@gmail.com`  | `livreur`  |
+| `livreur2@gmail.com` | `livreur2` |
 
 ---
 
