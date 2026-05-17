@@ -93,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Modifier mon profil - Cosmotek</title>
     <link href="Photos/Logo.png" rel="icon">
     <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <script src="verifstat.js" defer></script>
 </head>
 <body>
 
