@@ -59,14 +59,14 @@ session_start();
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    $nom      = $_REQUEST['nom'];
-    $prenom   = $_REQUEST['prenom'];
-    $adresse  = $_REQUEST['adresse'];
-    $date     = $_REQUEST['date'];
-    $email    = $_REQUEST['email'];
-    $mdp      = $_REQUEST['mdp'];
-    $fichier  = "users.json";
-    $check    = 0;
+    $nom = $_REQUEST['nom'];
+    $prenom = $_REQUEST['prenom'];
+    $adresse = $_REQUEST['adresse'];
+    $date = $_REQUEST['date'];
+    $email = $_REQUEST['email'];
+    $mdp = $_REQUEST['mdp'];
+    $fichier = "users.json";
+    $check = 0;
 
     if(empty($nom) || empty($prenom) || empty($adresse) || empty($email) || empty($mdp) || empty($date)){
         echo "<script>alert('Veuillez remplir les champs');</script>";
