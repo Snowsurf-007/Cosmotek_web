@@ -2,10 +2,10 @@
 session_start();
 require('getapikey.php');
 
-$transaction  = $_GET['transaction'] ?? '';
-$montant      = $_GET['montant'] ?? '';
-$vendeur      = $_GET['vendeur'] ?? '';
-$status       = $_GET['status'] ?? ''; 
+$transaction = $_GET['transaction'] ?? '';
+$montant = $_GET['montant'] ?? '';
+$vendeur = $_GET['vendeur'] ?? '';
+$status = $_GET['status'] ?? ''; 
 $control_recu = $_GET['control'] ?? '';
 
 $api_key = getAPIKey($vendeur);
@@ -38,14 +38,14 @@ if ($control_recu === $control_verif && $status === 'accepted') {
         }
 
         $nouvelle_commande = [
-            "numero"      => $transaction,
-            "client"      => $_SESSION['nom'] ?? 'Client Connecté', 
-            "adresse"     => $_SESSION['adresse'] ?? 'Adresse par défaut',
+            "numero" => $transaction,
+            "client" => $_SESSION['nom'] ?? 'Client Connecté', 
+            "adresse" => $_SESSION['adresse'] ?? 'Adresse par défaut',
             "commentaire" => $_SESSION['commentaire_livraison'] ?? '',
-            "produits"    => $produits_formates,
-            "prix"        => $montant,
-            "statut"      => "paye",
-            "heure"       => date("H:i")
+            "produits" => $produits_formates,
+            "prix" => $montant,
+            "statut" => "paye",
+            "heure" => date("H:i")
         ];
 
         $commandes[] = $nouvelle_commande;
