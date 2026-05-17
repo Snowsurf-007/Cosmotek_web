@@ -23,6 +23,7 @@ $boutons_filtres = [
     <title>Cosmotek - Carte</title>
     <link rel="stylesheet" href="fichier.css">
     <script src="carte.js" defer></script>
+    <script src="verifstat.js" defer></script>
 </head>
 <body>
     <?php include("header.php"); ?>
