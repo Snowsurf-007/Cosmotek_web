@@ -73,6 +73,13 @@ if (file_exists($fichier)) {
 </head>
 <body>
 <?php include("header2.php"); ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1 class="user-card"><a href="listes.php">Liste des commandes</a></h1>   
     <h1 class="user-card">Liste Utilisateurs :</h1>
 
