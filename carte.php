@@ -21,7 +21,7 @@ $boutons_filtres = [
 <head>
     <meta charset="UTF-8">
     <title>Cosmotek - Carte</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="style.css">
     <script src="carte.js" defer></script>
     <script src="verifstat.js" defer></script>
 </head>

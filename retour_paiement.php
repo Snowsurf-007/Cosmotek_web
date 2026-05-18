@@ -69,7 +69,7 @@ if ($control_recu === $control_verif && $status === 'accepted') {
 <head>
     <meta charset="UTF-8">
     <title>Statut Paiement</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body style="background-color: #050505; color: white; text-align: center; padding-top: 100px;">
 

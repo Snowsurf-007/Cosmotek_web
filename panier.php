@@ -21,7 +21,7 @@ $_SESSION['id_transaction_suivante'] = "CMD" . str_pad($prochain_id, 7, "0", STR
     <title>Panier</title>
     <link href="Photos/Logo.png" rel="icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link rel="stylesheet" href="style.css" media="screen"/>
     <script src="verifstat.js" defer></script>
 </head>
 

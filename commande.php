@@ -49,7 +49,7 @@ if ($tri === 'prix_croissant') {
     <meta charset="UTF-8">
     <title>Gestion des Commandes - Cosmotek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link rel="stylesheet" href="style.css" media="screen"/>
     <style>
         .modal {
             display: none; 

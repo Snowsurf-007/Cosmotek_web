@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cosmotek - Station de Jeu</title>
-    <link rel="stylesheet" href="fichier.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         .arcade-machine {
             max-width: 1104px;

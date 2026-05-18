@@ -22,7 +22,7 @@ if (file_exists($fichier)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil - Cosmotek</title>
     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="fichier.css" media="screen"/>
+    <link rel="stylesheet" href="style.css" media="screen"/>
     <script src="verifstat.js" defer></script>
 </head>
 <body>
