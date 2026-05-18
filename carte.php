@@ -13,7 +13,7 @@ $boutons_filtres = [
     'alcool' => 'Alcool',
     'sansalcool' => 'Sans Alcool',
     'substance' => 'Substances',
-    'sans substance' => 'Sans Substances'
+    'sanssubstance' => 'Sans Substances'
 ];
 ?>
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $boutons_filtres = [
 <head>
     <meta charset="UTF-8">
     <title>Cosmotek - Carte</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fichier.css">
     <script src="carte.js" defer></script>
     <script src="verifstat.js" defer></script>
 </head>
