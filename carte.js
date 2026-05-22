@@ -25,9 +25,17 @@ function afficherPlats(data) {
     for (const [nomCat, plats] of Object.entries(data)) {
         let htmlSection = `<section class="menu-section"><h2>${nomCat.toUpperCase()}</h2><div class="menu-grid">`;
         plats.forEach(plat => {
+            
+            // --- INJECTION DE TON BADGE D'ORIGINE ---
+            let htmlBadge = "";
+            if (plat.badge && plat.badge.trim() !== "") {
+                // On utilise stricto sensu la classe .plat-badge définie dans ton CSS
+                htmlBadge = `<span class="plat-badge">${plat.badge}</span>`;
+            }
+
             htmlSection += `
                 <div class="plat-card">
-                    <img src="${plat.image}" alt="${plat.nom}">
+                    ${htmlBadge} <img src="${plat.image}" alt="${plat.nom}">
                     <div class="plat-content">
                         <h3>${plat.nom}</h3>
                         <p>${plat.description}</p>
@@ -47,7 +55,7 @@ function afficherPlats(data) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Écouteurs de filtres (Correction : on cible bien .filter)
+    // Écouteurs de filtres
     document.querySelectorAll('.filter').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
