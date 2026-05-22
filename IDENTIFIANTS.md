@@ -3,7 +3,7 @@
 Pour tester le site, voici les adresses email et les mots de passe de chaque compte. 
 
 ---
-## 🥷🏻 LE BOSS
+## 👨🏾‍🦱 LE BOSS
 
 | Rôle | Adresse Email | Mot de passe |
 | :--- | :--- | :--- |
