@@ -12,7 +12,6 @@
         </a>
         <nav class="header-nav">
             <a href="carte.php">CARTE</a>
-            <a href="inscription.php">INSCRIPTION</a>
             <a href="connexion.php">CONNEXION</a>
             <a href="profil.php">PROFIL</a>
             <a href="avis.php">AVIS</a>

@@ -4,13 +4,14 @@
         "client": "Jean Dupont",
         "adresse": "12 rue de la Paix, Paris",
         "prix": 45.5,
-        "statut": "paye",
+        "statut": "livre",
         "heure": "2026-04-04 14:30",
         "produits": [
             "Pizza Cosmique",
             "Soda Galactique",
             "Tarte Ast\u00e9ro\u00efde"
-        ]
+        ],
+        "livreur": "Lucien Leheudre"
     },
     {
         "numero": "103",

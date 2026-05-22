@@ -103,6 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             <input type="submit" value="Se connecter" class="bouton">
         </form>
+        <br>
+        <a href="inscription.php">S'inscrire</a>
     </div>
 
     <?php
