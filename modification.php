@@ -35,6 +35,21 @@ if ($utilisateurs[$id]['statut'] === "bloque") {
 } else {
     $estBloque = false;
 }
+if ($utilisateurs[$id]['statut'] === "admin") {
+    $estadmin = true;
+} else {
+    $estadmin = false;
+}
+if ($utilisateurs[$id]['statut'] === "livreur") {
+    $estlivreur = true;
+} else {
+    $estalivreur = false;
+}
+if ($utilisateurs[$id]['statut'] === "cuisine") {
+    $estcuisinier = true;
+} else {
+    $estacuisinier = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -59,6 +74,65 @@ if ($utilisateurs[$id]['statut'] === "bloque") {
                 inputCache.value = "bloque";
                 affichage.textContent = "bloque";
                 bouton.textContent = "Débloquer l'utilisateur";
+            }
+        }function basculerStatut1() {
+            const affichage = document.getElementById('affichage-statut');
+            const inputCache = document.getElementById('statut');
+            const bouton = document.getElementById('btn-toggle1');
+
+            if (inputCache.value === "admin") {
+                inputCache.value = "Astronaute Client"; 
+                affichage.textContent = "Astronaute Client";
+                bouton.textContent = "Promouvoir au rang d'admin";
+            } else {
+                inputCache.value = "admin";
+                affichage.textContent = "admin";
+                bouton.textContent = "enlever les privileges";
+            }
+        }
+        function basculerStatut2() {
+            const affichage = document.getElementById('affichage-statut');
+            const inputCache = document.getElementById('statut');
+            const bouton = document.getElementById('btn-toggle2');
+
+            if (inputCache.value === "livreur") {
+                inputCache.value = "Astronaute Client"; 
+                affichage.textContent = "Astronaute Client";
+                bouton.textContent = "Promouvoir en livreur";
+            } else {
+                inputCache.value = "livreur";
+                affichage.textContent = "livreur";
+                bouton.textContent = "il va etre vire";
+            }
+        }
+        function basculerStatut3() {
+            const affichage = document.getElementById('affichage-statut');
+            const inputCache = document.getElementById('statut');
+            const bouton = document.getElementById('btn-toggle3');
+
+            if (inputCache.value === "cuisine") {
+                inputCache.value = "Astronaute Client"; 
+                affichage.textContent = "Astronaute Client";
+                bouton.textContent = "il veut gerer le four hein";
+            } else {
+                inputCache.value = "cuisine";
+                affichage.textContent = "cuisine";
+                bouton.textContent = "il va perdre le droit d'exercer";
+            }
+        }
+        function basculerStatut4() {
+            const affichage = document.getElementById('affichage-statut');
+            const inputCache = document.getElementById('statut');
+            const bouton = document.getElementById('btn-toggle4');
+
+            if (inputCache.value === "admin") {
+                inputCache.value = "Astronaute Client"; 
+                affichage.textContent = "Astronaute Client";
+                bouton.textContent = "autorisez vous cette personne a devenir un admin";
+            } else {
+                inputCache.value = "admin";
+                affichage.textContent = "admin";
+                bouton.textContent = "votre altesse voulez priver cette personne de ces droits";
             }
         }
     </script>
@@ -106,7 +180,42 @@ if ($utilisateurs[$id]['statut'] === "bloque") {
                 }
                 ?>
             </button>
-            
+            <button type="button" id="btn-toggle2" onclick="basculerStatut2()" style="margin-left: 15px;">
+                <?php 
+                // comme bloque mais livreur
+                if ($estlivreur === true) {
+                    echo "il va etre vire";
+                } else {    
+                    echo "Promouvoir en livreur";
+                }
+                ?>
+            </button>
+            <button type="button" id="btn-toggle3" onclick="basculerStatut3()" style="margin-left: 15px;">
+                <?php 
+                // comme bloque mais cuisinier
+                if ($estcuisinier === true) {
+                    echo "il va perdre le droit d'exercer";
+                } else {    
+                    echo "il veut gerer le four hein";
+                }
+                ?>
+            </button>
+            <?php
+            if ($_SESSION['email'] == "ibrahima@gmail.com"){
+            ?>   
+                <button type="button" id="btn-toggle3" onclick="basculerStatut4()" style="margin-left: 15px;">
+                <?php 
+                // comme bloque mais pour l'unique moi
+                if ($estadmin === true) {
+                    echo "votre altesse voulez priver cette personne de ces droits";
+                } else {    
+                    echo "autorisez vous cette personne a devenir un admin";
+                }
+                ?>
+            </button>
+            <?php }
+            ?>
+            <h3>N'oubliez pas d'enregistrer</h3>
             <input type="hidden" name="statut" id="statut" value="<?php echo $utilisateurs[$id]['statut']; ?>">
         </div>
         <br>
