@@ -2,7 +2,7 @@
 session_start();
 
 // Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['statut'])) {
     header("Location: connexion.php");
     exit();
 }
