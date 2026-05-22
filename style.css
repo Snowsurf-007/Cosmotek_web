@@ -737,15 +737,19 @@ p {
     flex-direction: column;
     gap: 15px;
     padding: 10px 20px;
+    min-height: auto;
   }
   
   .header-nav {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
-  .page {
-    margin-top: 150px;
+  .page, .page.carte {
+    margin-top: 30px; 
+    padding: 30px 20px;
   }
   
   .aire {
@@ -759,25 +763,16 @@ p {
 }
 
 @media (max-width: 768px) {
-  header {
-    position: relative;
-  }
-
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 15px;
-  }
-  
-  .header-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-  
   .header-nav a {
-    padding: 8px 15px;
-    font-size: 15px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  #theme-bouton {
+    min-width: 110px;
+    height: 38px;
+    font-size: 12px;
+    padding: 8px 12px;
   }
   
   .site-name {
@@ -788,8 +783,7 @@ p {
     height: 40px;
   }
   
-  .page {
-    margin-top: 180px;
+  .page, .page.carte {
     margin-left: 10px;
     margin-right: 10px;
     padding: 20px 15px;
@@ -802,111 +796,68 @@ p {
   
   .footer-section {
     text-align: center;
-  }
-  
-  .page.carte {
-    max-width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-bottom: 20px;
   }
   
   .menu-grid {
     grid-template-columns: 1fr;
-  }
-  
-  h1 {
-    font-size: 25px;
-  }
-  
-  h2 {
-    font-size: 22px;
+    gap: 20px;
   }
 
-  h3 {
-    font-size: 18px;
+  .plat-card img {
+    height: 200px !important;
   }
   
-  .ligne,
-  .anniversaire {
+  h1 { 
+    font-size: 26px; 
+  }
+  h2 { 
+    font-size: 22px; 
+  }
+  h3 { 
+    font-size: 20px; 
+  }
+  p { 
+    font-size: 15px;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0;
+    width: 100%;
+  }
+  
+  .ligne, .anniversaire {
     flex-direction: column;
-    padding-left: 0;
     align-items: center;
   }
 
-  .ligne input,
-  .anniversaire input {
+  .ligne input, .anniversaire input {
     width: 100%;
     max-width: 300px;
   }
 
-  label {
+  label, .anniversaire label {
     width: auto;
     text-align: center;
-  }
-
-  .anniversaire label {
-    width: auto;
+    margin-right: 0;
   }
 
   .rating-box {
     padding: 20px 15px;
-    margin: 20px auto;
   }
 
   .rating {
     font-size: 32px;
   }
-
-  .aire {
-    flex-direction: column;
-  }
-
-  .aire img {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  header {
-    position: relative;
-  }
-
-  .site-name {
-    font-size: 12px;
-  }
-
-  .header-nav a {
-    padding: 5px 8px;
-    font-size: 10px;
-  }
-
-  .page {
-    margin-top: 210px;
-    padding: 12px 8px;
-  }
-
-  h1 {
-    font-size: 18px;
-  }
-
-  .plat-card img {
-    height: 150px;
-  }
 }
 
 @media (max-width: 480px) {
-  header {
-    height: 175px;
-    padding: 3px 0;
-  }
-
-  .header-logo {
-    height: 15px;
-    margin-right: 8px;
-  }
-
   .site-name {
-    font-size: 15px;
+    font-size: 18px;
   }
 
   .header-nav {
@@ -914,54 +865,35 @@ p {
   }
 
   .header-nav a {
-    padding: 8px 12px;
-    font-size: 13px;
-    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 12px;
   }
 
-  .page {
-    margin-top: 200px;
-    margin-left: 8px;
-    margin-right: 8px;
+  #theme-bouton {
+    min-width: 90px;
+    font-size: 11px;
+    padding: 6px 10px;
+    height: 32px;
+  }
+
+  .page, .page.carte {
+    margin-top: 20px;
     padding: 15px 10px;
-    border-radius: 8px;
   }
 
   h1 {
-    font-size: 21px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    font-size: 20px;
   }
 
-  h2 {
-    font-size: 19px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  li {
-    font-size: 15px;
-  }
-  
   .plat-card img {
-    height: 200px;
+    height: 180px;
   }
   
   .plat-content {
     padding: 15px;
   }
   
-  .plat-content h3 {
-    font-size: 19px;
-  }
-  
   .plat-price {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
