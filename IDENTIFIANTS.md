@@ -3,7 +3,14 @@
 Pour tester le site, voici les adresses email et les mots de passe de chaque compte. 
 
 ---
+## ⚙️ LE BOSS
 
+| Rôle | Adresse Email | Mot de passe |
+| :--- | :--- | :--- |
+| **BOSS** | `ibrahima@gmail.com` | `ibrahima` |
+
+
+---
 ## ⚙️ Comptes Administrateurs
 
 | Rôle | Adresse Email | Mot de passe |
@@ -19,6 +26,7 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 | :--- | :--- |
 | `livreur@gmail.com`  | `livreur`  |
 | `livreur2@gmail.com` | `livreur2` |
+| `livreur3@gmail.com` | `livreur3` |
 
 ---
 
