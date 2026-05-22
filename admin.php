@@ -98,7 +98,9 @@ if (file_exists($fichier)) {
                         </span>
                     </p>
                     <p><strong>Points de fidélités :</strong> <?php echo $valeur['fidelite']; ?></p>
-                    
+                    <a href="listes.php?email=<?php echo urlencode($valeur['email']); ?>" >
+                        Voir son historique
+                    </a>
                     <a href="modification.php?id=<?php echo $index; ?>">Modifier cet utilisateur</a>
                 </div>
             <?php endforeach; ?>
