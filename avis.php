@@ -89,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <br>
     <h1>Votre Avis Compte</h1>
 
-    (ajoute le truc pour regarder le nombre de caractere)
     <div class="rating-box">
         <p>Aidez-nous à améliorer l'expérience culinaire de l'espace</p>
         <?php if (!empty($erreur)): ?>
