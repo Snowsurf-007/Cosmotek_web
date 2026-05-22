@@ -45,7 +45,7 @@
         "description": "Pizza maison garnie façon spatiale",
         "prix": 13,
         "image": "Photos/pizza.png",
-        "badge": "Plat du jour",
+        "badge": "Plat du millénaire",
         "filtres": ["plats", "viande", "sanssubstance"]
       },
       {
@@ -54,7 +54,7 @@
         "description": "Pâtes fraîches au pesto basilic",
         "prix": 12,
         "image": "Photos/Pates-pesto.jpeg",
-        "badge": null,
+        "badge": "Ces herbes là sont sympas",
         "filtres": ["plats", "vege", "substance"]
       },
       {
@@ -63,7 +63,7 @@
         "description": "Burger maison avec frites croustillantes",
         "prix": 15,
         "image": "Photos/Burger.jpg",
-        "badge": "Populaire",
+        "badge": "Meilleur qu'à McSpace",
         "filtres": ["plats", "viande", "sanssubstance"]
       },
       {
@@ -72,7 +72,7 @@
         "description": "Filet de saumon grillé, légumes de saison et sauce citronnée",
         "prix": 17,
         "image": "Photos/saumon-grille.jpeg",
-        "badge": null,
+        "badge": "Gratuit si vous vous appelez Caryl",
         "filtres": ["plats", "viande", "sanssubstance"]
       }
     ],
@@ -92,7 +92,7 @@
         "description": "Gâteau signature de la maison",
         "prix": 8,
         "image": "Photos/Space-cake.jpg",
-        "badge": "Populaire",
+        "badge": "Voyage spatial garantie 😵‍💫",
         "filtres": ["desserts", "vege", "substance"]
       },
       {
@@ -101,7 +101,7 @@
         "description": "Glace artisanale aux cristaux givrants",
         "prix": 4.5,
         "image": "Photos/Glace.jpeg",
-        "badge": null,
+        "badge": "We need to cook Jesse 😵‍💫",
         "filtres": ["desserts", "vege", "substance"]
       },
       {
@@ -110,7 +110,7 @@
         "description": "Crème brûlée à la vanille bourbon, caramel croustillant",
         "prix": 6,
         "image": "Photos/creme-brulee.jpg",
-        "badge": null,
+        "badge": "Y'a pas que le dessus de brulé ",
         "filtres": ["desserts", "vege", "sanssubstance"]
       }
     ],
@@ -121,7 +121,7 @@
         "description": "Eau minérale naturelle",
         "prix": 2,
         "image": "Photos/eau.jpg",
-        "badge": null,
+        "badge": "L eau des toilettes est gratuite sinon",
         "filtres": ["boissons", "sansalcool", "sanssubstance"]
       },
       {
@@ -130,7 +130,7 @@
         "description": "Eau gazeuse rafraîchissante",
         "prix": 2.5,
         "image": "Photos/Eau-petillante.jpg",
-        "badge": null,
+        "badge": "Pareil que l eau mais plus cher",
         "filtres": ["boissons", "sansalcool", "sanssubstance"]
       },
       {
@@ -148,7 +148,7 @@
         "description": "Shot spécial maison",
         "prix": 7,
         "image": "Photos/TEK-PAF.jpg",
-        "badge": null,
+        "badge": "CY tech Paf",
         "filtres": ["boissons", "alcool", "sanssubstance"]
       },
       {
@@ -166,7 +166,7 @@
         "description": "Bière artisanale locale",
         "prix": 4.5,
         "image": "Photos/Biere.jpg",
-        "badge": null,
+        "badge": "gruik gruik",
         "filtres": ["boissons", "alcool", "sanssubstance"]
       },
       {
@@ -175,7 +175,7 @@
         "description": "La fée verte authentique",
         "prix": 7.5,
         "image": "Photos/absinthe.jpeg",
-        "badge": null,
+        "badge": "Seulement 50% de décès",
         "filtres": ["boissons", "alcool", "substance"]
       },
       {
@@ -203,8 +203,8 @@
         "nom": "Formule Entrée + Plat",
         "description": "Entrée : Salade / Plat : Burger Spatial",
         "prix": 16,
-        "image": null,
-        "badge": null,
+        "image": "Photos/menu1.jpg",
+        "badge": "SCAM A FUIR !!!",
         "filtres": ["menus"]
       },
       {
@@ -212,7 +212,7 @@
         "nom": "Formule Complète",
         "description": "Entrée + Plat + Dessert + Boisson au choix",
         "prix": 20,
-        "image": null,
+        "image": "Photos/menu2.jpg",
         "badge": null,
         "filtres": ["menus"]
       },
