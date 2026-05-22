@@ -1,106 +1,97 @@
 <?php
 session_start();
 
-$fichier = "commandes.json";
-$commandes = [];
-function toto($str1) {
-    $str1=trim($str1);
-    $str2= strtolower($str1);
-    $res="";
-    $s=explode(" ",$str2);
-    foreach ($s as $elm){
-        $res=$res.strtoupper($elm[0]);
-        $res=$res.substr($elm,1, strlen($elm));
-        $res=$res. " ";
+if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
+    header("Location: connexion.php");
+    exit();
+}
+
+$emailFiltre = isset($_GET['email']) ? trim($_GET['email']) : null;
+
+$fichier_commandes = "commandes.json";
+$commandes_payees = [];
+$commandes_livraison = [];
+$commandes_livrees = [];
+
+if (file_exists($fichier_commandes)) {
+    $toutes_les_commandes = json_decode(file_get_contents($fichier_commandes), true) ?? [];
+    
+    foreach ($toutes_les_commandes as $c) {
+        if ($emailFiltre === null || (isset($c['email']) && strcasecmp($c['email'], $emailFiltre) === 0)) {
+            $statut = $c['statut'] ?? '';
+            if ($statut === 'paye') $commandes_payees[] = $c;
+            elseif ($statut === 'livraison') $commandes_livraison[] = $c;
+            elseif ($statut === 'livre') $commandes_livrees[] = $c;
+        }
     }
-    return $res;
 }
 
-// On ouvrele fichier
-if (file_exists($fichier)) {
-    $contenu = file_get_contents($fichier);
-    $commandes = json_decode($contenu, true);
-} else {
-    echo"pb fichier";
-    exit;
-}
-
+// Calcul du nombre total de commandes pour ce filtre
+$totalCommandes = count($commandes_payees) + count($commandes_livraison) + count($commandes_livrees);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Admin - Liste</title>
-     <link href="Photos/Logo.png" alt="Logo planete" rel="icon">
-    <link rel="stylesheet" href="style.css" media="screen"/>
+    <title>Historique Commandes - Admin</title>
+    <link rel="stylesheet" href="fichier.css">
 </head>
 <body>
 <?php include("header2.php"); ?>
-<main>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1 class="user-card"><a href="admin.php">Liste Utilisateurs</a></h1>   
-    <h1 class="user-card">Liste commandes :</h1>
 
-    <section>
-        <?php if (!empty($commandes)): ?>
-            <?php foreach ($commandes as $index => $plat): ?>
-                <div class="user-card" >
-                    <?php if($plat['statut']=="prete"){ ?>
-                    <h2>Commmandes Prête</h2>
-                    
-                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
-                    <p><strong>Client :</strong> <?php echo toto($plat['client']); ?></p>
-                    <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
-                    <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
-                    <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
-                    <p><strong>Liste des produits :</strong></p>
-                    <?php foreach ($plat['produits'] as $produit){ ?> 
-                     <li><?php echo $produit; ?></li>
-                    <?php }?>
-                    </ul>
-                    <?php }
-                    elseif($plat['statut']=="en cours"){?>
-                    <br>
-                    <h2>Commmandes en cours de préparation</h2>
-                    
-                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
-                    <p><strong>Prénom :</strong> <?php echo toto($plat['client']); ?></p>
-                    <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
-                    <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
-                    <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
-                    <p><strong>Liste des produits :</strong></p>
-                    <?php foreach ($plat['produits'] as $produit){ ?> 
-                   <li><?php echo $produit; ?></li>
-                    <?php }?>
-                    <?php }else{ ?>
-                    <h2>Commmandes en livraison</h2>
-                    
-                    <h3>Commmande n°<?php echo strtoupper($plat['numero']); ?></h3>
-                    <p><strong>Prénom :</strong> <?php echo toto($plat['client']); ?></p>
-                    <p><strong>Prix :</strong> <?php echo $plat['prix']; ?></p>
-                    <p><strong>Statut :</strong> <?php echo $plat['statut']; ?></p>
-                    <p><strong>Adresse :</strong> <?php echo $plat['adresse']; ?></p>
-                    <p><strong>Liste des produits :</strong></p>
-                    <ul>
-                    <?php foreach ($plat['produits'] as $produit){ ?> 
-                     <li><?php echo $produit; ?></li>
-                    <?php }?>
-                    </ul>
-                    <?php }?>
-                </div>
-            <?php endforeach; ?>
+<div class="page">
+    <br><br><br><br>
+    <h1>
+        <?php echo $emailFiltre ? "Historique de : " . htmlspecialchars($emailFiltre) : "Toutes les Commandes"; ?>
+    </h1>
+
+    <?php if ($emailFiltre): ?>
+        <p><strong>Nombre total de commandes : <?php echo $totalCommandes; ?></strong></p>
+    <?php endif; ?>
+    
+    <a href="admin.php">← Retour à la liste des utilisateurs</a>
+    <?php if ($emailFiltre): ?>
+        | <a href="listes.php">Voir toutes les commandes</a>
+    <?php endif; ?>
+
+    <div class="info-card">
+        <h3>🛠️ En préparation (<?php echo count($commandes_payees); ?>)</h3>
+        <?php foreach ($commandes_payees as $cmd): ?>
+            <p>#<?php echo $cmd['numero']; ?> - <strong><?php echo $cmd['prix']; ?>€</strong> (<?php echo $cmd['email']; ?>)</p>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="info-card">
+        <h3>🚀 En livraison (<?php echo count($commandes_livraison); ?>)</h3>
+        <?php foreach ($commandes_livraison as $cmd): ?>
+            <p>#<?php echo $cmd['numero']; ?> - Destinataire : <?php echo $cmd['email']; ?></p>
+        <?php endforeach; ?>
+    </div>
+
+    <div class="info-card">
+        <h3>✅ Historique des livraisons (<?php echo count($commandes_livrees); ?>)</h3>
+        <?php if (empty($commandes_livrees)): ?>
+            <p>Aucune commande livrée trouvée.</p>
         <?php else: ?>
-            <p>pb json</p>
+            <table>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Client</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                </tr>
+                <?php foreach ($commandes_livrees as $cmd): ?>
+                <tr>
+                    <td>#<?php echo $cmd['numero']; ?></td>
+                    <td><?php echo $cmd['email']; ?></td>
+                    <td><?php echo $cmd['date']; ?></td>
+                    <td><?php echo $cmd['prix']; ?>€</td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
         <?php endif; ?>
-    </section>
-</main>
-
+    </div>
+</div>
 </body>
 </html>
