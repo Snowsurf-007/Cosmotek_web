@@ -7,7 +7,7 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 
 | Rôle | Adresse Email | Mot de passe |
 | :--- | :--- | :--- |
-| **BOSS** | `ibrahima@gmail.com` | `ibrahima` |
+| **BOSS(admin)** | `ibrahima@gmail.com` | `ibrahima` |
 
 
 ---
