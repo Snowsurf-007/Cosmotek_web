@@ -45,7 +45,8 @@ if ($control_recu === $control_verif && $status === 'accepted') {
             "produits" => $produits_formates,
             "prix" => $montant,
             "statut" => "paye",
-            "heure" => date("H:i")
+            "heure" => date("H:i"),
+            "email" => $_SESSION['email']
         ];
 
         $commandes[] = $nouvelle_commande;
