@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+:root {
+  /* Noirs / Gris */
+  --white-pure: rgb(20, 20, 20);
+  --black-soft: rgb(233, 233, 233);
+  --gray-medium: rgb(79, 87, 84);
+  --gray-soft: rgb(35, 35, 35);
+
+  /* Blanc */
+  --black-deep: rgb(255, 255, 255);
+
+  /* Violets */
+  --purple-dark: rgb(96, 39, 153);
+  --green-neon: rgb(177, 84, 184);
+
+  /* Verts */
+  --purple-light: rgb(57, 202, 84);
+
+  /* Rouge */
+  --red-normal: rgb(255, 77, 77);
+
+  /* Police */
+  --font-orbitron: 'Orbitron', sans-serif;
+}
+
+body {
+  background-image: url('../Photos/fond_blanc.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgb(255, 255, 255);
+  background-position: center;
+  color: var(--black-deep);
+  font-family: var(--font-orbitron);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 1080px;
+  flex-direction: column;
+}

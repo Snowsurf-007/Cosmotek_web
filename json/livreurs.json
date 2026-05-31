@@ -1,0 +1,44 @@
+[
+  {
+    "nom": "Leheudre",
+    "prenom": "Lucien",
+    "adresse": "livreur",
+    "email": "livreur@gmail.com",
+    "mdp": "$2y$12$GuG2k0yEiNCMzJ3dPPoxROrA24LX4SHjTrRaZKGpObukM5ZhuBTx2",
+    "date": "2026-05-07",
+    "date_inscription": "01/04/2026",
+    "statut": "livreur",
+    "photo": "Photos/livreur1.jpg",
+    "commandes": "0",
+    "fidelite": "0",
+    "plat": "Jambon-Melon"
+  },
+  {
+    "nom": "Traore",
+    "prenom": "Ibrahima",
+    "adresse": "livreur2",
+    "email": "livreur2@gmail.com",
+    "mdp": "$2y$12$A7TSwVkDu5N2B0SEfdwOL.DiLMBT.AguLT7JqIt27ukLAaG8lM1/2",
+    "date": "2026-04-05",
+    "date_inscription": "05/04/2026",
+    "statut": "livreur",
+    "photo": "Photos/livreur2.jpg",
+    "commandes": "0",
+    "fidelite": "0",
+    "plat": "Jambon-Melon"
+  },
+  {
+    "nom": "Treny",
+    "prenom": "Hugo",
+    "adresse": "chanteloup-les-vignes",
+    "email": "livreur3@gmail.com",
+    "mdp": "$2y$10$lVhynvNJokez5Ny\/zFGR6OPmAIIxZjhReFJdz3xGdMjJDIjKoHxq6",
+    "date": "2006-06-11",
+    "date_inscription": "22\/05\/2026",
+    "statut": "livreur",
+    "photo": "Photos/livreur3.jpg",
+    "commandes": "0",
+    "fidelite": "0",
+    "plat": "Jambon-Melon"
+  }
+]
