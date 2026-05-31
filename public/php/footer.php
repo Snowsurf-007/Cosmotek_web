@@ -9,10 +9,10 @@
         <div class="footer-section">
             <h4>NAVIGATION</h4>
             <ul class="footer-links">
-                <li><a href="../php/index.php">Accueil</a></li>
-                <li><a href="../php/carte.php">Notre Carte</a></li>
-                <li><a href="../php/inscription.php">Inscription</a></li>
-                <li><a href="../php/connexion.php">Connexion</a></li>
+                <li><a href="../php/index.php">&nbsp;Accueil&nbsp;</a></li>
+                <li><a href="../php/carte.php">&nbsp;Notre Carte&nbsp;</a></li>
+                <li><a href="../php/inscription.php">&nbsp;Inscription&nbsp;</a></li>
+                <li><a href="../php/connexion.php">&nbsp;Connexion&nbsp;</a></li>
             </ul>
         </div>
         
