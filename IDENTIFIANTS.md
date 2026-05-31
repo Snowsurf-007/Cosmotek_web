@@ -6,7 +6,7 @@ Pour tester le site, voici les adresses email et les mots de passe de chaque com
 ## 👨🏾‍🦱 LE BOSS
 
 | Rôle | Adresse Email | Mot de passe |
-| :--- | :--- | :--- | :
+| :--- | :--- | :--- |
 | **BOSS(admin)** | `ibrahima@gmail.com` | `ibrahima` |
 
 
