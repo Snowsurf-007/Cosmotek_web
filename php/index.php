@@ -11,7 +11,7 @@
 <body>
 
 <?php
-    include ("../php/header.php");
+    include ("header.php");
 ?>
    
 <div class="page">
@@ -24,16 +24,20 @@
     <h2>🍽️ Plats populaires</h2>
 
     <ul>
-        <li>🍈 Le Jambon Melon 🍈
-        <li>🍔 Burger Spatial 🍔
-        <li>🍰 Gateau Spatial 🍰
-        <li>🧴 Gel Hydroalcoolique 🧴
+        <li>🍈 Le Jambon Melon 🍈</li>
+        <li>🍔 Burger Spatial 🍔</li>
+        <li>🍰 Gateau Spatial 🍰</li>
+        <li>🧴 Gel Hydroalcoolique 🧴</li>
     </ul>
     <br><br>
+    
     <h2>RECHERCHER UN PLAT</h2>
-    <input type="text" placeholder="Rechercher." />
-    <button>Rechercher</button>
-    <br>
+    <form action="carte.php" method="GET" style="display: inline-block;">
+        <input type="text" name="q" placeholder="Rechercher..." required />
+        <button type="submit">Rechercher</button>
+    </form>
+    
+    <br><br>
     <h3>NOUVEAUTE 2026</h3>
 
     <div class="aire">
@@ -41,12 +45,11 @@
         <p>Maintenant, Cosmotek accueille avec plaisir vos enfants grâce au nouveau 
             "MENU DU PETIT ASTRONAUTE" et son aire de jeux où vos enfants pourront s'amuser 
             en toute sécurité pendant que vous dégustez un délicieux repas.</p>
-
     </div>
 </div>
 
 <?php
-    include ("../php/footer.php");
+    include ("footer.php");
 ?>
 
 </body>
