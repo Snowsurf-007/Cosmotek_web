@@ -9,7 +9,7 @@ async function chargerPlats(filtre = 'all', recherche = '') {
         cachePlats = await response.json();
         afficherPlats(cachePlats);
     } catch (error) {
-        console.error("Détail de l'erreur :", error); // Ajoute ceci pour voir l'erreur dans la console
+        console.error("Détail de l'erreur :", error);
         container.innerHTML = "<p>Erreur de ravitaillement.</p>";
     }
 }
@@ -27,10 +27,8 @@ function afficherPlats(data) {
         let htmlSection = `<section class="menu-section"><h2>${nomCat.toUpperCase()}</h2><div class="menu-grid">`;
         plats.forEach(plat => {
 
-            // --- INJECTION DE TON BADGE D'ORIGINE ---
             let htmlBadge = "";
             if (plat.badge && plat.badge.trim() !== "") {
-                // On utilise stricto sensu la classe .plat-badge définie dans ton CSS
                 htmlBadge = `<span class="plat-badge">${plat.badge}</span>`;
             }
 
@@ -56,7 +54,6 @@ function afficherPlats(data) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Écouteurs de filtres
     document.querySelectorAll('.filter').forEach(btn => {
         btn.addEventListener('click', function () {
             document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
@@ -65,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Tri
     document.getElementById('tri-select').addEventListener('change', function () {
         let copies = JSON.parse(JSON.stringify(cachePlats));
         const mode = this.value;
@@ -80,10 +76,31 @@ document.addEventListener('DOMContentLoaded', () => {
         afficherPlats(copies);
     });
 
-    // Recherche
+    const inputRecherche = document.getElementById('input-recherche');
+
     document.getElementById('btn-recherche').addEventListener('click', () => {
-        chargerPlats('all', document.getElementById('input-recherche').value);
+        if (inputRecherche) {
+            chargerPlats('all', inputRecherche.value);
+        }
     });
 
-    chargerPlats(); // Lancement
+    if (inputRecherche) {
+        inputRecherche.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                chargerPlats('all', inputRecherche.value);
+            }
+        });
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const rechercheIndex = urlParams.get('q');
+
+    if (rechercheIndex) {
+        if (inputRecherche) {
+            inputRecherche.value = rechercheIndex;
+        }
+        chargerPlats('all', rechercheIndex);
+    } else {
+        chargerPlats();
+    }
 });
