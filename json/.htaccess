@@ -1,4 +1,4 @@
-# Bloquer l'accès direct à tous les fichiers JSON du dossier
+# Bloquage de l'accès direct à tous les fichiers JSON du dossier
 <Files "*.json">
     Require all denied
 </Files>
