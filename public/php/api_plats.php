@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-$filename = "../json/plats.json";
+$filename = "../../json/plats.json";
 if (!file_exists($filename)) {
     echo json_encode([]); exit;
 }

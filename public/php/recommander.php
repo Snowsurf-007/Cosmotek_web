@@ -8,7 +8,7 @@ if (!isset($_GET['numero'])) {
 }
 
 $num_commande = $_GET['numero'];
-$fichier_commandes = "../json/commandes.json";
+$fichier_commandes = "../../json/commandes.json";
 
 if (file_exists($fichier_commandes)) {
     $contenu = file_get_contents($fichier_commandes);

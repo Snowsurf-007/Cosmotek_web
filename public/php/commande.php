@@ -5,7 +5,7 @@ if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'cuisine') {
     exit();
 }
 // CHARGEMENT DES COMMANDES
-$json_path = "../json/commandes.json";
+$json_path = "../../json/commandes.json";
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable.");
 }
@@ -14,7 +14,7 @@ $json_data = file_get_contents($json_path);
 $data = json_decode($json_data, true);
 
 // CHARGEMENT DES LIVREURS
-$livreurs_path = "../json/livreurs.json";
+$livreurs_path = "../../json/livreurs.json";
 $livreurs = [];
 if (file_exists($livreurs_path)) {
     $livreurs_json = file_get_contents($livreurs_path);

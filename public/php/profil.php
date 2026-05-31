@@ -9,7 +9,7 @@ if (!isset($_SESSION['statut'])) {
 
 
 // --- 1. CHARGEMENT DES AVIS ---
-$fichier_avis = "../json/avis.json";
+$fichier_avis = "../../json/avis.json";
 $avis = [];
 if (file_exists($fichier_avis)) {
     $contenu_avis = file_get_contents($fichier_avis);
@@ -17,7 +17,7 @@ if (file_exists($fichier_avis)) {
 }
 
 // --- 2. CHARGEMENT DES COMMANDES FILTRÉES PAR EMAIL ---
-$fichier_commandes = "../json/commandes.json";
+$fichier_commandes = "../../json/commandes.json";
 $commandes_payees = [];    // Statut 'paye'
 $commandes_livraison = []; // Statut 'livraison'
 $commandes_livrees = [];   // Statut 'livre'

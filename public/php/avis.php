@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $liv_rating = $_POST['liv_rating'] ?? null;
     $commentaire = trim($_POST['commentaire'] ?? ''); 
     
-    $fichier = "../json/avis.json"; 
+    $fichier = "../../json/avis.json"; 
     if (empty($food_rating) || empty($liv_rating)) {
         $erreur = "Veuillez donner une note pour la nourriture et la livraison.";
     }

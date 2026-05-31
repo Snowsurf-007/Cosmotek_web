@@ -2,7 +2,7 @@
 session_start();
 include("../php/verif.php"); 
 
-$fichier = "../json/users.json";
+$fichier = "../../json/users.json";
 $message = "";
 $type_message = ""; // Pour le style CSS du message (vert ou rouge)
 function toto($str1) {

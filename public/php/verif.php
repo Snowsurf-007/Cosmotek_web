@@ -6,7 +6,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 // en gros c'est pour faire en temps reel
-$utilisateurs = file_exists("../json/users.json") ? json_decode(file_get_contents("../json/users.json"), true) : [];
+$utilisateurs = file_exists("../../json/users.json") ? json_decode(file_get_contents("../../json/users.json"), true) : [];
 
 foreach ($utilisateurs as $user) {
     if ($user['email'] === $_SESSION['email']) {

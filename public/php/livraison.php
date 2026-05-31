@@ -3,7 +3,7 @@ session_start();
 
 $nom = $_SESSION['prenom']." ".$_SESSION['nom'] ?? 'non connecté'; 
 
-$json_path = "../json/commandes.json";
+$json_path = "../../json/commandes.json";
 if (!file_exists($json_path)) {
     die("Erreur : Le fichier $json_path est introuvable.");
 }

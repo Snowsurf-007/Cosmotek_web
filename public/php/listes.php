@@ -8,7 +8,7 @@ if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
 
 $emailFiltre = isset($_GET['email']) ? trim($_GET['email']) : null;
 
-$fichier_commandes = "../json/commandes.json";
+$fichier_commandes = "../../json/commandes.json";
 $commandes_payees = [];
 $commandes_livraison = [];
 $commandes_livrees = [];

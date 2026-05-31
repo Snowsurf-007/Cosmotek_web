@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $date = $_REQUEST['date'];
     $email = $_REQUEST['email'];
     $mdp = $_REQUEST['mdp'];
-    $fichier = "../json/users.json";
+    $fichier = "../../json/users.json";
     $check = 0;
 
     if(empty($nom) || empty($prenom) || empty($adresse) || empty($email) || empty($mdp) || empty($date)){

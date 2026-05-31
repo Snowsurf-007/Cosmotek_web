@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$fichier = "../json/users.json";
+$fichier = "../../json/users.json";
 
 // recup id 
 $id = $_SESSION['user_id'] ?? null;

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$json_path = "../json/commandes.json";
+$json_path = "../../json/commandes.json";
 
 // On vérifiel'existence du fichier
 if (!file_exists($json_path)) {

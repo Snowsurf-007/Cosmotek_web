@@ -5,7 +5,7 @@ if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
     exit();
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $fichier = "../json/users.json";
+    $fichier = "../../json/users.json";
     
     if (file_exists($fichier)) {
         $contenu = file_get_contents($fichier);
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: ../php/admin.php");
     exit();
 }
-$fichier = __DIR__ . "/../json/users.json"; 
+$fichier = "../../json/users.json"; 
 
 if (file_exists($fichier)) {
     $contenu = file_get_contents($fichier);

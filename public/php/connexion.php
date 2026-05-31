@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mdp   = $_REQUEST['mdp'] ?? '';
     $erreur = '';
 
-    $utilisateurs = file_exists("../json/users.json")    ? json_decode(file_get_contents("../json/users.json"),    true) : [];
-    $admins       = file_exists("../json/verif.json")    ? json_decode(file_get_contents("../json/verif.json"),    true) : [];
-    $livreurs     = file_exists("../json/livreurs.json") ? json_decode(file_get_contents("../json/livreurs.json"), true) : [];
-    $cuisines      = file_exists("../json/cuisine.json")  ? json_decode(file_get_contents("../json/cuisine.json"), true) : [];
+    $utilisateurs = file_exists("../../json/users.json")    ? json_decode(file_get_contents("../../json/users.json"),    true) : [];
+    $admins       = file_exists("../../json/verif.json")    ? json_decode(file_get_contents("../../json/verif.json"),    true) : [];
+    $livreurs     = file_exists("../../json/livreurs.json") ? json_decode(file_get_contents("../../json/livreurs.json"), true) : [];
+    $cuisines      = file_exists("../../json/cuisine.json")  ? json_decode(file_get_contents("../../json/cuisine.json"), true) : [];
 
     function setSession($u, $id = null) {
         $_SESSION['user_id'] = $id;

@@ -4,7 +4,7 @@ if (!isset($_SESSION['statut']) || $_SESSION['statut'] !== 'admin') {
     header("Location: ../php/connexion.php");
     exit();
 }
-$fichier = "../json/users.json";
+$fichier = "../../json/users.json";
 $message = "";
 function toto($str1) {
     $str1=trim($str1);
