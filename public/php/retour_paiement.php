@@ -17,7 +17,7 @@ $paiement_reussi = false;
 
 if ($control_recu === $control_verif && $status === 'accepted') {
     
-    $json_path = "../json/commandes.json";
+    $json_path = "../../json/commandes.json";
     $commandes = file_exists($json_path) ? json_decode(file_get_contents($json_path), true) : [];
 
     $deja_existe = false;
